@@ -12,6 +12,13 @@ const plugins: webpack.WebpackPluginInstance[] = [
 	new HTMLWebpackPlugin({
 		template: './public/index.html',
 	}),
+	new MiniCssExtractPlugin({
+		// Options similar to the same options in webpackOptions.output
+		// both options are optional
+		filename: '[name].css',
+		chunkFilename: '[id].css',
+	}),
+	// [new ESLintPlugin()],
 ];
 isDevelopment
 	? plugins.push(new ReactRefreshWebpackPlugin())
@@ -23,6 +30,8 @@ const config: webpack.Configuration = {
 		devServer: {
 			hot: true,
 			port: PORT,
+			contentBase: path.join(__dirname, 'public'),
+			compress: true,
 		},
 	},
 	entry: './src/index.tsx',
@@ -30,6 +39,7 @@ const config: webpack.Configuration = {
 		path: path.resolve(__dirname, 'build'),
 		filename: 'index.js',
 	},
+	plugins,
 	resolve: {
 		modules: [path.resolve(__dirname, './src'), 'node_modules'],
 		// automatically resolve certain extensions (Ex. import './file' will automatically look for file.js)
@@ -40,6 +50,7 @@ const config: webpack.Configuration = {
 			'@pages': path.resolve(__dirname, './src/pages'),
 		},
 	},
+	devtool: 'source-map',
 	module: {
 		rules: [
 			{
@@ -53,12 +64,23 @@ const config: webpack.Configuration = {
 					{
 						loader: require.resolve('babel-loader'),
 						options: {
+							presets: [
+								'@babel/preset-env',
+								'@babel/preset-react',
+								'@babel/preset-typescript',
+							],
 							plugins: [
 								isDevelopment && require.resolve('react-refresh/babel'),
 							].filter(Boolean),
 						},
 					},
 				],
+			},
+			// remove this line below for a production build
+			{
+				test: /\.ts?$/,
+				use: 'ts-loader',
+				exclude: /node_modules/,
 			},
 			{
 				test: /\.(sa|sc|c)ss$/i, // .sass or .scss
@@ -88,15 +110,6 @@ const config: webpack.Configuration = {
 			},
 		],
 	},
-	plugins: [
-		new MiniCssExtractPlugin({
-			// Options similar to the same options in webpackOptions.output
-			// both options are optional
-			filename: '[name].css',
-			chunkFilename: '[id].css',
-		}),
-		// [new ESLintPlugin()],
-	],
 };
 
 export default config;
