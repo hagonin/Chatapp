@@ -1,0 +1,66 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/frontend/build
+
+# misc
+.DS_Store
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# backend
+# Virtual environment
+env
+
+# Python
+__pycache__
+__pycache__/
+
+# Django
+db.sqlite3
+.env
+core/static
+core/media
+*/settings/dev.py
+/staticfiles/*
+/mediafiles/*
+
+# Webpack
+frontend/static/frontend
+/frontend/bundles/*
+/frontend/webpack_bundles/*
+/webpack-stats.json
+
+# npm
+node_modules
+
+# Sass
+.sass-cache
+*.map
+
+# Jest
+coverage
+
+# Debug
+.debug
+
+# VS Code
+.vscode
+
+# Ionide
+.ionide
+
+# IntelliJ
+.idea
