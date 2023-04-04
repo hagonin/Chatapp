@@ -1,0 +1,16 @@
+@mixin size($all: 100%, $h: $all, $w: $all) {
+    height: $h;
+    width: $w;
+}
+
+@mixin position ($pos: 'relative', $all: none, $top:$all, $right:$all, $bottom:$all, $left:$all) {
+   position: $pos; 
+   top: $top;
+   right: $right;
+   bottom: $bottom;
+   left: $left;
+}
+
+// @mixin border ($all: 0, $top:$all, $right:$all, $bottom:$all, $left:$all) {
+    
+// }

@@ -1,0 +1,751 @@
+2023-04-05 16:54:44 INFO Watching for file changes with StatReloader
+2023-04-05 16:54:55 WARNING Forbidden (CSRF cookie not set.): /admin/login/
+2023-04-05 16:56:25 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 16:56:26 INFO Watching for file changes with StatReloader
+2023-04-05 16:56:28 WARNING Forbidden (CSRF cookie not set.): /admin/login/
+2023-04-05 16:56:35 WARNING Forbidden (CSRF cookie not set.): /admin/login/
+2023-04-05 16:57:15 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 16:57:16 INFO Watching for file changes with StatReloader
+2023-04-05 16:57:45 WARNING Not Found: /favicon.ico
+2023-04-05 17:00:05 INFO Watching for file changes with StatReloader
+2023-04-05 17:01:52 INFO Watching for file changes with StatReloader
+2023-04-05 17:05:31 INFO Watching for file changes with StatReloader
+2023-04-05 17:05:55 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 17:06:22 INFO Watching for file changes with StatReloader
+2023-04-05 17:06:25 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 17:06:26 INFO Watching for file changes with StatReloader
+2023-04-05 17:06:28 WARNING Not Found: /login
+2023-04-05 17:06:32 WARNING Not Found: /admn
+2023-04-05 17:07:12 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 17:07:13 INFO Watching for file changes with StatReloader
+2023-04-05 17:08:22 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\dev.py changed, reloading.
+2023-04-05 17:08:23 INFO Watching for file changes with StatReloader
+2023-04-05 17:09:02 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\dev.py changed, reloading.
+2023-04-05 17:09:03 INFO Watching for file changes with StatReloader
+2023-04-05 17:26:06 INFO Watching for file changes with StatReloader
+2023-04-05 17:26:18 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 17:26:18 INFO Watching for file changes with StatReloader
+2023-04-05 17:26:45 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\dev.py changed, reloading.
+2023-04-05 17:26:46 INFO Watching for file changes with StatReloader
+2023-04-05 17:28:45 INFO Watching for file changes with StatReloader
+2023-04-05 17:45:42 INFO Watching for file changes with StatReloader
+2023-04-05 17:48:05 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 17:48:06 INFO Watching for file changes with StatReloader
+2023-04-05 17:48:59 ERROR Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\files\storage\handler.py", line 35, in __getitem__
+    return self._storages[alias]
+KeyError: 'staticfiles'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\files\storage\handler.py", line 52, in create_storage
+    storage_cls = import_string(backend)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+  File "C:\Program Files\Python310\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'whitenoise'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\response.py", line 89, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\templatetags\static.py", line 116, in render
+    url = self.url(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\templatetags\static.py", line 113, in url
+    return self.handle_simple(path)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\templatetags\static.py", line 129, in handle_simple
+    return staticfiles_storage.url(path)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\functional.py", line 266, in inner
+    self._setup()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\staticfiles\storage.py", line 537, in _setup
+    self._wrapped = storages[STATICFILES_STORAGE_ALIAS]
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\files\storage\handler.py", line 43, in __getitem__
+    storage = self.create_storage(params)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\files\storage\handler.py", line 54, in create_storage
+    raise InvalidStorageError(f"Could not find backend {backend!r}: {e}") from e
+django.core.files.storage.handler.InvalidStorageError: Could not find backend 'whitenoise.storage.CompressedManifestStaticFilesStorage': No module named 'whitenoise'
+2023-04-05 17:49:10 ERROR Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\files\storage\handler.py", line 35, in __getitem__
+    return self._storages[alias]
+KeyError: 'staticfiles'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\files\storage\handler.py", line 52, in create_storage
+    storage_cls = import_string(backend)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+  File "C:\Program Files\Python310\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'whitenoise'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\response.py", line 89, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\templatetags\static.py", line 116, in render
+    url = self.url(context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\templatetags\static.py", line 113, in url
+    return self.handle_simple(path)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\templatetags\static.py", line 129, in handle_simple
+    return staticfiles_storage.url(path)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\functional.py", line 266, in inner
+    self._setup()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\staticfiles\storage.py", line 537, in _setup
+    self._wrapped = storages[STATICFILES_STORAGE_ALIAS]
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\files\storage\handler.py", line 43, in __getitem__
+    storage = self.create_storage(params)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\files\storage\handler.py", line 54, in create_storage
+    raise InvalidStorageError(f"Could not find backend {backend!r}: {e}") from e
+django.core.files.storage.handler.InvalidStorageError: Could not find backend 'whitenoise.storage.CompressedManifestStaticFilesStorage': No module named 'whitenoise'
+2023-04-05 17:49:10 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 17:49:11 INFO Watching for file changes with StatReloader
+2023-04-05 17:50:00 INFO Watching for file changes with StatReloader
+2023-04-05 17:50:51 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 17:50:52 INFO Watching for file changes with StatReloader
+2023-04-05 17:50:57 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 17:50:58 INFO Watching for file changes with StatReloader
+2023-04-05 17:51:08 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 17:51:09 INFO Watching for file changes with StatReloader
+2023-04-05 17:51:14 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 17:51:15 INFO Watching for file changes with StatReloader
+2023-04-05 18:08:31 INFO Watching for file changes with StatReloader
+2023-04-05 18:08:50 ERROR Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 187, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\admin\sites.py", line 261, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\admin\sites.py", line 230, in inner
+    if not self.has_permission(request):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\admin\sites.py", line 203, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\functional.py", line 266, in inner
+    self._setup()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\functional.py", line 419, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\middleware.py", line 25, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\__init__.py", line 191, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\__init__.py", line 60, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 192, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sessions\backends\db.py", line 42, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sessions\backends\db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 633, in get
+    num = len(clone)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\sql\compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+2023-04-05 18:09:52 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:09:53 INFO Watching for file changes with StatReloader
+2023-04-05 18:10:48 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:10:49 INFO Watching for file changes with StatReloader
+2023-04-05 18:10:56 ERROR Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 187, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\admin\sites.py", line 261, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\admin\sites.py", line 230, in inner
+    if not self.has_permission(request):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\admin\sites.py", line 203, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\functional.py", line 266, in inner
+    self._setup()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\functional.py", line 419, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\middleware.py", line 25, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\__init__.py", line 191, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\__init__.py", line 60, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 192, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sessions\backends\db.py", line 42, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sessions\backends\db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 633, in get
+    num = len(clone)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\sql\compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+2023-04-05 18:12:56 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:12:58 INFO Watching for file changes with StatReloader
+2023-04-05 18:13:01 ERROR Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 187, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\admin\sites.py", line 261, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\admin\sites.py", line 230, in inner
+    if not self.has_permission(request):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\admin\sites.py", line 203, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\functional.py", line 266, in inner
+    self._setup()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\functional.py", line 419, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\middleware.py", line 25, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\__init__.py", line 191, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\__init__.py", line 60, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sessions\backends\base.py", line 192, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sessions\backends\db.py", line 42, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sessions\backends\db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 633, in get
+    num = len(clone)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\sql\compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+2023-04-05 18:15:03 INFO Watching for file changes with StatReloader
+2023-04-05 18:16:20 INFO Watching for file changes with StatReloader
+2023-04-05 18:16:25 ERROR Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sites\models.py", line 39, in _get_site_by_request
+    SITE_CACHE[host] = self.get(domain__iexact=host)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+django.contrib.sites.models.Site.DoesNotExist: Site matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\admin\sites.py", line 441, in login
+    return LoginView.as_view(**defaults)(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\decorators\debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\generic\edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\views.py", line 114, in get_context_data
+    current_site = get_current_site(self.request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sites\shortcuts.py", line 16, in get_current_site
+    return Site.objects.get_current(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sites\models.py", line 61, in get_current
+    return self._get_site_by_request(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sites\models.py", line 45, in _get_site_by_request
+    SITE_CACHE[domain] = self.get(domain__iexact=domain)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+django.contrib.sites.models.Site.DoesNotExist: Site matching query does not exist.
+2023-04-05 18:17:03 ERROR Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sites\models.py", line 39, in _get_site_by_request
+    SITE_CACHE[host] = self.get(domain__iexact=host)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+django.contrib.sites.models.Site.DoesNotExist: Site matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\admin\sites.py", line 441, in login
+    return LoginView.as_view(**defaults)(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\decorators\debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\generic\edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\views.py", line 114, in get_context_data
+    current_site = get_current_site(self.request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sites\shortcuts.py", line 16, in get_current_site
+    return Site.objects.get_current(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sites\models.py", line 61, in get_current
+    return self._get_site_by_request(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sites\models.py", line 45, in _get_site_by_request
+    SITE_CACHE[domain] = self.get(domain__iexact=domain)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+django.contrib.sites.models.Site.DoesNotExist: Site matching query does not exist.
+2023-04-05 18:17:06 ERROR Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sites\models.py", line 39, in _get_site_by_request
+    SITE_CACHE[host] = self.get(domain__iexact=host)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+django.contrib.sites.models.Site.DoesNotExist: Site matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\admin\sites.py", line 441, in login
+    return LoginView.as_view(**defaults)(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\decorators\debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\generic\edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\views.py", line 114, in get_context_data
+    current_site = get_current_site(self.request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sites\shortcuts.py", line 16, in get_current_site
+    return Site.objects.get_current(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sites\models.py", line 61, in get_current
+    return self._get_site_by_request(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sites\models.py", line 45, in _get_site_by_request
+    SITE_CACHE[domain] = self.get(domain__iexact=domain)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+django.contrib.sites.models.Site.DoesNotExist: Site matching query does not exist.
+2023-04-05 18:17:16 ERROR Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sites\models.py", line 39, in _get_site_by_request
+    SITE_CACHE[host] = self.get(domain__iexact=host)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+django.contrib.sites.models.Site.DoesNotExist: Site matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\admin\sites.py", line 441, in login
+    return LoginView.as_view(**defaults)(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\decorators\debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\views\generic\edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\auth\views.py", line 114, in get_context_data
+    current_site = get_current_site(self.request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sites\shortcuts.py", line 16, in get_current_site
+    return Site.objects.get_current(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sites\models.py", line 61, in get_current
+    return self._get_site_by_request(request)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\contrib\sites\models.py", line 45, in _get_site_by_request
+    SITE_CACHE[domain] = self.get(domain__iexact=domain)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\env\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+django.contrib.sites.models.Site.DoesNotExist: Site matching query does not exist.
+2023-04-05 18:17:16 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:17:17 INFO Watching for file changes with StatReloader
+2023-04-05 18:17:43 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:17:44 INFO Watching for file changes with StatReloader
+2023-04-05 18:17:47 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:17:48 INFO Watching for file changes with StatReloader
+2023-04-05 18:17:52 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:17:53 INFO Watching for file changes with StatReloader
+2023-04-05 18:17:55 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:17:57 INFO Watching for file changes with StatReloader
+2023-04-05 18:18:06 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:18:07 INFO Watching for file changes with StatReloader
+2023-04-05 18:18:09 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:18:10 INFO Watching for file changes with StatReloader
+2023-04-05 18:18:23 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:18:24 INFO Watching for file changes with StatReloader
+2023-04-05 18:19:48 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:19:49 INFO Watching for file changes with StatReloader
+2023-04-05 18:23:10 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:29:59 INFO Watching for file changes with StatReloader
+2023-04-05 18:35:38 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:35:40 INFO Watching for file changes with StatReloader
+2023-04-05 18:36:23 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:36:25 INFO Watching for file changes with StatReloader
+2023-04-05 18:36:33 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:36:34 INFO Watching for file changes with StatReloader
+2023-04-05 18:36:37 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:36:38 INFO Watching for file changes with StatReloader
+2023-04-05 18:36:41 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:36:42 INFO Watching for file changes with StatReloader
+2023-04-05 18:36:45 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:36:46 INFO Watching for file changes with StatReloader
+2023-04-05 18:36:50 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:36:51 INFO Watching for file changes with StatReloader
+2023-04-05 18:36:54 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:36:55 INFO Watching for file changes with StatReloader
+2023-04-05 18:36:59 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:37:00 INFO Watching for file changes with StatReloader
+2023-04-05 18:37:26 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:37:27 INFO Watching for file changes with StatReloader
+2023-04-05 18:37:35 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:37:37 INFO Watching for file changes with StatReloader
+2023-04-05 18:37:39 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 18:37:41 INFO Watching for file changes with StatReloader
+2023-04-05 18:40:53 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
+2023-04-05 19:22:03 INFO Watching for file changes with StatReloader
+2023-04-05 19:24:45 INFO C:\Users\Administrator\OneDrive\Documents\DEV\Front-end\Mini-projects\chatapp-django-react\core\core\settings\base.py changed, reloading.
