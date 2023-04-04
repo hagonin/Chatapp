@@ -23,13 +23,13 @@ const plugins = [
 
 const config = {
 	mode: isDevelopment ? 'development' : 'production',
-	externals: {
-		devServer: {
-			hot: true,
-			port: PORT,
-			contentBase: path.join(__dirname, 'public'),
-			compress: true,
+	devServer: {
+		hot: true,
+		port: PORT,
+		static: {
+			directory: path.join(__dirname, 'public'),
 		},
+		compress: true,
 	},
 	entry: './src/index.tsx',
 	output: {
@@ -83,7 +83,7 @@ const config = {
 							use: 'ts-loader',
 							exclude: /node_modules/,
 						},
-				]),
+				  ]),
 
 			{
 				test: /\.(sa|sc|c)ss$/i, // .sass or .scss
