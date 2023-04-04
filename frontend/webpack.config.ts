@@ -1,14 +1,13 @@
 import path from 'path';
-import webpack from 'webpack';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-// import ESLintPlugin from 'eslint-webpack-plugin';
+import ESLintPlugin from 'eslint-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 const PORT = 3000;
 
-const plugins: webpack.WebpackPluginInstance[] = [
+const plugins = [
 	new HTMLWebpackPlugin({
 		template: './public/index.html',
 	}),
@@ -18,13 +17,11 @@ const plugins: webpack.WebpackPluginInstance[] = [
 		filename: '[name].css',
 		chunkFilename: '[id].css',
 	}),
-	// [new ESLintPlugin()],
+	new ESLintPlugin(),
+	...(isDevelopment ? [new ReactRefreshWebpackPlugin()] : []),
 ];
-isDevelopment
-	? plugins.push(new ReactRefreshWebpackPlugin())
-	: plugins.push(new MiniCssExtractPlugin());
 
-const config: webpack.Configuration = {
+const config = {
 	mode: isDevelopment ? 'development' : 'production',
 	externals: {
 		devServer: {
@@ -70,18 +67,24 @@ const config: webpack.Configuration = {
 								'@babel/preset-typescript',
 							],
 							plugins: [
-								isDevelopment && require.resolve('react-refresh/babel'),
-							].filter(Boolean),
+								...(isDevelopment
+									? [require.resolve('react-refresh/babel')]
+									: []),
+							],
 						},
 					},
 				],
 			},
-			// remove this line below for a production build
-			{
-				test: /\.ts?$/,
-				use: 'ts-loader',
-				exclude: /node_modules/,
-			},
+			...(isDevelopment
+				? []
+				: [
+						{
+							test: /\.ts?$/,
+							use: 'ts-loader',
+							exclude: /node_modules/,
+						},
+				]),
+
 			{
 				test: /\.(sa|sc|c)ss$/i, // .sass or .scss
 				enforce: 'pre',
@@ -101,12 +104,8 @@ const config: webpack.Configuration = {
 				],
 			},
 			{
-				test: /\.(woff|woff2|eot|ttf|svg|png|jpg|gif)$/i,
-				use: [
-					{
-						loader: 'url-loader',
-					},
-				],
+				test: /\.(woff|woff2|eot|ttf|png|svg|jpg|jpeg|gif)$/i,
+				type: 'asset/resource',
 			},
 		],
 	},
