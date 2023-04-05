@@ -1,11 +1,21 @@
+import ChatRoom from '@pages/ChatRoom';
+import Login from '@pages/Login';
 import React from 'react';
-import { RouterProvider } from 'react-router-dom';
-import routers from '@routers/Routes';
-import Routers from '@routers/Routes';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <ChatRoom />,
+  },
+  {
+    path: '/login',
+    element: <Login />,
+  },
+]);
 
 const App: React.FC = () => {
-  // return <RouterProvider router={routers} />;
-  return <Routers />;
+  return <RouterProvider router={router} />;
 };
 
 export default App;
