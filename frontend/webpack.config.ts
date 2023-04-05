@@ -45,6 +45,13 @@ const config = {
 			// absolute path importing files
 			'@components': path.resolve(__dirname, './src/components'),
 			'@pages': path.resolve(__dirname, './src/pages'),
+			'@utils': path.resolve(__dirname, './src/utils'),
+			'@hooks': path.resolve(__dirname, './src/hooks'),
+			'@layouts': path.resolve(__dirname, './src/layouts'),
+			'@services': path.resolve(__dirname, './src/services'),
+			'@store': path.resolve(__dirname, './src/store'),
+			'@assets': path.resolve(__dirname, './src/assets'),
+			'@context': path.resolve(__dirname, './src/context'),
 		},
 	},
 	devtool: 'source-map',
@@ -78,12 +85,12 @@ const config = {
 			...(isDevelopment
 				? []
 				: [
-						{
-							test: /\.ts?$/,
-							use: 'ts-loader',
-							exclude: /node_modules/,
-						},
-				  ]),
+					{
+						test: /\.ts?$/,
+						use: 'ts-loader',
+						exclude: /node_modules/,
+					},
+				]),
 
 			{
 				test: /\.(sa|sc|c)ss$/i, // .sass or .scss
