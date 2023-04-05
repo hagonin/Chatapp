@@ -36,6 +36,7 @@ core/media
 */settings/dev.py
 /staticfiles/*
 /mediafiles/*
+logs/
 
 # Webpack
 frontend/static/frontend
