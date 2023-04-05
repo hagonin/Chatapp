@@ -52,6 +52,7 @@ const config = {
 			'@store': path.resolve(__dirname, './src/store'),
 			'@assets': path.resolve(__dirname, './src/assets'),
 			'@context': path.resolve(__dirname, './src/context'),
+			'@routers': path.resolve(__dirname, './src/routers'),
 		},
 	},
 	devtool: 'source-map',

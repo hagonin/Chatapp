@@ -1,16 +1,11 @@
 import React from 'react';
-import User from '@components/User';
-import AuthProvider from '@context/authContext';
-	
+import { RouterProvider } from 'react-router-dom';
+import routers from '@routers/Routes';
+import Routers from '@routers/Routes';
+
 const App: React.FC = () => {
-  return (
-    <div>
-      <p>Hello world</p>
-      <AuthProvider>
-        <User />
-      </AuthProvider>
-    </div>
-  );
+  // return <RouterProvider router={routers} />;
+  return <Routers />;
 };
 
 export default App;
