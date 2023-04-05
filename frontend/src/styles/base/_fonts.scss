@@ -4,6 +4,7 @@
 // font family
 $font-inter: 'Inter', sans-serif;
 
+
 // font weight
 $font-thin: 200; 
 $font-light: 300; 
@@ -13,10 +14,35 @@ $font-bold: 600;
 $font-extrabold: 700;
 $font-black: 800; 
 
-// font size
-$text-xsm: 0.75rem; //12px
-$text-sm: 0.875rem; //14px
-$text-md: 1rem; //16px
-$text-lg: 1.125rem; //18px
-$text-xl: 1.25rem; //20px
-$text-2xl: 1.5rem; //24px
+// text size
+$text-s-xsm: 0.75rem; //12px
+$text-s-sm: 0.875rem; //14px
+$text-s-md: 1rem; //16px
+$text-s-lg: 1.125rem; //18px
+$text-s-xl: 1.25rem; //20px
+$text-s-2xl: 1.5rem; //24px
+
+
+@mixin text-xsm() {
+    @include font($text-s-xsm, 1rem) 
+}
+
+@mixin text-sm {
+    @include font($text-s-sm, 1.25rem) 
+}
+
+@mixin text-md {
+    @include font($text-s-md, 1.5rem) 
+}
+
+@mixin text-lg {
+    @include font($text-s-lg, 1.75rem) 
+}
+
+@mixin text-xl {
+    @include font( $text-s-xl, 1.25) 
+}
+
+@mixin text-2xl {
+    @include font( $text-s-2xl, 1.5) 
+}

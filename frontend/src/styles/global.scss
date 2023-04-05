@@ -8,8 +8,7 @@
 
 html {
   font-family: $font-inter;
-  font-size: $text-md;
-  line-height: $text-md;
+  @include text-md;
 }
 
 body {

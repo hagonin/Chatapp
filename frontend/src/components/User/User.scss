@@ -1,0 +1,10 @@
+@import 'styles/base/index';
+.user {
+    &__name {
+        @include font($text-s-lg, 2, $font-bold, $red, underline)
+    }
+    &__id {
+        @include text-2xl;
+
+    }
+}
