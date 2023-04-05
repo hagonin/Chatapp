@@ -1,13 +1,16 @@
 import React from 'react';
-import Banner from '@components/Banner';
+import User from '@components/User';
+import AuthProvider from '@context/authContext';
 
 const App: React.FC = () => {
-	return (
-		<div>
-			<Banner name="World" />
-			<p>Hello world</p>
-		</div>
-	);
+  return (
+    <div>
+      <p>Hello world</p>
+      <AuthProvider>
+        <User />
+      </AuthProvider>
+    </div>
+  );
 };
 
 export default App;
