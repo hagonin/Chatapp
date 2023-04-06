@@ -1,7 +1,7 @@
 
 # Real-Time Chat App
 
-This project is a fullstack chat application that will enable users to communicate with each other in real-time. It will feature a modern, user-friendly interface and will be built using Django, React + Typescript. The application will allow users to create accounts, send messages, join chatrooms, and more.
+This project is a fullstack chat application that will enable users to communicate with each other in real-time. It will feature a modern, user-friendly interface and will be built using Django, React + Typescript. The application will allow users to create accounts using email, phone number or social accounts, send messages, join chatrooms, and more.
 
 ## Screenshots
 

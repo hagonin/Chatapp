@@ -13,12 +13,10 @@ from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter, URLRouter
 from django.urls import path
 from core.routing import websocket_urlpatterns
+import os
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chat.settings')
+from django.core.wsgi import get_wsgi_application
 
-application = ProtocolTypeRouter({
-    "http": get_asgi_application(),
-    "websocket": URLRouter(
-        websocket_urlpatterns
-    ),
-})
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings.base')
+
+application = get_wsgi_application()
