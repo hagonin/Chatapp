@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
 
     # local apps
-    'chat',
+    'user',
 ]
 
 MIDDLEWARE = [
