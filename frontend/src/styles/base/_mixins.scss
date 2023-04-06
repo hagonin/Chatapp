@@ -11,6 +11,12 @@
    left: $left;
 }
 
+@mixin flex ($type, $alignItems, $justifyContent, $direction: row) {
+    display: $type;
+    align-items: $alignItems;
+    justify-content: $justifyContent;
+    flex-direction: $direction;
+}
 
 @mixin font ($size, $line-height, $weight: 400, $color: $black, $decoration: none) {
     font-size: $size;
