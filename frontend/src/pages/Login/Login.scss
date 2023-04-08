@@ -1,0 +1,23 @@
+@import 'styles/base';
+
+.login {
+  padding: 20px;
+  width: 500px;
+  margin: auto;
+  @include flex($direction: column, $gap: 14px);
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__group {
+    @include flex($justifyContent: space-between);
+  }
+  &__btn-forgot {
+    @include font($text-s-sm, 1, $font-bold, $primary-color);
+
+    &:hover {
+      text-decoration: underline;
+      color: rgba($primary-color, 0.8)
+    }
+  }
+}

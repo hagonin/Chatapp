@@ -1,6 +1,6 @@
 import React from 'react';
-import User from '@components/User';
 import AuthProvider from '@context/authContext';
+import User from '@components/User';
 
 const ChatRoom: React.FC = () => (
   <>
