@@ -13,7 +13,8 @@ $default: null;
   $bottom: $all,
   $left: $all,
   $y: 0,
-  $x: 0
+  $x: 0,
+  $zIndex: $default
 ) {
   position: $pos;
   top: $top;
@@ -21,6 +22,7 @@ $default: null;
   bottom: $bottom;
   left: $left;
   transform: translate($x, $y);
+  z-index: $zIndex;
 }
 
 @mixin flex(
@@ -43,13 +45,15 @@ $default: null;
   $line-height: 1,
   $weight: 400,
   $color: $black,
-  $decoration: $default
+  $decoration: $default,
+  $align: $default
 ) {
   font-size: $size;
   line-height: $line-height;
   font-weight: $weight;
   color: $color;
   text-decoration: $decoration;
+  text-align: $align;
 }
 
 @mixin transition($time: 200ms, $object: all, $type: linear) {

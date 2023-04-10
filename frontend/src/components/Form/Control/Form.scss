@@ -5,9 +5,13 @@ $box-shadow-error: 0px 0px 4px 2px rgba($red, 0.2);
 $text-label: 0.93rem;
 
 .form {
-  margin: auto;
   @include flex(flex, $direction: column);
   gap: 17px;
+  user-select: none;
+
+  &__type-login-btn {
+    @include font($text-s-sm, 1, $font-bold, $primary-color, $align: right);
+  }
 
   &__input {
     @include text-md;
@@ -28,7 +32,7 @@ $text-label: 0.93rem;
     &-icon {
       padding-left: calc($pad/2);
       & img {
-        @include size(18px);
+        @include size($text-s-md);
       }
     }
 
@@ -78,5 +82,29 @@ $text-label: 0.93rem;
   &__error {
     @include font($text-s-sm, 1, $font-semibold, $red);
     margin-left: 5px;
+  }
+
+  &__consent {
+    @include font($text-s-sm, 1.5, $font-normal, $grey, $align: center);
+    user-select: none;
+    &-link {
+      color: $primary-color;
+      margin-left: 1px;
+      display: inline-block;
+    }
+  }
+
+  &__already-btn {
+    @include font($text-s-md, $align: center);
+    user-select: none;
+    margin-top: 5px;
+    & button {
+      @include font($text-s-md, 1, $font-bold, $primary-color);
+      margin-left: 3px;
+      &:hover {
+        text-decoration: underline;
+        color: rgba($primary-color, 0.8);
+      }
+    }
   }
 }

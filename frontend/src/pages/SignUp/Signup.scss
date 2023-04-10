@@ -1,10 +1,17 @@
 @import 'styles/base';
 
 .signup {
-  padding: 20px;
-
+  user-select: none;
   &__title {
-    margin-bottom: 30px;
+    & span {
+      color: $primary-color;
+    }
+  }
+
+  &__subtitle {
+    display: block;
+    color: $grey;
+    margin: 8px 0px 24px;
   }
 }
 

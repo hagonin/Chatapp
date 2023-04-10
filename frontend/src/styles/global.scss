@@ -71,4 +71,64 @@ button {
   background: transparent;
   border: none;
   cursor: pointer;
+  user-select: none;
 }
+
+// global class
+.container {
+  width: $full;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include MOBILE {
+    padding: 0px 8px;
+  }
+  @include TABLET {
+    max-width: 720px;
+  }
+
+  @include PC {
+    max-width: 960px;
+  }
+
+  @include LARGE-PC {
+    max-width: 1200px;
+  }
+}
+
+.separate {
+  position: relative;
+  margin: 12px 0px;
+  &::after {
+    content: '';
+    @include position(absolute, $top: $half, $left: 0, $y: -50%);
+    width: $full;
+    border-top: 1px solid $grey;
+  }
+  &::before {
+    @include text-sm;
+    @include position(
+      absolute,
+      $top: $half,
+      $left: $half,
+      $y: -$half,
+      $x: -$half,
+      $zIndex: 1
+    );
+    background-color: $white;
+    padding: 0px 10px;
+  }
+
+  &--signup {
+    &::before {
+      content: 'Or Sign Up With';
+    }
+  }
+
+  &--signin {
+    &::before {
+      content: 'Or Sign In With';
+    }
+  }
+}
+

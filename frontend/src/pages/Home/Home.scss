@@ -1,5 +1,70 @@
 @import 'styles/base';
+
 .home {
-  @include flex($direction: column, $gap: 10px);
-  padding: 20px 10px;
+  &-wrapper {
+    background-color: rgba($primary-color, 0.1);
+  }
+
+  @include flex($both: center);
+  min-height: $height-screen;
+
+  &-content {
+    text-align: center;
+
+    > h1 {
+      line-height: 1.2;
+    }
+
+    &__subtitle {
+      display: inline-block;
+      margin-top: 5px;
+    }
+
+    > .button {
+      max-width: 300px;
+      margin: 30px auto 0px;
+    }
+
+    &__already {
+      display: inline-block;
+      margin-top: 20px;
+      > button {
+        @include font($text-s-md, 1, $font-bold, $primary-color);
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &-photos {
+    @include flex;
+    flex-wrap: wrap;
+    &__item {
+      flex-basis: $half;
+      padding: 12px;
+      &:nth-child(odd) .home__photo {
+        margin-left: auto;
+      }
+    }
+  }
+
+  &__photo {
+    @include size(200px);
+    background-color: $primary-color;
+    border-radius: $full;
+    overflow: hidden;
+
+    &--left {
+      border-bottom-left-radius: 0px;
+    }
+    &--right {
+      border-bottom-right-radius: 0px;
+    }
+
+    > img {
+      @include size;
+      object-fit: contain;
+    }
+  }
 }

@@ -6,57 +6,78 @@ import TextField from '@components/Form/Control/TextField';
 import PasswordField from '@components/Form/Control/PasswordField';
 import CheckBoxField from '@components/Form/Control/CheckBoxField';
 import Button from '@components/UI/Button';
+import PhoneField from '@components/Form/Control/PhoneField';
+import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
-  const [showFormLogin, setShowFormLogin] = React.useState(false);
+  const navigate = useNavigate();
+  const [showLoginWithPhoneForm, setShowLoginWithPhoneForm] =
+    React.useState(false);
+
   return (
-    <div className="login">
-      <h1 className="login__title">Welcome back, Login with</h1>
-      {showFormLogin ? (
-        <>
-          <button onClick={() => setShowFormLogin(false)}>Back</button>
-          <Form>
+    <>
+      <div>
+        <h1 className="authenLayout__title">
+          <span className="authenLayout__title">Talkie</span>-Welcome Back
+        </h1>
+        <img src={imgs.signin} alt="signin" className="authenLayout__img" />
+      </div>
+      <div className="authenLayout-form login">
+        <button
+          className="form__type-login-btn"
+          onClick={() => setShowLoginWithPhoneForm(!showLoginWithPhoneForm)}
+        >
+          {`Sign in with ${showLoginWithPhoneForm ? 'email' : 'mobile phone'}`}
+        </button>
+        <Form>
+          {showLoginWithPhoneForm ? (
+            <PhoneField
+              name="phone"
+              label="Mobile phone"
+              placeholder="Enter your mobile phone"
+              errorMessage="Please enter your phone"
+            />
+          ) : (
             <TextField
               name="name"
               label="Email Address"
               type="email"
               placeholder="Enter your email"
-              // errorMessage="Please enter your phone"
+              errorMessage="Please enter your email"
             />
+          )}
 
-            <PasswordField
-              name="password"
-              label="Password"
-              placeholder="Enter your password"
-              // errorMessage="Please enter your password"
-            />
+          <PasswordField
+            name="password"
+            label="Password"
+            placeholder="Enter your password"
+            errorMessage="Please enter your password"
+          />
 
-            <div className='login__group'>
-              <CheckBoxField
-                name="consent"
-                options={{ label: 'Remember me' }}
-              />
-              <button className="login__btn-forgot">Forgotten password</button>
-            </div>
-            <Button type="submit">Login</Button>
-          </Form>
-        </>
-      ) : (
-        <>
-          <Button onClick={() => setShowFormLogin(true)}>
-            Using Email / Mobile Phone
+          <div className="login__group">
+            <CheckBoxField name="consent" options={{ label: 'Remember me' }} />
+            <button className="login__btn-forgot">Forgotten password</button>
+          </div>
+          <Button type="submit" typeClass="button--primary">
+            Login
           </Button>
-          <Button>
-            <img src={imgs.fb} alt="fb" />
-            Facebook
-          </Button>
-          <Button>
-            <img src={imgs.google} alt="fb" />
-            Google
-          </Button>
-        </>
-      )}
-    </div>
+        </Form>
+
+        <span className="separate separate--signin"></span>
+        <Button>
+          <img src={imgs.fb} alt="fb" />
+          Facebook
+        </Button>
+        <Button>
+          <img src={imgs.google} alt="fb" />
+          Google
+        </Button>
+        <span className="form__already-btn">
+          Don't have an account ?
+          <button onClick={() => navigate('/register')}>Create account</button>
+        </span>
+      </div>
+    </>
   );
 };
 

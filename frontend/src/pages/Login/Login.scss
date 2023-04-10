@@ -1,23 +1,23 @@
 @import 'styles/base';
 
 .login {
-  padding: 20px;
-  width: 500px;
-  margin: auto;
-  @include flex($direction: column, $gap: 14px);
+  
   &__title {
-    margin-bottom: 30px;
+    text-align: center;
+    line-height: 2.5rem;
+    user-select: none;
   }
 
+  
   &__group {
     @include flex($justifyContent: space-between);
   }
   &__btn-forgot {
-    @include font($text-s-sm, 1, $font-bold, $primary-color);
+    @include font($text-s-sm, 1, $font-bold, $red2);
 
     &:hover {
       text-decoration: underline;
-      color: rgba($primary-color, 0.8)
+      color: rgba($red2, 0.8);
     }
   }
 }

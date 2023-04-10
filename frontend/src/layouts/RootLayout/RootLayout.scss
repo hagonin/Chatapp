@@ -1,0 +1,13 @@
+@import 'styles/base';
+
+.rootLayout {
+  &__wrapper {
+    min-height: $height-screen;
+    @include flex($direction: column);
+  }
+
+  &__header {
+    border: 1px solid $grey;
+    padding: 10px 20px;
+  }
+}
