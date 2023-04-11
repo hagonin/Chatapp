@@ -1,42 +1,13 @@
 import React from 'react';
+import { CheckBoxProps } from './type';
 import './Form.scss';
 
-interface Options {
-  id?: number;
-  label: string;
-}
-interface Props {
-  name: string;
-  options: Options;
-}
-
-interface ItemType {
-  name: string;
-  label: string;
-}
-
-const CheckBoxField = ({ name, options }: Props) => {
-  return (
-    <>
-      {Array.isArray(options) ? (
-        options.map(option => <ItemCheckBox name={name} label={option.label} />)
-      ) : (
-        <>
-          <ItemCheckBox name={name} label={options.label} />
-        </>
-      )}
-    </>
-  );
-};
-export default CheckBoxField;
-
-const ItemCheckBox = ({ name, label }: ItemType) => {
-  console.log(label);
-
+const CheckBoxField: React.FC<CheckBoxProps> = ({ name, option, onChange }) => {
   return (
     <label className="form__input-checkbox">
-      <input type="checkbox" name={name} />
-      {label}
+      <input type="checkbox" name={name} onChange={onChange} checked={true} />
+      {option.label}
     </label>
   );
 };
+export default CheckBoxField;

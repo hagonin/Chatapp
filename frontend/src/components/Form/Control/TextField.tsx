@@ -9,6 +9,9 @@ const TextField: React.FC<InputProps> = ({
   label,
   errorMessage,
   type,
+  onChange,
+  onBlur,
+  values
 }) => (
   <label htmlFor={name} className="form__label">
     {label}
@@ -16,10 +19,11 @@ const TextField: React.FC<InputProps> = ({
       id={name}
       name={name}
       placeholder={placeholder}
-      className={`form__input ${
-        errorMessage ? 'form__input--error' : ''
-      }`}
+      className={`form__input ${errorMessage ? 'form__input--error' : ''}`}
       type={type}
+      onChange={onChange}
+      onBlur={onBlur}
+      value={values.name}
     />
     {errorMessage && <ErrorField message={errorMessage} />}
   </label>

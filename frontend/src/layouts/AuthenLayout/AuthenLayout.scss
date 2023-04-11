@@ -25,7 +25,7 @@ $h-img-signup: 500px;
   &__title {
     text-align: center;
     user-select: none;
-    & span {
+    &-logo {
       color: $primary-color;
       user-select: none;
     }

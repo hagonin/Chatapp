@@ -107,4 +107,12 @@ $text-label: 0.93rem;
       }
     }
   }
+
+  &__validate-list {
+    line-height: 1.5;
+    & ul {
+      list-style: disc;
+      margin-left: 20px;
+    }
+  }
 }

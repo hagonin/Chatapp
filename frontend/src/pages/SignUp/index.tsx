@@ -1,41 +1,79 @@
 import React from 'react';
-import { imgs } from '@utils/constants';
+import { Link, useNavigate } from 'react-router-dom';
 import './Signup.scss';
+import { imgs } from '@utils/constants';
+import useForm from '@hooks/useForm';
 import Form from '@components/Form/Control/Form';
 import TextField from '@components/Form/Control/TextField';
 import PhoneField from '@components/Form/Control/PhoneField';
 import PasswordField from '@components/Form/Control/PasswordField';
-import CheckBoxField from '@components/Form/Control/CheckBoxField';
 import Button from '@components/UI/Button';
-import { useNavigate } from 'react-router-dom';
+import { PasswordError } from '@components/Form/Control/ErrorField';
+import SocialBtnGroup from '@components/Form/SocialButtonsGroup';
+import {
+  emailValidate,
+  passwordValidate,
+  phoneValidate,
+  usernameValidate,
+} from '@components/Form/Control/validate';
 
 const Signup: React.FC = () => {
   const [showSignUpByPhoneForm, setShowSignUpByPhoneForm] =
     React.useState(false);
   const navigate = useNavigate();
+  const { onSubmit, values, onChange, reset, errors, isSubmitting } = useForm({
+    initValues: { email: '', phone: '', password: '', username: '' },
+    onCallApi: data => {
+      const res = new Promise(reslove => {
+        setTimeout(() => {
+          reslove(data);
+        }, 3000);
+      });
+      return res.then(data => console.log(data));
+    },
+    validate: {
+      username: usernameValidate,
+      email: emailValidate,
+      phone: phoneValidate,
+      password: [
+        ...passwordValidate,
+        {
+          rule: 'password',
+          message: <PasswordError />,
+        },
+      ],
+    },
+  });
+
+  const handleChangeForm = React.useCallback(() => {
+    reset();
+    setShowSignUpByPhoneForm(!showSignUpByPhoneForm);
+  }, [showSignUpByPhoneForm]);
+
   return (
     <>
       <div className="authenLayout-form signup">
-        <button
-          className="form__type-login-btn"
-          onClick={() => setShowSignUpByPhoneForm(!showSignUpByPhoneForm)}
-        >
+        <button className="form__type-login-btn" onClick={handleChangeForm}>
           {`Sign up with ${showSignUpByPhoneForm ? 'email' : 'mobile phone'}`}
         </button>
-        <Form>
-          {/* <TextField
+        <Form onSubmit={onSubmit}>
+          <TextField
             name="username"
             label="Username"
             type="text"
             placeholder="Enter your name"
-            errorMessage="Please enter your name"
-          /> */}
+            errorMessage={errors.username}
+            values={values}
+            onChange={onChange}
+          />
           {showSignUpByPhoneForm ? (
             <PhoneField
               name="phone"
               label="Mobile Phone"
               placeholder="Enter your mobile phone"
-              errorMessage="Please enter your phone"
+              errorMessage={errors.phone}
+              values={values}
+              onChange={onChange}
             />
           ) : (
             <TextField
@@ -43,7 +81,9 @@ const Signup: React.FC = () => {
               label="Email Address"
               type="email"
               placeholder="Enter your email"
-              errorMessage="Please enter your phone"
+              errorMessage={errors.email}
+              values={values}
+              onChange={onChange}
             />
           )}
 
@@ -51,32 +91,25 @@ const Signup: React.FC = () => {
             name="password"
             label="Password"
             placeholder="Enter your password"
-            errorMessage="Please enter your password"
+            errorMessage={errors.password}
+            values={values}
+            onChange={onChange}
           />
           {/* <PasswordField
             name="confirm-password"
             label="Confirm Password"
             placeholder="Re-enter password"
             // errorMessage="Please enter your confirm password"
+            values={values}
           /> */}
-          {/* <CheckBoxField
-            name="consent"
-            options={{ label: 'I agree to the terms and conditions' }}
-          /> */}
-          <Button type="submit" typeClass="button--primary">
+          <Button
+            type="submit"
+            typeClass="button--primary"
+            disabled={isSubmitting}
+          >
             Register
           </Button>
-          <span className="separate separate--signup"></span>
-          <div className="social-group">
-            <Button>
-              <img src={imgs.fb} alt="fb" />
-              Facebook
-            </Button>
-            <Button>
-              <img src={imgs.google} alt="fb" />
-              Google
-            </Button>
-          </div>
+          <SocialBtnGroup type="signup" />
           <span className="form__already-btn">
             Already have an account ?
             <button onClick={() => navigate('/login')}>Login</button>
@@ -91,7 +124,10 @@ const Signup: React.FC = () => {
       </div>
       <div>
         <h1 className="authenLayout__title">
-          <span>Talkie</span>-Create account
+          <Link to="/" className="authenLayout__title-logo">
+            Talkie
+          </Link>
+          -Create account
         </h1>
         <span className="authenLayout__subtitle">
           Connect with your friend today

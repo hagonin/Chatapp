@@ -8,6 +8,9 @@ const PhoneField: React.FC<InputProps> = ({
   placeholder,
   label,
   errorMessage,
+  onChange,
+  onBlur,
+  values,
 }) => (
   <label htmlFor={name} className="form__label">
     {label}
@@ -21,6 +24,9 @@ const PhoneField: React.FC<InputProps> = ({
         className="form__input-phone"
         type="number"
         autoComplete="off"
+        onChange={onChange}
+        onBlur={onBlur}
+        value={values.name}
       />
     </div>
     {errorMessage && <ErrorField message={errorMessage} />}

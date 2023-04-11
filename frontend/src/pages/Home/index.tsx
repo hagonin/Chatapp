@@ -4,13 +4,13 @@ import './Home.scss';
 import { imgs } from '@utils/constants';
 import Button from '@components/UI/Button';
 
-const Home = () => {
+const Home:React.FC = () => {
   const navigate = useNavigate();
   return (
     <div className="home-wrapper">
       <div className="home container">
         <div className="home-content">
-          <h1>Enjoy the new experience of chating with global friend</h1>
+          <h1>Enjoy the new experience of chatting with global friend</h1>
           <span className="home-content__subtitle">
             Connect people around the world for free
           </span>
