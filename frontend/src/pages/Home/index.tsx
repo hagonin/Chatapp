@@ -2,9 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.scss';
 import { imgs } from '@utils/constants';
-import Button from '@components/UI/Button';
+import Button from '@components/Common/Button';
 
-const Home:React.FC = () => {
+const Home: React.FC = () => {
   const navigate = useNavigate();
   return (
     <div className="home-wrapper">

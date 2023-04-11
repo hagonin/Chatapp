@@ -6,7 +6,7 @@ import { imgs } from '@utils/constants';
 import Form from '@components/Form/Control/Form';
 import TextField from '@components/Form/Control/TextField';
 import PasswordField from '@components/Form/Control/PasswordField';
-import Button from '@components/UI/Button';
+import Button from '@components/Common/Button';
 import PhoneField from '@components/Form/Control/PhoneField';
 import {
   emailValidate,

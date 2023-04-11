@@ -5,10 +5,14 @@ import google from '@assets/icons/google-svgrepo-com.svg';
 import signup from '@assets/images/signup.jpg';
 import signin from '@assets/images/signin.jpg';
 import backgroundHome from '@assets/images/background_home.svg';
-import photo1 from '@assets/images/photo1.svg';
-import photo2 from '@assets/images/photo2.svg';
-import photo3 from '@assets/images/photo4.svg';
-import photo4 from '@assets/images/photo5.svg';
+import phone from '@assets/icons/phone.svg';
+import phone1 from '@assets/icons/phone1.svg';
+import phone2 from '@assets/icons/phone2.svg';
+import phone3 from '@assets/icons/phone3.svg';
+import user from '@assets/images/user.svg';
+import sent from '@assets/icons/sent.svg';
+import delivered from '@assets/icons/delivered.svg';
+import read from '@assets/icons/read.svg';
 
 export const imgs = {
   password: password,
@@ -18,8 +22,12 @@ export const imgs = {
   signup: signup,
   signin: signin,
   backgroundHome: backgroundHome,
-  photo1: photo1,
-  photo2: photo2,
-  photo3: photo3,
-  photo4: photo4,
+  phone: phone,
+  phone1: phone1,
+  phone2: phone2,
+  phone3: phone3,
+  user: user,
+  sent: sent,
+  delivered: delivered,
+  read: read,
 };

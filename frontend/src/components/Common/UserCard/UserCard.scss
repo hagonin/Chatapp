@@ -1,0 +1,77 @@
+@import 'styles/base';
+
+$text-s-timstamp: 0.625rem;
+.userCard {
+  background-color: rgba($primary-color, 0.1);
+  @include size($h: 70px, $w: 360px);
+  @include flex($alignItems: center, $gap: 10px);
+  margin-top: 20px;
+  padding: 10px 20px;
+  &__avatar {
+    height: $full;
+    & img {
+      border-radius: $full;
+      @include size;
+      object-fit: contain;
+    }
+  }
+  &__content {
+    @include flex($direction: column);
+    flex: 1;
+  }
+
+  &__name {
+    @include font($text-s-sm, 1.5, $font-bold);
+  }
+  &__message {
+    @include font($text-s-xsm, 1.5, $font-normal);
+  }
+  &__timestamp {
+    @include font($text-s-xsm, 1.5, $font-light);
+  }
+  &__quantity {
+    @include font($text-s-xsm, 20px, $font-semibold, $white, $align: center);
+    @include size(20px);
+    border-radius: $full;
+    background-color: $primary-color;
+  }
+
+  &__call {
+    @include font($text-s-sm, 1.5, $font-semibold);
+    &--incoming {
+      color: $green;
+    }
+    &--outgoing {
+      color: $primary-color;
+    }
+    &--missed {
+      color: $red;
+    }
+  }
+  &__status {
+    @include size(20px);
+    @include font($text-s-xsm, 20px, $font-semibold, $white, $align: center);
+  }
+
+  &--online &__avatar,
+  &--offline &__avatar {
+    position: relative;
+    &:after {
+      content: '';
+      @include size(11px);
+      border-radius: $full;
+      @include position(absolute, $bottom: 3px, $right: 0px);
+    }
+  }
+  &--online &__avatar {
+    &:after {
+      background-color: $primary-color;
+    }
+  }
+
+  &--offline &__avatar {
+    &:after {
+      background-color: $grey;
+    }
+  }
+}
