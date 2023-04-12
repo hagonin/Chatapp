@@ -9,6 +9,10 @@ const useForm = ({ initValues, onCallApi, validate = {} }: UseFormProps) => {
         validator(e.target.name, e.target.value);
     }
 
+    const onBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
+        validator(e.target.name, e.target.value);
+    }
+
     const validator = (name: string, value: string) => {
         let errorMessage: TestProp["message"];
         let isValid = true;
@@ -21,6 +25,7 @@ const useForm = ({ initValues, onCallApi, validate = {} }: UseFormProps) => {
                     break;
                 case 'email':
                     errorMessage = Tests.email({ value, message });
+                    console.log('errr', errorMessage)
                     break;
                 case 'min':
                     const min = validate[name][index].min;
@@ -35,6 +40,11 @@ const useForm = ({ initValues, onCallApi, validate = {} }: UseFormProps) => {
                 case 'name':
                     errorMessage = Tests.name({ value, message });
                     break;
+                case 'match':
+                    const matchName = validate[name][index].nameFieldMatch as string;
+                    const match = values[matchName];
+                    errorMessage = Tests.match({ value, message, match });
+                    break;
 
             }
 
@@ -43,8 +53,6 @@ const useForm = ({ initValues, onCallApi, validate = {} }: UseFormProps) => {
                 break;
             }
         }
-
-
         setErrors(preError => ({ ...preError, [name]: errorMessage }));
         setValues(preValues => ({ ...preValues, [name]: value }));
         return isValid;
@@ -65,10 +73,15 @@ const useForm = ({ initValues, onCallApi, validate = {} }: UseFormProps) => {
         }
         if (validForm) {
             setIsSubmitting(true);
-            await onCallApi(values);
-            setIsSubmitting(false);
+            onCallApi(values).then(() => {
+                reset();
+            }).finally(() => {
+                setIsSubmitting(false);
+            })
+
         }
     }
+
 
     const reset = () => {
         setValues(initValues);
@@ -77,6 +90,7 @@ const useForm = ({ initValues, onCallApi, validate = {} }: UseFormProps) => {
 
     return {
         onChange,
+        onBlur,
         values,
         onSubmit,
         reset,

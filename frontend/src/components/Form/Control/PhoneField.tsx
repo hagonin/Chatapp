@@ -26,7 +26,7 @@ const PhoneField: React.FC<InputProps> = ({
         autoComplete="off"
         onChange={onChange}
         onBlur={onBlur}
-        value={values.name}
+        value={values[name]}
       />
     </div>
     {errorMessage && <ErrorField message={errorMessage} />}

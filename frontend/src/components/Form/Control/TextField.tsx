@@ -11,22 +11,24 @@ const TextField: React.FC<InputProps> = ({
   type,
   onChange,
   onBlur,
-  values
-}) => (
-  <label htmlFor={name} className="form__label">
-    {label}
-    <input
-      id={name}
-      name={name}
-      placeholder={placeholder}
-      className={`form__input ${errorMessage ? 'form__input--error' : ''}`}
-      type={type}
-      onChange={onChange}
-      onBlur={onBlur}
-      value={values.name}
-    />
-    {errorMessage && <ErrorField message={errorMessage} />}
-  </label>
-);
+  values,
+}) => {
+  return (
+    <label htmlFor={name} className="form__label">
+      {label}
+      <input
+        id={name}
+        name={name}
+        placeholder={placeholder}
+        className={`form__input ${errorMessage ? 'form__input--error' : ''}`}
+        type={type}
+        onChange={onChange}
+        onBlur={onBlur}
+        value={values[name]}
+      />
+      {errorMessage && <ErrorField message={errorMessage} />}
+    </label>
+  );
+};
 
 export default TextField;

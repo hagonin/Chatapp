@@ -1,9 +1,10 @@
-type Rule = 'required' | 'name' | 'min' | 'match' | 'pattern' | 'email' | 'phone' | 'password' | 'username';
+type Rule = 'required' | 'name' | 'min' | 'match' | 'pattern' | 'email' | 'phone' | 'password' | 'username' | 'reset_email' | 'reset_password' | 'reset_confirmPassword';
 
 export interface TestProp {
     value: string;
     message?: Rules["message"];
     min?: Rules["min"];
+    match?: Rules["nameFieldMatch"]
 }
 export const Tests = {
     required: ({ value, message }: TestProp) => value.trim().length > 0 ? '' : message,
@@ -23,7 +24,12 @@ export const Tests = {
     name: ({ value, message }: TestProp) => {
         const nameRegex = /^(?!-)[a-zA-Z-]*[a-zA-Z]$/;
         return nameRegex.test(value.trim()) ? '' : message
-    }
+    },
+    match: ({ value, message, match }: TestProp) => {
+        const matchValue = match as string;
+
+        return value === matchValue ? '' : message;
+    },
 }
 
 export type Error = Partial<{
@@ -33,6 +39,7 @@ export interface Rules {
     rule: Rule;
     message: string | JSX.Element;
     min?: number;
+    nameFieldMatch?: string | number
 }
 
 export interface UseFormProps {

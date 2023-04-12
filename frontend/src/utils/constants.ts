@@ -13,6 +13,12 @@ import user from '@assets/images/user.svg';
 import sent from '@assets/icons/sent.svg';
 import delivered from '@assets/icons/delivered.svg';
 import read from '@assets/icons/read.svg';
+import photo1 from '@assets/images/photo1.svg';
+import photo2 from '@assets/images/photo2.svg';
+import photo3 from '@assets/images/photo4.svg';
+import photo4 from '@assets/images/photo5.svg';
+import reset_password from '@assets/images/reset_password.jpg';
+import change_password from '@assets/images/change_password.jpg';
 
 export const imgs = {
   password: password,
@@ -30,4 +36,10 @@ export const imgs = {
   sent: sent,
   delivered: delivered,
   read: read,
+  photo1: photo1,
+  photo2: photo2,
+  photo3: photo3,
+  photo4: photo4,
+  resetPassword: reset_password,
+  changePassword: change_password,
 };

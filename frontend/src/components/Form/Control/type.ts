@@ -9,7 +9,7 @@ export interface InputProps {
     errorMessage?: string;
     type?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onBlur?: () => void;
+    onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface CheckBoxProps {

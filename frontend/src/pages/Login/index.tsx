@@ -93,7 +93,11 @@ const Login: React.FC = () => {
               onChange={onChange}
               values={values}
             /> */}
-            <button className="login__btn-forgot" type="button">
+            <button
+              className="login__btn-forgot"
+              type="button"
+              onClick={() => navigate('/login/request_reset_password')}
+            >
               Forgotten password
             </button>
           </div>
