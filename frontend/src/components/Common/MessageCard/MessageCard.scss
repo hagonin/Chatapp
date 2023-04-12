@@ -1,0 +1,55 @@
+@import 'styles/base';
+$message-color: #d1f2ff;
+$font-timestamp: 0.7rem;
+
+.messageCard {
+  &-wrapper {
+    @include flex;
+    &--right {
+      justify-content: end;
+    }
+  }
+
+  display: inline-block;
+  padding: 5px 15px 20px 15px;
+  max-width: 60%;
+  border-radius: 5px;
+  @include position;
+
+  &__message {
+    @include text-sm;
+  }
+
+  &__timestamp {
+    @include position(absolute, $bottom: 10px, $right: 10px, $zIndex: 1);
+    @include font($font-timestamp);
+    @include flex($gap: 4px);
+  }
+
+  &__img {
+    @include position(absolute, $zIndex: 0);
+  }
+
+  &--user {
+    background-color: $message-color;
+  }
+
+  &--user &__img {
+    right: -20px;
+    bottom: -9px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+  &--partner {
+    background-color: $white;
+  }
+
+  &--partner &__img {
+    left: -20px;
+    bottom: -9px;
+  }
+
+  &__messageStatus {
+    @include position(absolute, $bottom: 0, $right: 0);
+  }
+}

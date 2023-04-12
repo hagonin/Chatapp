@@ -19,6 +19,8 @@ import photo3 from '@assets/images/photo4.svg';
 import photo4 from '@assets/images/photo5.svg';
 import reset_password from '@assets/images/reset_password.jpg';
 import change_password from '@assets/images/change_password.jpg';
+import message_card_icon_white from '@assets/icons/message_card_icon_white.svg';
+import message_card_icon_blue from '@assets/icons/message_card_icon_blue.svg';
 
 export const imgs = {
   password: password,
@@ -42,4 +44,6 @@ export const imgs = {
   photo4: photo4,
   resetPassword: reset_password,
   changePassword: change_password,
+  messageCardIconWhite: message_card_icon_white,
+  messageCardIconBlue: message_card_icon_blue,
 };

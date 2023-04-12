@@ -1,10 +1,12 @@
 import React from 'react';
+import './ChatRoom.scss';
+import { imgs } from '@utils/constants';
 import AuthProvider from '@context/authContext';
 import UserCard from '@components/Common/UserCard';
-import { imgs } from '@utils/constants';
+import MessageCard from '@components/Common/MessageCard';
 
 const ChatRoom: React.FC = () => (
-  <>
+  <div className="chatroom">
     <h1>Chat Room</h1>
     <div>
       <AuthProvider>
@@ -46,7 +48,23 @@ const ChatRoom: React.FC = () => (
           online={true}
         />
       </AuthProvider>
+
+      <div className="chatroom__box">
+        {/* MessageCard */}
+        <MessageCard message="dkdkdk" timestamp="12:34 PM" type="partner" />
+        <MessageCard
+          message="Ertir onda hökman ýanyň bilen algyn ýatdan dkd dkdkdk dkdkdk dkdkdk dkdkdk dkdkdk dkdkdkd dkdkdk dkdkdk dkdkkd  llksdf dkfksdjf ldkfkdf  dlkfjdf skdjs skdkskdj klsdkksa kksdk çykarman  Ertir onda hökman ýanyň bilen algyn ýatdan çykarman dkdk dkdkdk dkkdkd dkdkdk"
+          timestamp="12:34 PM"
+          type="partner"
+        />
+        <MessageCard
+          message="Ertir onda hökman ýanyň bilen algyn ýatdan dkd dkdkdk dkdkdk dkdkdk dkdkdk dkdkdk dkdkdkd dkdkdk dkdkdk dkdkkd  llksdf dkfksdjf ldkfkdf  dlkfjdf skdjs skdkskdj klsdkksa kksdk çykarman"
+          timestamp="12:34 PM"
+          type="user"
+          status="read"
+        />
+      </div>
     </div>
-  </>
+  </div>
 );
 export default ChatRoom;
