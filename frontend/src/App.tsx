@@ -3,13 +3,15 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AuthenLayout from '@layouts/AuthenLayout';
 import RootLayout from '@layouts/RootLayout';
 
-import ChatRoom from '@pages/ChatRoom';
-import Login from '@pages/Login';
-import Signup from '@pages/SignUp';
-import Home from '@pages/Home';
-import ResetPassword from '@pages/ResetPassword';
-import ResetChangePassword from '@pages/ResetChangePassword';
-import ChangePassword from '@pages/ChangePassword';
+import {
+  ChangePassword,
+  ChatRoom,
+  Home,
+  Login,
+  ResetChangePassword,
+  ResetPassword,
+  Signup,
+} from '@pages';
 
 const router = createBrowserRouter([
   {
