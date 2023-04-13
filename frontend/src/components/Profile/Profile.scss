@@ -1,0 +1,41 @@
+@import 'styles/base';
+.profile {
+  text-align: center;
+  &__avatar {
+    @include size(100px);
+    border-radius: $full;
+    object-fit: cover;
+  }
+
+  &__username {
+    margin-top: 5px;
+  }
+  &__about {
+    @include font($text-s-sm, $align: left);
+    background: rgba($grey, 0.15);
+    margin-top: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__btn-edit {
+    @include size(20px);
+    @include flex($both: center, $gap: 10px);
+    margin: 10px auto 0px;
+    white-space: nowrap;
+    @include font($text-s-md, 1, $font-semibold);
+    & img {
+      @include position($top: -1px);
+    }
+
+    &:hover {
+      color: $primary-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+.limit {
+  padding-left: 40px;
+  padding-right: 40px;
+}

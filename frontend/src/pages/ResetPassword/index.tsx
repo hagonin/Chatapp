@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import useForm from '@hooks/useForm';
 import { imgs } from '@utils/constants';
 import Button from '@components/Common/Button';
-import Form from '@components/Form/Control/Form';
-import TextField from '@components/Form/Control/TextField';
 import { emailValidate } from '@components/Form/Control/validate';
+import { Form, TextField } from '@components/Form/Control';
 
 const ResetPassword: React.FC = () => {
   const { onSubmit, values, isSubmitting, errors, onChange, onBlur } = useForm({

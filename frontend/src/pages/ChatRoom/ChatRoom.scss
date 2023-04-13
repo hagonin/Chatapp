@@ -4,9 +4,17 @@
   margin-left: 20px;
   margin-bottom: 20px;
   &__box {
-    @include flex(inline-flex,$direction: column, $gap: 10px);
+    @include flex(inline-flex, $direction: column, $gap: 10px);
     margin-top: 20px;
     background-color: $primary-color;
     padding: 30px;
+  }
+
+  &__optionList {
+    margin-top: 20px;
+  }
+
+  &__userInfoList {
+    padding: 20px;
   }
 }

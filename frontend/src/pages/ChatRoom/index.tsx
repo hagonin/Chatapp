@@ -1,9 +1,9 @@
 import React from 'react';
 import './ChatRoom.scss';
-import { imgs } from '@utils/constants';
+import { icons, imgs } from '@utils/constants';
 import AuthProvider from '@context/authContext';
-import UserCard from '@components/Common/UserCard';
-import MessageCard from '@components/Common/MessageCard';
+import { MessageCard, OptionCard, UserCard } from '@components/Common';
+import Profile from '@components/Profile';
 
 const ChatRoom: React.FC = () => (
   <div className="chatroom">
@@ -62,6 +62,24 @@ const ChatRoom: React.FC = () => (
           timestamp="12:34 PM"
           type="user"
           status="read"
+        />
+      </div>
+      <div className="chatroom__optionList">
+        <OptionCard label="Edit Profile" icon={icons.profile} active={false} />
+        <OptionCard label="Notifications" icon={icons.notifi} active={false} />
+        <OptionCard
+          label="Privacy and security"
+          icon={icons.privacy}
+          active={false}
+        />
+        <OptionCard label="Chat settings" icon={icons.settings} active={true} />
+      </div>
+      <div className="chatroom__userInfoList">
+        <Profile
+          avatar={imgs.user2}
+          username="Designer"
+          phone="123456"
+          about="Hello nice to meet you"
         />
       </div>
     </div>

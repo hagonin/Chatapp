@@ -3,17 +3,19 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Login.scss';
 import useForm from '@hooks/useForm';
 import { imgs } from '@utils/constants';
-import Form from '@components/Form/Control/Form';
-import TextField from '@components/Form/Control/TextField';
-import PasswordField from '@components/Form/Control/PasswordField';
-import Button from '@components/Common/Button';
-import PhoneField from '@components/Form/Control/PhoneField';
 import {
   emailValidate,
   passwordValidate,
   phoneValidate,
 } from '@components/Form/Control/validate';
 import SocialBtnGroup from '@components/Form/SocialButtonsGroup';
+import {
+  Form,
+  PasswordField,
+  PhoneField,
+  TextField,
+} from '@components/Form/Control';
+import { Button } from '@components/Common';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();

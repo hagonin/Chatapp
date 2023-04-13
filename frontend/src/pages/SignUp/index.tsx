@@ -3,19 +3,21 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Signup.scss';
 import { imgs } from '@utils/constants';
 import useForm from '@hooks/useForm';
-import Form from '@components/Form/Control/Form';
-import TextField from '@components/Form/Control/TextField';
-import PhoneField from '@components/Form/Control/PhoneField';
-import PasswordField from '@components/Form/Control/PasswordField';
-import Button from '@components/Common/Button';
-import { PasswordError } from '@components/Form/Control/ErrorField';
 import SocialBtnGroup from '@components/Form/SocialButtonsGroup';
+import Button from '@components/Common/Button';
 import {
   emailValidate,
   passwordValidate,
   phoneValidate,
   usernameValidate,
 } from '@components/Form/Control/validate';
+import {
+  Form,
+  PasswordError,
+  PasswordField,
+  PhoneField,
+  TextField,
+} from '@components/Form/Control';
 
 const Signup: React.FC = () => {
   const [showSignUpByPhoneForm, setShowSignUpByPhoneForm] =
