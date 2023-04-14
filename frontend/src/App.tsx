@@ -8,7 +8,6 @@ import {
   ChatRoom,
   Home,
   Login,
-  ResetChangePassword,
   ResetPassword,
   Signup,
 } from '@pages';
@@ -33,10 +32,6 @@ const router = createBrowserRouter([
       {
         path: 'login/request_reset_password',
         element: <ResetPassword />,
-      },
-      {
-        path: 'login/reset_password',
-        element: <ResetChangePassword />,
       },
       {
         path: 'change_password',

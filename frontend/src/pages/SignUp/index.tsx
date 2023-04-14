@@ -24,7 +24,7 @@ const Signup: React.FC = () => {
     React.useState(false);
   const navigate = useNavigate();
   const { onSubmit, values, onChange, reset, errors, isSubmitting } = useForm({
-    initValues: { email: '', phone: '', password: '', username: '' },
+    initValues: { email: '', phone: '', password: '' },
     onCallApi: data => {
       const res = new Promise(reslove => {
         setTimeout(() => {
@@ -59,15 +59,6 @@ const Signup: React.FC = () => {
           {`Sign up with ${showSignUpByPhoneForm ? 'email' : 'mobile phone'}`}
         </button>
         <Form onSubmit={onSubmit}>
-          <TextField
-            name="username"
-            label="Username"
-            type="text"
-            placeholder="Enter your name"
-            errorMessage={errors.username}
-            values={values}
-            onChange={onChange}
-          />
           {showSignUpByPhoneForm ? (
             <PhoneField
               name="phone"
