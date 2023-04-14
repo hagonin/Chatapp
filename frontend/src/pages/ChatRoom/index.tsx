@@ -4,6 +4,8 @@ import { icons, imgs } from '@utils/constants';
 import AuthProvider from '@context/authContext';
 import { MessageCard, OptionCard, UserCard } from '@components/Common';
 import Profile from '@components/Profile';
+import SearchForm from '@components/Form/SearchForm';
+import MessageForm from '@components/Form/MessageForm';
 
 const ChatRoom: React.FC = () => (
   <div className="chatroom">
@@ -83,6 +85,8 @@ const ChatRoom: React.FC = () => (
         />
       </div>
     </div>
+    <SearchForm />
+    <MessageForm />
   </div>
 );
 export default ChatRoom;

@@ -35,6 +35,11 @@ import userIcon from '@assets/icons/user_icon.svg';
 import phone4 from '@assets/icons/phone4.svg';
 import tag from '@assets/icons/tag.svg';
 import editUser from '@assets/icons/user-pen-solid.svg';
+import search from '@assets/icons/search.svg';
+import clean from '@assets/icons/clean.svg';
+import file from '@assets/icons/file.svg';
+import messageSymbol from '@assets/icons/message_icon.svg';
+import messageSendIcon from '@assets/icons/message_send.svg';
 
 
 export const imgs = {
@@ -75,5 +80,11 @@ export const icons = {
   userIcon: userIcon,
   phone4: phone4,
   tag: tag,
-  editUser: editUser
+  editUser: editUser,
+  search: search,
+  clean: clean,
+  file: file,
+  messageSymbol: messageSymbol,
+  messageSendIcon: messageSendIcon
+
 }

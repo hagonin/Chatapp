@@ -1,7 +1,7 @@
 import React, { FormEvent, useState } from 'react';
 import { Error, UseFormProps, TestProp, Tests } from './type';
 
-const useForm = ({ initValues, onCallApi, validate = {} }: UseFormProps) => {
+const useForm = ({ initValues, onCallApi, validate = {}, resetAfterSubmit = true }: UseFormProps) => {
     const [values, setValues] = React.useState(initValues);
     const [errors, setErrors] = React.useState<Error>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -58,9 +58,9 @@ const useForm = ({ initValues, onCallApi, validate = {} }: UseFormProps) => {
         return isValid;
     }
 
-    const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const formData = new FormData(event.target as HTMLFormElement);
+    const onSubmit = (event?: FormEvent<HTMLFormElement>) => {
+        event?.preventDefault();
+        const formData = new FormData(event?.target as HTMLFormElement);
         const formProps = { ...Object.fromEntries(formData) };
         let validForm = true;
         for (let name in formProps) {
@@ -74,7 +74,7 @@ const useForm = ({ initValues, onCallApi, validate = {} }: UseFormProps) => {
         if (validForm) {
             setIsSubmitting(true);
             onCallApi(values).then(() => {
-                reset();
+                resetAfterSubmit && reset();
             }).finally(() => {
                 setIsSubmitting(false);
             })

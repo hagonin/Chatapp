@@ -1,5 +1,6 @@
 import React from 'react';
 import './Form.scss';
+import { icons, imgs } from '@utils/constants';
 import { InputProps } from './type';
 import ErrorField from './ErrorField';
 
@@ -12,8 +13,21 @@ const TextField: React.FC<InputProps> = ({
   onChange,
   onBlur,
   values,
+  typeClass,
 }) => {
-  return (
+  return typeClass === 'search' ? (
+    <div className="form__search">
+      <input
+        type="text"
+        name={name}
+        id={name}
+        onChange={onChange}
+        placeholder={placeholder}
+        value={values[name]}
+      />
+      <img src={values[name] ? icons.clean : icons.search} alt="search" className='form__search-icon' />
+    </div>
+  ) : (
     <label htmlFor={name} className="form__label">
       {label}
       <input

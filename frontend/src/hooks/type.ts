@@ -49,5 +49,6 @@ export interface UseFormProps {
     onCallApi: (data: {}) => Promise<void>;
     validate?: {
         [rule: string]: Rules[]
-    }
+    };
+    resetAfterSubmit?: boolean
 }

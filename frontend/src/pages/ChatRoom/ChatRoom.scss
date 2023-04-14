@@ -2,7 +2,9 @@
 
 .chatroom {
   margin-left: 20px;
+  margin-right: 20px;
   margin-bottom: 20px;
+  padding: 20px 0px;
   &__box {
     @include flex(inline-flex, $direction: column, $gap: 10px);
     margin-top: 20px;

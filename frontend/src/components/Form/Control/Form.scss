@@ -115,4 +115,23 @@ $text-label: 0.93rem;
       margin-left: 20px;
     }
   }
+
+  &__search {
+    @include flex($alignItems: center);
+    @include size($h: 42px, $w: $full);
+    background-color: rgba($grey, 0.2);
+    border-bottom: 2px solid $grey;
+    border-radius: 4px;
+    padding: 0px 15px;
+
+    & input {
+      @include text-sm;
+      flex: 1;
+    }
+
+    &-icon {
+      @include size(15px);
+      margin-left: 15px;
+    }
+  }
 }
