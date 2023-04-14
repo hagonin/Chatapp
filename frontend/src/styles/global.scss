@@ -17,10 +17,118 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
 a {
   text-decoration: none;
 }
+
+input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: all 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill::first-line {
+  font-size: $text-s-md !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+// global class
+.container {
+  width: $full;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include MOBILE {
+    padding: 0px 8px;
+  }
+  @include TABLET {
+    max-width: 720px;
+  }
+
+  @include PC {
+    max-width: 960px;
+  }
+
+  @include LARGE-PC {
+    max-width: 1200px;
+  }
+}
+
+.separate {
+  position: relative;
+  margin: 12px 0px;
+  &::after {
+    content: '';
+    @include position(absolute, $top: $half, $left: 0, $y: -50%);
+    width: $full;
+    border-top: 1px solid $grey;
+  }
+  &::before {
+    @include text-sm;
+    @include position(
+      absolute,
+      $top: $half,
+      $left: $half,
+      $y: -$half,
+      $x: -$half,
+      $zIndex: 1
+    );
+    background-color: $white;
+    padding: 0px 10px;
+  }
+
+  &--signup {
+    &::before {
+      content: 'Or Sign Up With';
+    }
+  }
+
+  &--signin {
+    &::before {
+      content: 'Or Sign In With';
+    }
+  }
+}
+

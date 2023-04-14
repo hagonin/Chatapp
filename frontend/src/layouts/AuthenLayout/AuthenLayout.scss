@@ -1,0 +1,39 @@
+@import 'styles/base';
+$h-img-signup: 500px;
+
+.authenLayout {
+  &__wrapper {
+    @include flex($both: center, $gap: 20px);
+    min-height: $height-screen;
+  }
+
+  &-form {
+    width: $form-width;
+    padding: 30px 30px;
+
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 5px rgba($black, 0.1);
+    @include flex($direction: column, $gap: 14px);
+  }
+
+  &__img {
+    @include size($h: $h-img-signup, $w: auto);
+    object-fit: contain;
+    user-select: none;
+  }
+
+  &__title {
+    text-align: center;
+    user-select: none;
+    &-logo {
+      color: $primary-color;
+      user-select: none;
+    }
+  }
+
+  &__subtitle {
+    @include font($text-s-md, $color: $grey, $align: center);
+    display: block;
+    margin-top: 10px;
+  }
+}

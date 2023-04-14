@@ -1,0 +1,36 @@
+@import 'styles/base';
+
+.optionCard {
+  @include flex($alignItems: center, $gap: 16px);
+  padding: 8px 30px;
+  margin-top: 8px;
+  width: $full;
+  transition: all linear 100ms;
+  &:hover,
+  &--active {
+    background-color: rgba($primary-color, 0.08);
+  }
+
+  @include MOBILE {
+    border-radius: 5px;
+    padding-left: 20px;
+    background-color: rgba($grey, 0.15);
+    gap:12px;
+    &:hover,
+    &--active {
+      background-color: rgba($grey, 0.3);
+    }
+  }
+
+  &:first-child {
+    margin-top: 0px;
+  }
+  &__icon {
+    @include size(40px);
+    & img {
+    }
+  }
+  &__label {
+    @include text-md;
+  }
+}

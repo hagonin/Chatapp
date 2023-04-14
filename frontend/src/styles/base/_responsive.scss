@@ -1,0 +1,27 @@
+// breakpoint
+$tablet-width: 768px;
+$pc-width: 1024px;
+$lg-pc-width: 1280px;
+
+@mixin MOBILE {
+  @media (max-width: $tablet-width) {
+    @content;
+  }
+}
+@mixin TABLET {
+  @media ((min-width: $tablet-width) and (max-width:$pc-width)) {
+    @content;
+  }
+}
+
+@mixin PC {
+  @media (min-width: $pc-width) {
+    @content;
+  }
+}
+
+@mixin LARGE-PC {
+  @media (min-width: $lg-pc-width) {
+    @content;
+  }
+}

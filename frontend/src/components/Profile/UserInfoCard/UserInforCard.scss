@@ -1,0 +1,20 @@
+@import 'styles/base';
+
+.userCardInfo {
+  @include flex($alignItems: center, $gap: 16px);
+  margin-top: 16px;
+
+  @include MOBILE {
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  &:first-child {
+    margin-top: 0px;
+  }
+
+  &__content {
+    margin-left: auto;
+    @include font($text-s-md, 1, 500, $primary-color);
+  }
+}

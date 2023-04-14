@@ -1,0 +1,137 @@
+@import 'styles/base';
+$pad: 20px;
+$box-shadow: 0px 0px 4px 2px rgba($primary-color, 0.2);
+$box-shadow-error: 0px 0px 4px 2px rgba($red, 0.2);
+$text-label: 0.93rem;
+
+.form {
+  @include flex(flex, $direction: column);
+  gap: 17px;
+  user-select: none;
+
+  &__type-login-btn {
+    @include font($text-s-sm, 1, $font-bold, $primary-color, $align: right);
+  }
+
+  &__input {
+    @include text-md;
+    height: $btnHeight;
+    width: $full;
+    padding: 0 $pad;
+
+    border: 1px solid $primary-color;
+    border-radius: 5px;
+
+    @include flex(flex, center, null);
+
+    & input {
+      width: $full;
+      @include font(inherit);
+    }
+
+    &-icon {
+      padding-left: calc($pad/2);
+      & img {
+        @include size($text-s-md);
+      }
+    }
+
+    &-phone {
+      padding-left: calc($pad/2);
+      @include text-md;
+
+      &-label {
+        line-height: calc($btnHeight - 3px);
+        padding-right: calc($pad/2);
+        position: relative;
+        &:after {
+          content: '';
+          @include position(absolute, $top: $half, $right: 0, $y: -50%);
+          height: 50%;
+          border: 1px solid $grey;
+        }
+      }
+    }
+
+    &-checkbox {
+      @include font($text-label, 1, $font-semibold);
+      @include flex(flex);
+      gap: calc($pad/2);
+    }
+
+    &:focus,
+    &:focus-within {
+      box-shadow: $box-shadow;
+    }
+
+    &--error {
+      border-color: $red;
+      &:focus,
+      &:focus-within {
+        box-shadow: $box-shadow-error;
+      }
+    }
+  }
+
+  &__label {
+    @include font($text-label, 1, $font-semibold);
+    @include flex(flex, $direction: column);
+    gap: 8px;
+  }
+
+  &__error {
+    @include font($text-s-sm, 1, $font-semibold, $red);
+    margin-left: 5px;
+  }
+
+  &__consent {
+    @include font($text-s-sm, 1.5, $font-normal, $grey, $align: center);
+    user-select: none;
+    &-link {
+      color: $primary-color;
+      margin-left: 1px;
+      display: inline-block;
+    }
+  }
+
+  &__already-btn {
+    @include font($text-s-md, $align: center);
+    user-select: none;
+    margin-top: 5px;
+    & button {
+      @include font($text-s-md, 1, $font-bold, $primary-color);
+      margin-left: 3px;
+      &:hover {
+        text-decoration: underline;
+        color: rgba($primary-color, 0.8);
+      }
+    }
+  }
+
+  &__validate-list {
+    line-height: 1.5;
+    & ul {
+      list-style: disc;
+      margin-left: 20px;
+    }
+  }
+
+  &__search {
+    @include flex($alignItems: center);
+    @include size($h: 42px, $w: $full);
+    background-color: rgba($grey, 0.2);
+    border-bottom: 2px solid $grey;
+    border-radius: 4px;
+    padding: 0px 15px;
+
+    & input {
+      @include text-sm;
+      flex: 1;
+    }
+
+    &-icon {
+      @include size(15px);
+      margin-left: 15px;
+    }
+  }
+}
