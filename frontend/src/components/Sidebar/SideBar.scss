@@ -1,0 +1,41 @@
+@import 'styles/base';
+$sideBarLeft-width: 360px;
+$sideBarRight-width: 360px;
+
+.sideBar {
+  padding: 20px;
+
+  &__left {
+    width: $sideBarLeft-width;
+    background: $white;
+    padding-bottom: 10px;
+    @include flex($direction: column);
+    border-right: 1px solid rgba($grey, 0.2);
+  }
+
+  &__right {
+    background: $white;
+    border-left: 1px solid rgba($grey, 0.2);
+    width: $sideBarRight-width;
+  }
+
+  &__container {
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  &__search {
+    padding: 20px 20px 0px;
+    margin-bottom: 10px;
+  }
+
+  &__header {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba($grey, 0.1);
+  }
+
+  &__heading {
+    margin-bottom: 10px;
+    user-select: none;
+  }
+}

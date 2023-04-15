@@ -40,6 +40,12 @@ import clean from '@assets/icons/clean.svg';
 import file from '@assets/icons/file.svg';
 import messageSymbol from '@assets/icons/message_icon.svg';
 import messageSendIcon from '@assets/icons/message_send.svg';
+import navigateUser from '@assets/icons/navigate_user.svg';
+import navigateMesage from '@assets/icons/navigate_message.svg';
+import navigateMissedPhone from '@assets/icons/navigate_phone.svg';
+import navigateSetting from '@assets/icons/navigate_setting.svg';
+
+// import messageSendIcon from '@assets/icons/message_send.svg';
 
 
 export const imgs = {
@@ -85,6 +91,10 @@ export const icons = {
   clean: clean,
   file: file,
   messageSymbol: messageSymbol,
-  messageSendIcon: messageSendIcon
+  messageSendIcon: messageSendIcon,
+  navigateUser: navigateUser,
+  navigateMesage: navigateMesage,
+  navigateMissedPhone: navigateMissedPhone,
+  navigateSetting: navigateSetting
 
 }

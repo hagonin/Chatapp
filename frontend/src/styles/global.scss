@@ -67,6 +67,28 @@ input::-ms-clear {
   display: none;
 }
 
+/* width */
+.scrollbar::-webkit-scrollbar {
+  width: 3px;
+  transition: all linear 200ms;
+}
+
+/* Track */
+.scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.scrollbar::-webkit-scrollbar-thumb {
+  background: rgba($primary-color, 0.2);
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: $primary-color;
+}
+
 button {
   background: transparent;
   border: none;
@@ -131,4 +153,3 @@ button {
     }
   }
 }
-

@@ -1,5 +1,5 @@
 import React from 'react';
-import './UserCard.scss';
+import './ChatItem.scss';
 import { imgs } from '@utils/constants';
 
 interface Call {
@@ -15,10 +15,11 @@ interface Props {
   status?: 'sent' | 'delivered' | 'read';
   online?: boolean;
   lastseen?: string;
-  typeCard?: 'small' | 'lg';
   call?: Call;
+  tag?: boolean;
+  onCall?: () => void;
 }
-const UserCard: React.FC<Props> = ({
+const ChatItem: React.FC<Props> = ({
   avatar,
   name,
   message,
@@ -28,6 +29,8 @@ const UserCard: React.FC<Props> = ({
   online = false,
   lastseen,
   call,
+  tag,
+  onCall,
 }) => {
   return (
     <div
@@ -40,6 +43,7 @@ const UserCard: React.FC<Props> = ({
       </div>
       <div className="userCard__content">
         <span className="userCard__name">{name}</span>
+        {tag && <span className="userCard__tag">{`@${name}`}</span>}
         {message && <span className="userCard__message">{message}</span>}
         {lastseen && (
           <span className="userCard__message">{`last seen${lastseen}`}</span>
@@ -78,8 +82,17 @@ const UserCard: React.FC<Props> = ({
           alt="icon"
         />
       )}
+      {onCall && (
+        <button
+          onClick={onCall}
+          className="userCard__call-btn"
+          title="make a call"
+        >
+          <img src={imgs.phone} alt="phone" />
+        </button>
+      )}
     </div>
   );
 };
 
-export default UserCard;
+export default ChatItem;

@@ -3,14 +3,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AuthenLayout from '@layouts/AuthenLayout';
 import RootLayout from '@layouts/RootLayout';
 
-import {
-  ChangePassword,
-  ChatRoom,
-  Home,
-  Login,
-  ResetPassword,
-  Signup,
-} from '@pages';
+import { ChangePassword, Home, Login, ResetPassword, Signup } from '@pages';
+import CallList from '@pages/CallList';
+import FriendList from '@pages/FriendList';
+import ChatList from '@pages/ChatList';
 
 const router = createBrowserRouter([
   {
@@ -44,9 +40,21 @@ const router = createBrowserRouter([
     path: '/chatroom',
     element: <RootLayout />,
     children: [
+      // {
+      //   path: '',
+      //   element: <ChatRoom />,
+      // },
       {
-        path: '',
-        element: <ChatRoom />,
+        path: 'chat-list',
+        element: <ChatList />,
+      },
+      {
+        path: 'call-list',
+        element: <CallList />,
+      },
+      {
+        path: 'friend-list',
+        element: <FriendList />,
       },
     ],
   },

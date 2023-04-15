@@ -1,0 +1,23 @@
+@import 'styles/base';
+.navigate {
+  &__item {
+    text-align: center;
+    display: block;
+    width: $full;
+    padding: 15px 0px;
+    transition: all linear 200ms;
+
+    &:hover {
+      background-color: rgba($grey, 0.1);
+    }
+
+    &--active {
+      border-left: 4px solid $grey;
+      background-color: rgba($grey, 0.1);
+    }
+
+    & img {
+      @include size(30px);
+    }
+  }
+}

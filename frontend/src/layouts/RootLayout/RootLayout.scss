@@ -1,4 +1,7 @@
 @import 'styles/base';
+$height-header: 50px;
+$width-navigate: 100px;
+$bg-navigate: #f8f8f8;
 
 .rootLayout {
   &__wrapper {
@@ -7,7 +10,38 @@
   }
 
   &__header {
-    border: 1px solid $grey;
-    padding: 10px 20px;
+    @include text-md;
+    background-color: $primary-color;
+    height: $height-header;
+    color: $white;
+  }
+
+  &__body {
+    background-color: rgba($red, 0.1);
+    height: calc($height-screen - $height-header);
+    @include flex;
+  }
+
+  &__navigate {
+    @include size($w: $width-navigate, $h: $full);
+    background: $bg-navigate;
+  }
+
+  &__main {
+    flex: 1;
+    @include flex($direction: column);
+
+    &-header {
+      background-color: $white;
+      padding: 10px 20px;
+    }
+    &-container {
+      padding: 10px 25px;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    &-footer {
+    }
   }
 }

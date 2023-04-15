@@ -9,6 +9,7 @@
   & input {
     @include text-sm;
     flex: 1;
+    padding-right: 15px;
   }
 
   & button img {

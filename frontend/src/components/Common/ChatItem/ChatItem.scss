@@ -2,17 +2,22 @@
 
 $text-s-timstamp: 0.625rem;
 .userCard {
-  background-color: rgba($primary-color, 0.1);
-  @include size($h: 70px, $w: 360px);
+  user-select: none;
+  &--active,
+  &:hover {
+    background-color: rgba($primary-color, 0.1);
+  }
+  @include size($h: 70px, $w: $full);
   @include flex($alignItems: center, $gap: 10px);
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 10px 20px;
   &__avatar {
-    height: $full;
+    @include size(50px);
+
     & img {
       border-radius: $full;
       @include size;
-      object-fit: contain;
+      object-fit: cover;
     }
   }
   &__content {
@@ -73,5 +78,9 @@ $text-s-timstamp: 0.625rem;
     &:after {
       background-color: $grey;
     }
+  }
+
+  &__tag {
+    @include font($text-s-xsm, 1, $font-normal, $grey);
   }
 }
