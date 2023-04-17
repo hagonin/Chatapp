@@ -7,6 +7,9 @@ import { ChangePassword, Home, Login, ResetPassword, Signup } from '@pages';
 import CallList from '@pages/CallList';
 import FriendList from '@pages/FriendList';
 import ChatList from '@pages/ChatList';
+import AuthProvider from '@context/authContext';
+import MainProvider from '@context/mainContext';
+import RoomProvider from '@context/roomContext';
 
 const router = createBrowserRouter([
   {
@@ -61,7 +64,15 @@ const router = createBrowserRouter([
 ]);
 
 const App: React.FC = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <AuthProvider>
+      <RoomProvider>
+        <MainProvider>
+          <RouterProvider router={router} />
+        </MainProvider>
+      </RoomProvider>
+    </AuthProvider>
+  );
 };
 
 export default App;

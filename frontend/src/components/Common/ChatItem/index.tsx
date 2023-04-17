@@ -1,16 +1,18 @@
 import React from 'react';
 import './ChatItem.scss';
 import { imgs } from '@utils/constants';
+import { User } from '@context/roomContext';
 
 interface Call {
   type: 'missed' | 'incoming' | 'outgoing';
   timestamp: string;
 }
 interface Props {
+  id: number;
   avatar: string;
   name: string;
   message?: string;
-  timestamp?: string;
+  timestamp: string;
   quantity?: number;
   status?: 'sent' | 'delivered' | 'read';
   online?: boolean;
@@ -18,8 +20,10 @@ interface Props {
   call?: Call;
   tag?: boolean;
   onCall?: () => void;
+  onChat?: (user: User) => void;
 }
 const ChatItem: React.FC<Props> = ({
+  id,
   avatar,
   name,
   message,
@@ -31,12 +35,37 @@ const ChatItem: React.FC<Props> = ({
   call,
   tag,
   onCall,
+  onChat,
 }) => {
   return (
     <div
       className={`userCard ${
         online ? 'userCard--online' : 'userCard--offline'
       }`}
+      onClick={
+        onChat
+          ? () =>
+              onChat({
+                id,
+                name,
+                timestamp,
+                avatar,
+                messageList: [
+                  {
+                    message: 'Hello',
+                    timestamp: '12:00',
+                    type: 'partner',
+                  },
+                  {
+                    message: 'How are you?',
+                    timestamp: '12:01',
+                    type: 'user',
+                    status: 'sent',
+                  },
+                ],
+              })
+          : () => {}
+      }
     >
       <div className="userCard__avatar">
         <img src={avatar} alt="user" />

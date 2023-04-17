@@ -34,6 +34,7 @@ $bg-navigate: #f8f8f8;
     &-header {
       background-color: $white;
       padding: 10px 20px;
+      border-bottom: 1px solid rgba($grey, 0.3);
     }
     &-container {
       padding: 10px 25px;
@@ -42,6 +43,10 @@ $bg-navigate: #f8f8f8;
     }
 
     &-footer {
+    }
+
+    &-message {
+      padding: 10px 20px;
     }
   }
 }

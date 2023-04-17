@@ -20,4 +20,10 @@
       @include size(30px);
     }
   }
+
+  &__setting-btn {
+    @include XLARGE-PC {
+      display: none;
+    }
+  }
 }

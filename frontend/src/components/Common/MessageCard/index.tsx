@@ -2,7 +2,7 @@ import React from 'react';
 import { imgs } from '@utils/constants';
 import './MessageCard.scss';
 
-interface Props {
+export interface Props {
   message: string;
   timestamp: string;
   type: 'user' | 'partner';

@@ -2,6 +2,7 @@
 $tablet-width: 768px;
 $pc-width: 1024px;
 $lg-pc-width: 1280px;
+$xlg-pc-width: 1400px;
 
 @mixin MOBILE {
   @media (max-width: $tablet-width) {
@@ -22,6 +23,12 @@ $lg-pc-width: 1280px;
 
 @mixin LARGE-PC {
   @media (min-width: $lg-pc-width) {
+    @content;
+  }
+}
+
+@mixin XLARGE-PC {
+  @media (min-width: $xlg-pc-width) {
     @content;
   }
 }

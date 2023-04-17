@@ -1,17 +1,17 @@
 import './OptionCard.scss';
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 interface Props {
   icon: string;
   label: string;
-  onClick?: () => void;
+  onClick: (type: string) => void;
   active: boolean;
 }
 const OptionCard: React.FC<Props> = ({ icon, label, onClick, active }) => {
   return (
     <button
       className={`optionCard ${active ? 'optionCard--active' : ''}`}
-      onClick={onClick}
+      onClick={() => onClick('a')}
     >
       <span className="optionCard__icon">
         <img src={icon} alt="option icon" />

@@ -1,87 +1,46 @@
 import React from 'react';
-import './Chatbox.scss';
 import { imgs } from '@utils/constants';
 
 import { ChatItem, UserInfoCard } from '@components/Common';
-import Container from '@components/Main/Container';
 import SidebarLeft from '@components/Sidebar/SidebarLeft';
-import Header from '@components/Main/Header';
-import ChatBox from '@components/ChatBox';
-import Main from '@components/Main';
-import Footer from '@components/Main/Footer';
-import MessageForm from '@components/Form/MessageForm';
+import { useRoomContext } from '@context/roomContext';
 
-const ChatList: React.FC = () => (
-  <>
+const ChatList: React.FC = () => {
+  const { setUser } = useRoomContext();
+  // chatlist from authenUser
+  const chatlist = [
+    {
+      id: 0,
+      name: 'Ahmet Kadyrow',
+      avatar: imgs.user2,
+      message: 'Men ertir size barýan...',
+      timestamp: '12:00',
+      status: 'read',
+    },
+    {
+      id: 1,
+      name: 'Ahmet Kadyrow11',
+      avatar: imgs.user2,
+      message: 'Men ertir size barýan sssss...',
+      timestamp: '12:00',
+      status: 'sent',
+    },
+  ];
+  return (
     <SidebarLeft>
-      <ChatItem
-        name="Ahmet Kadyrow"
-        avatar={imgs.user2}
-        message="Men ertir size barýan..."
-        timestamp="12:00"
-        status="read"
-      />
-      <ChatItem
-        name="Ahmet Kadyrow"
-        avatar={imgs.user}
-        message="Men ertir size barýan..."
-        timestamp="12:00"
-        status="read"
-      />
-      <ChatItem
-        name="Ahmet Kadyrow"
-        avatar={imgs.user}
-        message="Men ertir size barýan..."
-        timestamp="12:00"
-        status="read"
-      />
-      <ChatItem
-        name="Ahmet Kadyrow"
-        avatar={imgs.user}
-        message="Men ertir size barýan..."
-        timestamp="12:00"
-        status="read"
-      />
-      <ChatItem
-        name="Ahmet Kadyrow"
-        avatar={imgs.user}
-        message="Men ertir size barýan..."
-        timestamp="12:00"
-        status="read"
-      />
-      <ChatItem
-        name="Ahmet Kadyrow"
-        avatar={imgs.user}
-        message="Men ertir size barýan..."
-        timestamp="12:00"
-        status="read"
-      />
-      <ChatItem
-        name="Ahmet Kadyrow"
-        avatar={imgs.user}
-        message="Men ertir size barýan..."
-        timestamp="12:00"
-        status="read"
-      />
-    </SidebarLeft>
-    <Main>
-      <Header>
-        <UserInfoCard
-          name="David"
-          tag="David"
-          avatar={imgs.user2}
-          timestamp="10:20"
-          smallCard
+      {chatlist?.map(item => (
+        <ChatItem
+          id={item.id}
+          name={item.name}
+          avatar={item.avatar}
+          message={item.message}
+          timestamp={item.timestamp}
+          status={item.status as 'read' | 'sent' | 'delivered' | undefined}
+          onChat={setUser}
         />
-      </Header>
-      <Container>
-        <ChatBox />
-      </Container>
-      <Footer>
-        <MessageForm />
-      </Footer>
-    </Main>
-  </>
-);
+      ))}
+    </SidebarLeft>
+  );
+};
 
 export default ChatList;

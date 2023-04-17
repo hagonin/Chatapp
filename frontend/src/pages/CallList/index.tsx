@@ -28,7 +28,6 @@ const CallList: React.FC = () => (
         call={{ timestamp: '10:20', type: 'outgoing' }}
       />
     </SidebarLeft>
-    <Main>Select a contact to start a conversation!</Main>
   </>
 );
 

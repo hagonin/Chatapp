@@ -65,7 +65,6 @@ const FriendList: React.FC = () => (
         onCall={() => console.log('calling')}
       />
     </SidebarLeft>
-    <Main>Select a contact to start a conversation!</Main>
   </>
 );
 
