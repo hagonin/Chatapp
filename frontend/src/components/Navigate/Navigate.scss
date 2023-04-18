@@ -1,11 +1,29 @@
 @import 'styles/base';
+$width-navigate: 100px;
+$width-navigate: 100px;
+$bg-navigate: #f8f8f8;
+
 .navigate {
+  @include size($w: $width-navigate, $h: $full);
+  background: $bg-navigate;
+
+  @include MOBILE {
+    @include position(fixed, $bottom: 0, $left: 0, $right: 0);
+    @include size($w: $full, $h: 70px);
+    @include flex($justifyContent: space-around);
+  }
+
   &__item {
     text-align: center;
     display: block;
     width: $full;
     padding: 15px 0px;
-    transition: all linear 200ms;
+    transition: all linear 100ms;
+
+    @include MOBILE {
+      padding: unset;
+      @include flex($both: center);
+    }
 
     &:hover {
       background-color: rgba($grey, 0.1);
@@ -13,11 +31,21 @@
 
     &--active {
       border-left: 4px solid $grey;
-      background-color: rgba($grey, 0.1);
+      background-color: rgba($grey, 0.4);
+      @include MOBILE {
+        border: none;
+        & img {
+          transform: scale(1.2);
+        }
+      }
     }
 
     & img {
+      transition: all linear 200ms;
       @include size(30px);
+      @include MOBILE {
+        @include size(25px);
+      }
     }
   }
 

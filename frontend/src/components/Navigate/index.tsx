@@ -16,7 +16,7 @@ const Navigate: React.FC<Props> = ({ toggleSideBarRight }) => {
     `navigate__item ${isActive ? 'navigate__item--active' : ''}`;
 
   return (
-    <nav className="rootLayout__navigate navigate">
+    <nav className="navigate">
       <NavLink className={className} to="/chatroom/friend-list">
         <img src={icons.navigateUser} alt="user" />
       </NavLink>

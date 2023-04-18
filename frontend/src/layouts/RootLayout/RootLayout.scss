@@ -1,7 +1,5 @@
 @import 'styles/base';
 $height-header: 50px;
-$width-navigate: 100px;
-$bg-navigate: #f8f8f8;
 
 .rootLayout {
   &__wrapper {
@@ -22,10 +20,7 @@ $bg-navigate: #f8f8f8;
     @include flex;
   }
 
-  &__navigate {
-    @include size($w: $width-navigate, $h: $full);
-    background: $bg-navigate;
-  }
+  
 
   &__main {
     flex: 1;
