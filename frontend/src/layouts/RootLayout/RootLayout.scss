@@ -17,7 +17,7 @@ $bg-navigate: #f8f8f8;
   }
 
   &__body {
-    background-color: rgba($red, 0.1);
+    background-color: rgba($primary-color, 0.1);
     height: calc($height-screen - $height-header);
     @include flex;
   }
@@ -30,6 +30,7 @@ $bg-navigate: #f8f8f8;
   &__main {
     flex: 1;
     @include flex($direction: column);
+    position: relative;
 
     &-header {
       background-color: $white;
@@ -47,6 +48,18 @@ $bg-navigate: #f8f8f8;
 
     &-message {
       padding: 10px 20px;
+    }
+
+    &-img-wrapper {
+      @include position(absolute, 0);
+      @include flex($both: center);
+      @include flex($direction: column);
+      & img {
+        @include size(80px);
+      }
+      & p {
+        margin-top: 8px;
+      }
     }
   }
 }

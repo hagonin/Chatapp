@@ -1,20 +1,18 @@
 import React from 'react';
 import './UserInfoCard.scss';
 
-interface Props {
+export interface UserInfoCardProp {
   name: string;
   avatar: string;
   phone?: string;
   timestamp?: string;
-  tag?: string;
   smallCard?: boolean;
 }
-const UserInfoCard: React.FC<Props> = ({
+const UserInfoCard: React.FC<UserInfoCardProp> = ({
   name,
   avatar,
   phone,
   timestamp,
-  tag,
   smallCard,
 }) => {
   return (
@@ -29,7 +27,6 @@ const UserInfoCard: React.FC<Props> = ({
       <div className="userAreaCard__content">
         <h4>{name}</h4>
         {phone && <span className="userAreaCard__subtitle">{phone}</span>}
-        {tag && <span className="userAreaCard__subtitle">{`@${tag}`}</span>}
         {timestamp && (
           <span className="userAreaCard__subtitle">{`Last seen at ${timestamp}`}</span>
         )}

@@ -1,14 +1,15 @@
 @import 'styles/base';
 $sideBarLeft-width: 360px;
-$sideBarRight-width: 300px;
-
+$sideBarRight-width: 200px;
+$profileWrapper-width: 450px;
 .sideBar {
   padding: 20px;
 
   &__left {
     width: $sideBarLeft-width;
     background: $white;
-    padding-bottom: 10px;
+    padding: 0px 10px 10px;
+
     @include flex($direction: column);
     border-right: 1px solid rgba($grey, 0.2);
   }
@@ -17,7 +18,7 @@ $sideBarRight-width: 300px;
     background: $white;
     border-left: 1px solid rgba($grey, 0.4);
     width: $sideBarRight-width;
-    transition: transform linear 300ms;
+    transition: transform linear 200ms;
     @include position(fixed, $top: 0, $right: 0, $bottom: 0, $x: 100%);
     &--active {
       transform: translateX(0%);
@@ -26,6 +27,14 @@ $sideBarRight-width: 300px;
     @include XLARGE-PC {
       @include position(unset, $x: 0);
     }
+  }
+
+  &__btn-close {
+    @include position(absolute, $top: 7px, $left: 7px);
+    @include font($text-s-xl, 1, $font-bold);
+    padding: 4px 6px;
+    border-radius: 4px;
+    background: rgba($grey, 0.3);
   }
 
   &__container {
@@ -39,12 +48,25 @@ $sideBarRight-width: 300px;
   }
 
   &__header {
-    padding: 15px 20px;
-    border-bottom: 1px solid rgba($grey, 0.1);
+    padding: 45px 20px 20px 20px;
+    border-bottom: 1px solid rgba($grey, 0.08);
   }
 
   &__heading {
     margin-bottom: 10px;
     user-select: none;
+  }
+}
+
+.option {
+  position: relative;
+  &__sub {
+    @include position(absolute, $top: 0, $right: 100%);
+    background-color: $white;
+    padding: 10px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba($grey, 0.3);
+    box-shadow: -4px 0px 8px 0px rgba($black, 0.1);
+    min-width: $profileWrapper-width;
   }
 }

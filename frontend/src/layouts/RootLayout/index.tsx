@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom';
 import './RootLayout.scss';
 import Navigate from '@components/Navigate';
 import SidebarRight from '@components/Sidebar/SidebarRight';
-import Main from '@components/Main';
 
 const RootLayout: React.FC = () => {
   const [showSidebarRight, setShowSidebarRight] = React.useState(false);
@@ -14,9 +13,7 @@ const RootLayout: React.FC = () => {
         <Navigate
           toggleSideBarRight={() => setShowSidebarRight(!showSidebarRight)}
         />
-        {/* SideBar Left */}
         <Outlet />
-        <Main />
         <SidebarRight
           isActive={showSidebarRight}
           toggleSideBarRight={() => setShowSidebarRight(!showSidebarRight)}

@@ -4,7 +4,7 @@
   @include flex($alignItems: center, $gap: 16px);
   user-select: none;
   &__avatar {
-    @include size(70px);
+    @include size(60px);
     border-radius: $full;
     overflow: hidden;
     & img {

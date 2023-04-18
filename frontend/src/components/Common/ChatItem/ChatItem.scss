@@ -1,16 +1,33 @@
 @import 'styles/base';
+$text-s-message: 0.84rem;
 
-$text-s-timstamp: 0.625rem;
 .userCard {
   user-select: none;
-  &--active,
-  &:hover {
-    background-color: rgba($primary-color, 0.1);
-  }
+  border-radius: 4px;
+  transition: all linear 100ms;
   @include size($h: 70px, $w: $full);
   @include flex($alignItems: center, $gap: 10px);
-  margin-top: 10px;
+  margin-top: 5px;
   padding: 10px 20px;
+
+  &:hover {
+    background-color: rgba($primary-color, 0.07);
+  }
+
+  &--active {
+    &:hover {
+      background-color: rgba($primary-color, 0.2);
+    }
+  }
+
+  &--active {
+    background-color: rgba($primary-color, 0.15);
+  }
+
+  &--click {
+    cursor: pointer;
+  }
+
   &__avatar {
     @include size(50px);
 
@@ -23,16 +40,24 @@ $text-s-timstamp: 0.625rem;
   &__content {
     @include flex($direction: column);
     flex: 1;
+    min-width: 0;
   }
 
   &__name {
     @include font($text-s-sm, 1.5, $font-bold);
   }
   &__message {
-    @include font($text-s-xsm, 1.5, $font-normal);
+    @include font($text-s-message, 1.2, $font-normal);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
-  &__timestamp {
+  &__message-timestamp {
     @include font($text-s-xsm, 1.5, $font-light);
+  }
+
+  &__timestamp {
+    @include font($text-s-sm, 1.5, $font-light);
   }
   &__quantity {
     @include font($text-s-xsm, 20px, $font-semibold, $white, $align: center);
@@ -41,7 +66,7 @@ $text-s-timstamp: 0.625rem;
     background-color: $primary-color;
   }
 
-  &__call {
+  &__history {
     @include font($text-s-sm, 1.5, $font-semibold);
     &--incoming {
       color: $green;

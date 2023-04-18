@@ -1,6 +1,6 @@
-import SearchForm from '@components/Form/SearchForm';
 import React from 'react';
 import './SideBar.scss';
+import SearchForm from '@components/Form/SearchForm';
 
 interface Props {
   children: React.ReactNode

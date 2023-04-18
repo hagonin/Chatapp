@@ -1,3 +1,4 @@
+import { imgs } from '@utils/constants';
 import React from 'react';
 
 export interface UserStateType {
@@ -7,6 +8,8 @@ export interface UserStateType {
   first_name?: string;
   avatar?: string;
   email: string;
+  about: string;
+  phone: string;
 }
 
 interface AuthContextType {
@@ -17,11 +20,13 @@ interface AuthContextType {
 const AuthDefaultState = {
   user: {
     id: 1,
-    username: 'UserA',
-    last_name: '',
-    first_name: '',
-    avatar: '',
+    username: 'David',
+    last_name: 'John',
+    first_name: 'Somi',
+    avatar: imgs.user,
     email: 'userA@gmail.com',
+    about: 'Hello i am newer',
+    phone: '123456'
   },
   setUser: () => {},
 };

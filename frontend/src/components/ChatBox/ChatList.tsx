@@ -10,6 +10,7 @@ const ChatList: React.FC<Props> = ({ list }) => (
     {list.length > 0
       ? list.map(item => (
           <MessageCard
+            id={item.id}
             message={item.message}
             timestamp={item.timestamp}
             type={item.type}

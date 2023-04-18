@@ -44,6 +44,7 @@ import navigateUser from '@assets/icons/navigate_user.svg';
 import navigateMesage from '@assets/icons/navigate_message.svg';
 import navigateMissedPhone from '@assets/icons/navigate_phone.svg';
 import navigateSetting from '@assets/icons/navigate_setting.svg';
+import chat from '@assets/images/chat.png';
 
 // import messageSendIcon from '@assets/icons/message_send.svg';
 
@@ -73,6 +74,7 @@ export const imgs = {
   changePassword: change_password,
   messageCardIconWhite: message_card_icon_white,
   messageCardIconBlue: message_card_icon_blue,
+  chat: chat
 };
 
 export const icons = {
