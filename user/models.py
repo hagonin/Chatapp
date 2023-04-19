@@ -1,111 +1,75 @@
-import datetime
 from django.db import models
-from django.core.exceptions import ValidationError
-from django.utils import timezone
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.utils.translation import gettext as _
-from django.conf import settings
-from django.contrib.auth import get_user_model
-from django.utils.crypto import get_random_string
-from phonenumber_field.modelfields import PhoneNumberField
-from rest_framework.exceptions import NotAcceptable
+from firebase_admin import auth
 from cloudinary.models import CloudinaryField
-from twilio.rest import Client
-from twilio.base.exceptions import TwilioRestException
 
 
-User = get_user_model()
+class CustomUserManager(BaseUserManager):
+    def create_user(self, email=None, phone_number=None, password=None, **extra_fields):
+        if not email and not phone_number:
+            raise ValueError('The Email or Phone number must be set')
+
+        if email:
+            email = self.normalize_email(email)
+
+        user = self.model(
+            email=email,
+            phone_number=phone_number,
+            **extra_fields
+        )
+        # Integrate Firebase authentication 
+        if email:
+            firebase_user = auth.create_user(email=email, password=password)
+            user.username = firebase_user.uid
+        else:
+            firebase_user = auth.create_user(
+                phone_number=phone_number, password=password)
+            user.username = firebase_user.uid
+
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, email=None, phone_number=None, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+        return self.create_user(email, phone_number, password, **extra_fields)
+    
+
+class CustomUser(AbstractBaseUser, PermissionsMixin):
+    email = models.EmailField(unique=True, null=True, blank=True)
+    phone_number = models.CharField(
+        max_length=15, unique=True, null=True, blank=True)
+    username = models.CharField(
+        max_length=128, unique=True, null=True)  
+    password = models.CharField(max_length=128)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+
+    objects = CustomUserManager()
+
+    USERNAME_FIELD = 'email'
+    EMAIL_FIELD = 'email'
+    REQUIRED_FIELDS = ['phone_number']
+
+    def __str__(self):
+        if self.email:
+            return self.email
+        return self.phone_number
 
 
-class PhoneNumber(models.Model):
-    user = models.OneToOneField(
-        User, related_name='phone', on_delete=models.CASCADE)
-    phone_number = PhoneNumberField(unique=True)
-    security_code = models.CharField(max_length=120)
-    is_verified = models.BooleanField(default=False)
-    sent = models.DateTimeField(null=True)
-
+class Profile(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    avatar = CloudinaryField('image', null=True, blank=True)
+    bio = models.TextField(max_length=220,null=True, blank=True)
+    last_seen = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    class Meta:
-        ordering = ('-created_at', )
-
     def __str__(self):
-        return self.phone_number.as_e164
-    
-    def validate_phone_number(phone_number):
-        if not phone_number.is_valid():
-            raise ValidationError(
-                _('%(value)s is not a valid phone number'),
-                params={'value': phone_number},
-            )
-
-    def generate_security_code(self):
-        """
-        Returns a unique random `security_code` for given `TOKEN_LENGTH` in the settings.
-        Default token length = 6
-        """
-        token_length = getattr(settings, "TOKEN_LENGTH", 6)
-        return get_random_string(token_length, allowed_chars="0123456789")
-
-    def is_security_code_expired(self):
-        expiration_date = self.sent + datetime.timedelta(
-            minutes=settings.TOKEN_EXPIRE_MINUTES
-        )
-        return expiration_date <= timezone.now()
-
-    def send_confirmation(self):
-        twilio_account_sid = settings.TWILIO_ACCOUNT_SID
-        twilio_auth_token = settings.TWILIO_AUTH_TOKEN
-        twilio_phone_number = settings.TWILIO_PHONE_NUMBER
-
-        self.security_code = self.generate_security_code()
-
-        if all(
-            [
-                twilio_account_sid,
-                twilio_auth_token,
-                twilio_phone_number
-            ]
-        ):
-            try:
-                twilio_client = Client(
-                    twilio_account_sid, twilio_auth_token
-                )
-                twilio_client.messages.create(
-                    body=f'Your activation code is {self.security_code}',
-                    to=str(self.phone_number),
-                    from_=twilio_phone_number,
-                )
-                self.sent = timezone.now()
-                self.save()
-                return True
-            except TwilioRestException as e:
-                print(e)
-        else:
-            print("Twilio credentials are not set")
-
-    def check_verification(self, security_code):
-        if (
-            not self.is_security_code_expired() and
-            security_code == self.security_code and
-            self.is_verified == False
-        ):
-            self.is_verified = True
-            self.save()
-        else:
-            raise NotAcceptable(
-                _("Your security code is wrong, expired or this phone is verified before."))
-
-        return self.is_verified
-
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = CloudinaryField('image', null=True, blank=True)
-    aboutMe = models.TextField(null=True, blank=True)
-    phone_number = models.ForeignKey(PhoneNumber, on_delete=models.CASCADE, null=True, blank=True)
-
-    def __str__(self):
-        return self.user.username
+        return f'{self.user} - Profile'
 
 

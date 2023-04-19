@@ -27,8 +27,20 @@ CLOUDINARY_STORAGE = {
     'API_KEY': config('CLOUD_API_KEY'),
     'API_SECRET': config('CLOUD_API_SECRET')
 }
-# Application definition
+# Firebase config
+FIREBASE_ACCOUNT_TYPE = config('FIREBASE_ACCOUNT_TYPE')
+FIREBASE_PROJECT_ID = config('FIREBASE_PROJECT_ID')
+FIREBASE_PRIVATE_KEY_ID = config('FIREBASE_PRIVATE_KEY_ID')
+FIREBASE_PRIVATE_KEY = config('FIREBASE_PRIVATE_KEY')
+FIREBASE_CLIENT_EMAIL = config('FIREBASE_CLIENT_EMAIL')
+FIREBASE_CLIENT_ID = config('FIREBASE_CLIENT_ID')
+FIREBASE_AUTH_URI = config('FIREBASE_AUTH_URI')
+FIREBASE_TOKEN_URI = config('FIREBASE_TOKEN_URI')
+FIREBASE_AUTH_PROVIDER_X509_CERT_URL = config(
+    'FIREBASE_AUTH_PROVIDER_X509_CERT_URL')
+FIREBASE_CLIENT_X509_CERT_URL = config('FIREBASE_CLIENT_X509_CERT_URL')
 
+# Application definition
 INSTALLED_APPS = [
     # 'channels',
     'django.contrib.admin',
@@ -44,17 +56,6 @@ INSTALLED_APPS = [
     'django_filters',
     'cloudinary',
     'rest_framework.authtoken',
-    'dj_rest_auth',
-
-    'allauth',
-    'allauth.account',
-    'dj_rest_auth.registration',
-    'allauth.socialaccount',
-
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.twitter',
-    'allauth.socialaccount.providers.google',
-    'phonenumber_field',
 
     # local apps
     'user',
@@ -103,7 +104,8 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 db_config = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
-DATABASES = {'default': db_config if db_config else dj_database_url.config(default=config('DEVELOPMENT_DATABASE_URL'))}
+DATABASES = {'default': db_config if db_config else dj_database_url.config(
+    default=config('DEVELOPMENT_DATABASE_URL'))}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -137,12 +139,10 @@ USE_TZ = True
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.IsAuthenticated',
     ],
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-    'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
-    )
 }
 
 SPECTACULAR_SETTINGS = {
@@ -165,21 +165,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-
-# Phone number field
-PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
-
-# Token length for OTP
-TOKEN_LENGTH = 6
-
-# twilio
-TWILIO_ACCOUNT_SID = config('TWILIO_ACCOUNT_SID')
-TWILIO_AUTH_TOKEN = config('TWILIO_AUTH_TOKEN')
-TWILIO_PHONE_NUMBER = config('TWILIO_PHONE_NUMBER')
+AUTH_USER_MODEL = 'user.CustomUser'

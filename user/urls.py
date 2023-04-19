@@ -1,27 +1,12 @@
-from django.urls import path
-
-from .views import (
-    SendOrResendSMSAPIView,
-    UserLoginAPIView,
-    UserRegisterationAPIView,
-    VerifyPhoneNumberAPIView,
-)
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import UserViewSet
 
 app_name = 'user'
 
+router = DefaultRouter()
+router.register(r'users', UserViewSet, basename='user')
+
 urlpatterns = [
-
-    path('register/', UserRegisterationAPIView.as_view(), name='user_register'),
-    path('login/', UserLoginAPIView.as_view(), name='user_login'),
-
-    path(
-        'send-sms/',
-        SendOrResendSMSAPIView.as_view(),
-        name='send_resend_sms'
-    ),
-    path(
-        'verify-phone/',
-        VerifyPhoneNumberAPIView.as_view(),
-        name='verify_phone_number'
-    ),
+    path('', include(router.urls)),
 ]

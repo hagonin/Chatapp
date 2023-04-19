@@ -18,3 +18,8 @@ class InvalidCredentialsException(APIException):
     status_code = 401
     default_detail = _('Wrong username or password.')
     default_code = 'invalid-credentials'
+
+class FirebaseError(APIException):
+    status_code = 500
+    default_detail = _('The user provided with the auth token is not a valid Firebase user,no UID.')
+    default_code = 'no_firebase_uid'
