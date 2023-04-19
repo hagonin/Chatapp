@@ -5,56 +5,22 @@ $height-header: 50px;
   &__wrapper {
     min-height: $height-screen;
     @include flex($direction: column);
+    background: $third-color;
   }
 
   &__header {
-    @include text-md;
+    @include font($text-s-lg, $height-header, $font-bold);
     background-color: $primary-color;
     height: $height-header;
     color: $white;
+    padding: 0px 20px;
   }
 
   &__body {
-    background-color: rgba($primary-color, 0.1);
     height: calc($height-screen - $height-header);
     @include flex;
-  }
-
-  
-
-  &__main {
-    flex: 1;
-    @include flex($direction: column);
-    position: relative;
-
-    &-header {
-      background-color: $white;
-      padding: 10px 20px;
-      border-bottom: 1px solid rgba($grey, 0.3);
-    }
-    &-container {
-      padding: 10px 25px;
-      flex: 1;
-      overflow-y: auto;
-    }
-
-    &-footer {
-    }
-
-    &-message {
-      padding: 10px 20px;
-    }
-
-    &-img-wrapper {
-      @include position(absolute, 0);
-      @include flex($both: center);
-      @include flex($direction: column);
-      & img {
-        @include size(80px);
-      }
-      & p {
-        margin-top: 8px;
-      }
+    @include MOBILE {
+      @include flex(block);
     }
   }
 }

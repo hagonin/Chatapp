@@ -1,15 +1,27 @@
 @import 'styles/base';
-$text-s-message: 0.84rem;
-
+$text-s-message: 0.85rem;
+$text-s-message-mobile: 0.93rem;
+$spacing: 30px;
 .userCard {
   user-select: none;
   border-radius: 4px;
   transition: all linear 100ms;
   @include size($h: 70px, $w: $full);
-  @include flex($alignItems: center, $gap: 10px);
+  @include flex($alignItems: center, $gap: 16px);
   margin-top: 5px;
-  padding: 10px 20px;
+  padding: 0px 20px;
 
+  @include MOBILE {
+    @include size($h: 75px, $w: $full);
+    margin-top: 0px;
+    border-bottom: 1px solid rgba($grey, 0.4);
+    border-radius: unset;
+    padding: 0px 10px;
+
+    &:first-child {
+      margin-top: 10px;
+    }
+  }
   &:hover {
     background-color: rgba($primary-color, 0.07);
   }
@@ -17,11 +29,17 @@ $text-s-message: 0.84rem;
   &--active {
     &:hover {
       background-color: rgba($primary-color, 0.2);
+      @include MOBILE {
+        background-color: rgba($primary-color, 0.07);
+      }
     }
   }
 
   &--active {
     background-color: rgba($primary-color, 0.15);
+    @include MOBILE {
+      background-color: unset;
+    }
   }
 
   &--click {
@@ -45,15 +63,43 @@ $text-s-message: 0.84rem;
 
   &__name {
     @include font($text-s-sm, 1.5, $font-bold);
+    @include MOBILE {
+      font-size: $text-s-md;
+    }
+
+    &-wrapper {
+      @include MOBILE {
+        @include flex($justifyContent: space-between, $alignItems: center);
+      }
+    }
   }
   &__message {
-    @include font($text-s-message, 1.2, $font-normal);
+    @include font($text-s-message, 1.5, $font-normal);
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    max-width: 75%;
+    @include MOBILE {
+      font-size: $text-s-message-mobile;
+    }
+
+    &-wrapper {
+      @include flex($justifyContent: space-between, $alignItems: center);
+    }
   }
   &__message-timestamp {
     @include font($text-s-xsm, 1.5, $font-light);
+    @include MOBILE {
+      display: none;
+      font-size: $text-s-sm;
+    }
+
+    &--mobile {
+      display: none;
+      @include MOBILE {
+        display: block;
+      }
+    }
   }
 
   &__timestamp {
@@ -68,6 +114,7 @@ $text-s-message: 0.84rem;
 
   &__history {
     @include font($text-s-sm, 1.5, $font-semibold);
+
     &--incoming {
       color: $green;
     }
@@ -79,8 +126,12 @@ $text-s-message: 0.84rem;
     }
   }
   &__status {
-    @include size(20px);
+    @include size(18px);
     @include font($text-s-xsm, 20px, $font-semibold, $white, $align: center);
+    & img {
+      @include size;
+    }
+   
   }
 
   &--online &__avatar,

@@ -9,7 +9,7 @@ const ChatListPage: React.FC = () => {
       <SidebarLeft>
         <ChatList />
       </SidebarLeft>
-      <Main title="Choosing a message to continue talking..." />
+      <Main title="Choosing a message to continue talking..." hideOnMobile />
     </>
   );
 };

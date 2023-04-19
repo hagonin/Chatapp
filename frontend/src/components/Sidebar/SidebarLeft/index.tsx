@@ -3,11 +3,12 @@ import '../SideBar.scss';
 import SearchForm from '@components/Form/SearchForm';
 
 interface Props {
-  children: React.ReactNode
+  children: React.ReactNode;
+  hideOnMobile?: true;
 }
-const SidebarLeft: React.FC<Props> = ({children}) => {
+const SidebarLeft: React.FC<Props> = ({ children, hideOnMobile }) => {
   return (
-    <div className="sideBar__left">
+    <div className={`sideBar__left ${hideOnMobile ? 'hideOnMobile' : ''}`}>
       <div className="sideBar__search">
         <SearchForm />
       </div>

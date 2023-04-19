@@ -8,9 +8,7 @@ $bg-navigate: #f8f8f8;
   background: $bg-navigate;
 
   @include MOBILE {
-    @include position(fixed, $bottom: 0, $left: 0, $right: 0);
-    @include size($w: $full, $h: 70px);
-    @include flex($justifyContent: space-around);
+    display: none;
   }
 
   &__item {
@@ -52,6 +50,31 @@ $bg-navigate: #f8f8f8;
   &__setting-btn {
     @include XLARGE-PC {
       display: none;
+    }
+  }
+
+  &-mobile {
+    display: none;
+    @include MOBILE {
+      @include flex($justifyContent: space-around);
+    }
+    @include position(
+      fixed,
+      $bottom: 0,
+      $left: 0,
+      $right: 0,
+      $zIndex: $zIndex-navigate
+    );
+    @include size($w: $full, $h: 70px);
+
+    &__item {
+      @include flex($direction: column,$both: center, $gap:2px);
+      flex:1;
+      @include text-sm;
+      & img {
+        @include size(20px);
+      }
+
     }
   }
 }

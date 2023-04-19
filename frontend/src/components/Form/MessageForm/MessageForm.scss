@@ -5,11 +5,18 @@
   background-color: $white;
   @include flex;
   padding: 0px 15px;
+  border-top: 1px solid rgba($grey, 0.3);
 
+  @include MOBILE {
+    height: 50px;
+  }
   & input {
     @include text-sm;
     flex: 1;
     padding-right: 15px;
+    @include MOBILE {
+      @include text-md;
+    }
   }
 
   & button img {

@@ -13,18 +13,17 @@
   &__about {
     @include font($text-s-sm, $align: left);
     background: rgba($grey, 0.15);
-    margin-top: 30px;
     padding-top: 10px;
     padding-bottom: 10px;
   }
 
   &__btn-edit {
-    @include size(20px);
-    @include flex($both: center, $gap: 10px);
+    @include flex($both: center, $gap: 6px);
     margin: 10px auto 0px;
     white-space: nowrap;
-    @include font($text-s-md, 1, $font-semibold);
+    @include font($text-s-sm, 1, $font-semibold);
     & img {
+      @include size(20px);
       @include position($top: -1px);
     }
 

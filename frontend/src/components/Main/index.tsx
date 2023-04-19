@@ -1,14 +1,17 @@
 import React from 'react';
 import { imgs } from '@utils/constants';
+import './Main.scss';
 
-const Main: React.FC<{ children?: React.ReactNode; title?: string }> = ({
-  children,
-  title,
-}) => {
+interface Props {
+  children?: React.ReactNode;
+  title?: string;
+  hideOnMobile?: true;
+}
+const Main: React.FC<Props> = ({ children, title, hideOnMobile }) => {
   return (
-    <div className="rootLayout__main">
+    <div className={`main ${hideOnMobile ? 'hideOnMobile' : ''}`}>
       {children || (
-        <div className="rootLayout__main-img-wrapper">
+        <div className="main__img-wrapper">
           <img src={imgs.chat} alt="chat" />
           {title && <p>{title}</p>}
         </div>

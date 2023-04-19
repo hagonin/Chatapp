@@ -28,7 +28,7 @@ const CallHistory: React.FC = () => (
         <span>Have no any conversation</span>
       )}
     </SidebarLeft>
-    <Main />
+    <Main hideOnMobile />
   </>
 );
 

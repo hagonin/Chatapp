@@ -22,6 +22,7 @@ import reset_password from '@assets/images/reset_password.jpg';
 import change_password from '@assets/images/change_password.jpg';
 import message_card_icon_white from '@assets/icons/message_card_icon_white.svg';
 import message_card_icon_blue from '@assets/icons/message_card_icon_blue.svg';
+import chat from '@assets/images/chat.png';
 
 // icons
 import profile from '@assets/icons/profile_icon.svg';
@@ -44,8 +45,11 @@ import navigateUser from '@assets/icons/navigate_user.svg';
 import navigateMesage from '@assets/icons/navigate_message.svg';
 import navigateMissedPhone from '@assets/icons/navigate_phone.svg';
 import navigateSetting from '@assets/icons/navigate_setting.svg';
-import chat from '@assets/images/chat.png';
-
+import leftArrow from '@assets/icons/left-arrow.svg';
+import navigateUserMobile from '@assets/icons/Navigate/mobile/navigate_mobile_profile.svg';
+import navigatePhoneMobile from '@assets/icons/Navigate/mobile/navigate_mobile_phone.svg';
+import navigateMessageMobile from '@assets/icons/Navigate/mobile/navigate_mobile_message.svg';
+import navigateSettingMobile from '@assets/icons/Navigate/mobile/navigate_mobile_setting.svg';
 // import messageSendIcon from '@assets/icons/message_send.svg';
 
 
@@ -97,6 +101,11 @@ export const icons = {
   navigateUser: navigateUser,
   navigateMesage: navigateMesage,
   navigateMissedPhone: navigateMissedPhone,
-  navigateSetting: navigateSetting
+  navigateSetting: navigateSetting,
+  leftArrow: leftArrow,
+  navigateUserMobile: navigateUserMobile,
+  navigatePhoneMobile: navigatePhoneMobile,
+  navigateMessageMobile: navigateMessageMobile,
+  navigateSettingMobile: navigateSettingMobile
 
 }

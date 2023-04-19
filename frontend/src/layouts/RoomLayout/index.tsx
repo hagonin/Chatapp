@@ -7,7 +7,7 @@ import ChatList from '@components/ChatList';
 const RoomLayout = () => {
   return (
     <>
-      <SidebarLeft>
+      <SidebarLeft hideOnMobile={true}>
         <ChatList />
       </SidebarLeft>
       <Outlet />

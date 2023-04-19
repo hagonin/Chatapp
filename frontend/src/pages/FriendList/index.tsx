@@ -24,7 +24,7 @@ const FriendList: React.FC = () => (
         <span>Have no any conversation</span>
       )}
     </SidebarLeft>
-    <Main title="Choosing a contact and make a call" />
+    <Main title="Choosing a contact and make a call" hideOnMobile />
   </>
 );
 
