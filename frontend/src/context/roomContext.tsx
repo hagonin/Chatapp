@@ -28,6 +28,7 @@ const RoomProvider: React.FC<RoomProviderProps> = ({ children }) => {
     //  first get partner info including id
     //  using partner id, call api get chatlist
     setUser({ ...user, messageList: chatlist01 });
+    
   };
   return (
     <RoomContext.Provider value={{ user: user, setUser: setNewUser }}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './SideBar.scss';
+import '../SideBar.scss';
 import { icons, imgs } from '@utils/constants';
 import { OptionCard, UserInfoCard } from '@components/Common';
 import Profile from '@components/Profile';

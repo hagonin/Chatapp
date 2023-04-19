@@ -6,7 +6,7 @@ import RootLayout from '@layouts/RootLayout';
 import {
   CallHistory,
   ChangePassword,
-  ChatList,
+  ChatRoom,
   FriendList,
   Home,
   Login,
@@ -15,6 +15,8 @@ import {
 } from '@pages';
 import AuthProvider from '@context/authContext';
 import RoomProvider from '@context/roomContext';
+import RoomLayout from '@layouts/RoomLayout';
+import ChatListPage from '@pages/ChatListPage';
 
 const router = createBrowserRouter([
   {
@@ -43,14 +45,13 @@ const router = createBrowserRouter([
       },
     ],
   },
-
   {
     path: '/chatroom',
     element: <RootLayout />,
     children: [
       {
         path: 'chat-list',
-        element: <ChatList />,
+        element: <ChatListPage />,
       },
       {
         path: 'call-history',
@@ -59,6 +60,16 @@ const router = createBrowserRouter([
       {
         path: 'friend-list',
         element: <FriendList />,
+      },
+      {
+        path: 'chat-list',
+        element: <RoomLayout />,
+        children: [
+          {
+            path: ':id',
+            element: <ChatRoom />,
+          },
+        ],
       },
     ],
   },

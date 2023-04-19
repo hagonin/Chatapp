@@ -1,7 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ChatItem.scss';
-import { imgs } from '@utils/constants';
 import { Props } from './type';
+import { imgs } from '@utils/constants';
 
 const ChatItem: React.FC<Props> = ({
   id,
@@ -13,6 +14,7 @@ const ChatItem: React.FC<Props> = ({
   call,
   history,
 }) => {
+  const navigate = useNavigate();
   return (
     <div
       className={`userCard ${
@@ -30,6 +32,7 @@ const ChatItem: React.FC<Props> = ({
                 messageList: [],
                 avatar: avatar,
               });
+              navigate(`/chatroom/chat-list/${id}`);
             }
           : () => {}
       }
