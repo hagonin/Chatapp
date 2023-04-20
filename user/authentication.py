@@ -1,6 +1,6 @@
-from rest_framework.authentication import BaseAuthentication
-from user import exceptions
 import firebase_admin
+from user import exceptions
+from rest_framework.authentication import BaseAuthentication
 from firebase_admin import credentials, auth
 from django.conf import settings
 
@@ -24,7 +24,7 @@ default_app = firebase_admin.initialize_app(cred)
 """FIREBASE AUTHENTICATION"""
 
 class FirebaseAuthenticationBackend(BaseAuthentication):
-    """Override authenticate method and write our custom firebase authentication."""
+    """Override authenticate method and write custom firebase authentication"""
     
     def authenticate(self, request):
         # get the authentication token
@@ -38,7 +38,8 @@ class FirebaseAuthenticationBackend(BaseAuthentication):
         try:
             decoded_token = auth.verify_id_token(id_token)
         except Exception :
-            raise exceptions.InvalidAuthToken("Invalid auth token provided")
+            raise exceptions.NoAuthToken(
+                "Invalid auth token provided")
         
         # return nothing 
         if not id_token or not decoded_token:
