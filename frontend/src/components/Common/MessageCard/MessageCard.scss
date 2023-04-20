@@ -1,29 +1,45 @@
 @import 'styles/base';
 $message-color: #d1f2ff;
 $font-timestamp: 0.7rem;
+$font-timestamp-mobile: 0.7rem;
 
 .messageCard {
   &-wrapper {
     @include flex;
+    margin-top: 10px;
+    &:first-child {
+      margin-top: 0px;
+    }
     &--right {
       justify-content: end;
     }
   }
 
   display: inline-block;
-  padding: 5px 15px 20px 15px;
+  padding: 2px 15px 25px 15px;
   max-width: 60%;
   border-radius: 5px;
+
   @include position;
+  @include MOBILE {
+    padding-top: 6px;
+  }
 
   &__message {
     @include text-sm;
+    @include MOBILE {
+      @include font($text-s-md, 1.2);
+      display: block;
+    }
   }
 
   &__timestamp {
-    @include position(absolute, $bottom: 10px, $right: 10px, $zIndex: 1);
-    @include font($font-timestamp);
+    @include position(absolute, $bottom: 8px, $right: 10px, $zIndex: 1);
+    @include font($font-timestamp, 1, $font-light);
     @include flex($gap: 4px);
+    @include MOBILE {
+      font-size: $text-s-sm;
+    }
   }
 
   &__img {

@@ -2,12 +2,14 @@ import React from 'react';
 import { imgs } from '@utils/constants';
 import './MessageCard.scss';
 
-interface Props {
+export interface Props {
+  id:number,
   message: string;
   timestamp: string;
   type: 'user' | 'partner';
   status?: 'sent' | 'delivered' | 'read';
 }
+
 const MessageCard: React.FC<Props> = ({ message, timestamp, type, status }) => (
   <div
     className={`messageCard-wrapper ${

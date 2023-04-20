@@ -1,8 +1,8 @@
 @import 'styles/base';
 
 .optionCard {
-  @include flex($alignItems: center, $gap: 16px);
-  padding: 8px 30px;
+  @include flex($alignItems: center, $gap: 12px);
+  padding: 8px 20px;
   margin-top: 8px;
   width: $full;
   transition: all linear 100ms;
@@ -15,7 +15,7 @@
     border-radius: 5px;
     padding-left: 20px;
     background-color: rgba($grey, 0.15);
-    gap:12px;
+    gap: 12px;
     &:hover,
     &--active {
       background-color: rgba($grey, 0.3);
@@ -26,8 +26,9 @@
     margin-top: 0px;
   }
   &__icon {
-    @include size(40px);
+    @include size(30px);
     & img {
+      @include size;
     }
   }
   &__label {

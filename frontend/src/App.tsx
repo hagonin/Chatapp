@@ -4,13 +4,19 @@ import AuthenLayout from '@layouts/AuthenLayout';
 import RootLayout from '@layouts/RootLayout';
 
 import {
+  CallHistory,
   ChangePassword,
   ChatRoom,
+  FriendList,
   Home,
   Login,
   ResetPassword,
   Signup,
 } from '@pages';
+import AuthProvider from '@context/authContext';
+import RoomProvider from '@context/roomContext';
+import RoomLayout from '@layouts/RoomLayout';
+import ChatListPage from '@pages/ChatListPage';
 
 const router = createBrowserRouter([
   {
@@ -39,21 +45,44 @@ const router = createBrowserRouter([
       },
     ],
   },
-
   {
     path: '/chatroom',
     element: <RootLayout />,
     children: [
       {
-        path: '',
-        element: <ChatRoom />,
+        path: 'chat-list',
+        element: <ChatListPage />,
+      },
+      {
+        path: 'call-history',
+        element: <CallHistory />,
+      },
+      {
+        path: 'friend-list',
+        element: <FriendList />,
+      },
+      {
+        path: 'chat-list',
+        element: <RoomLayout />,
+        children: [
+          {
+            path: ':id',
+            element: <ChatRoom />,
+          },
+        ],
       },
     ],
   },
 ]);
 
 const App: React.FC = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <AuthProvider>
+      <RoomProvider>
+        <RouterProvider router={router} />
+      </RoomProvider>
+    </AuthProvider>
+  );
 };
 
 export default App;

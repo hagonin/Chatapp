@@ -1,6 +1,6 @@
 @import 'styles/base';
 
-.userCardInfo {
+.item {
   @include flex($alignItems: center, $gap: 16px);
   margin-top: 16px;
 

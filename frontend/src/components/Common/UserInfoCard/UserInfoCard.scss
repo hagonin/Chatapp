@@ -1,0 +1,29 @@
+@import 'styles/base';
+
+.userAreaCard {
+  @include flex($alignItems: center, $gap: 16px);
+  user-select: none;
+  &__avatar {
+    @include size(60px);
+    border-radius: $full;
+    overflow: hidden;
+    & img {
+      @include size;
+      object-fit: cover;
+    }
+
+    &--small {
+      @include size(60px);
+    }
+  }
+
+  &__content {
+  }
+  &__subtitle {
+    display: block;
+    @include font($text-s-sm, 1.2, $color: $grey);
+    &:last-child {
+      color: $black;
+    }
+  }
+}

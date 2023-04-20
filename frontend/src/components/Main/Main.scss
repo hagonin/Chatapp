@@ -1,0 +1,65 @@
+@import 'styles/base';
+
+.main {
+  flex: 1;
+  @include flex($direction: column);
+  position: relative;
+
+  @include MOBILE {
+    @include position(fixed, $bottom: 0, $left: 0, $right: 0, $zIndex: $zIndex-main);
+    @include size;
+  }
+
+  &__header {
+    background-color: $white;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba($grey, 0.3);
+
+    @include flex($alignItems: center, $gap: 10px);
+    @include MOBILE {
+      border-bottom-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+  }
+
+  &__btn-arrow {
+    @include size(25px);
+    display: none;
+    & img {
+      @include size;
+    }
+
+    @include MOBILE {
+      display: block;
+    }
+  }
+
+  &__container {
+    padding: 10px 25px;
+    flex: 1;
+    overflow-y: auto;
+    background-color: $primary-color;
+    @include MOBILE {
+      background-color: $third-color;
+    }
+  }
+
+  &__footer {
+  }
+
+  &__message {
+    padding: 10px 20px;
+  }
+
+  &__img-wrapper {
+    @include position(absolute, 0);
+    @include flex($both: center);
+    @include flex($direction: column);
+    & img {
+      @include size(80px);
+    }
+    & p {
+      margin-top: 8px;
+    }
+  }
+}

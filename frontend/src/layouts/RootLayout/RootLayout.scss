@@ -1,13 +1,26 @@
 @import 'styles/base';
+$height-header: 50px;
 
 .rootLayout {
   &__wrapper {
     min-height: $height-screen;
     @include flex($direction: column);
+    background: $third-color;
   }
 
   &__header {
-    border: 1px solid $grey;
-    padding: 10px 20px;
+    @include font($text-s-lg, $height-header, $font-bold);
+    background-color: $primary-color;
+    height: $height-header;
+    color: $white;
+    padding: 0px 20px;
+  }
+
+  &__body {
+    height: calc($height-screen - $height-header);
+    @include flex;
+    @include MOBILE {
+      @include flex(block);
+    }
   }
 }
