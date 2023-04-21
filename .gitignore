@@ -31,7 +31,6 @@ __pycache__/
 # Django
 db.sqlite3
 .env
-core/static
 core/media
 */settings/dev.py
 /staticfiles/*
