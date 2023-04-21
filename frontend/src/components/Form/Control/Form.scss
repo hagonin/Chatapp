@@ -37,20 +37,11 @@ $text-label: 0.93rem;
     }
 
     &-phone {
-      padding-left: calc($pad/2);
-      @include text-md;
-
-      &-label {
-        line-height: calc($btnHeight - 3px);
-        padding-right: calc($pad/2);
-        position: relative;
-        &:after {
-          content: '';
-          @include position(absolute, $top: $half, $right: 0, $y: -50%);
-          height: 50%;
-          border: 1px solid $grey;
-        }
-      }
+      padding-left: 30px !important;
+      border: none !important;
+      width: $full!important;
+      height: $full!important;
+      font-size: $text-s-md!important;
     }
 
     &-checkbox {
