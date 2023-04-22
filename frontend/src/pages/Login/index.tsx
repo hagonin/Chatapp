@@ -45,7 +45,7 @@ const Login: React.FC = () => {
 
   return (
     <>
-      <div>
+      <div className="authenLayout__header">
         <h1 className="authenLayout__title">
           <Link to="/" className="authenLayout__title-logo">
             Talkie
@@ -55,6 +55,12 @@ const Login: React.FC = () => {
         <img src={imgs.signin} alt="signin" className="authenLayout__img" />
       </div>
       <div className="authenLayout-form login">
+        <h1 className="authenLayout__title">
+          <Link to="/" className="authenLayout__title-logo">
+            Talkie
+          </Link>
+          -Welcome Back
+        </h1>
         <button className="form__type-login-btn" onClick={handleChangeForm}>
           {`Sign in with ${showLoginWithPhoneForm ? 'email' : 'mobile phone'}`}
         </button>

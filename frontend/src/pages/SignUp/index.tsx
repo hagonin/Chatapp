@@ -19,7 +19,6 @@ import {
   TextField,
 } from '@components/Form/Control';
 
-
 const Signup: React.FC = () => {
   const [showSignUpByPhoneForm, setShowSignUpByPhoneForm] =
     React.useState(false);
@@ -56,6 +55,12 @@ const Signup: React.FC = () => {
   return (
     <>
       <div className="authenLayout-form signup">
+        <h1 className="authenLayout__title">
+          <Link to="/" className="authenLayout__title-logo">
+            Talkie
+          </Link>
+          -Create account
+        </h1>
         <button className="form__type-login-btn" onClick={handleChangeForm}>
           {`Sign up with ${showSignUpByPhoneForm ? 'email' : 'mobile phone'}`}
         </button>
@@ -116,7 +121,7 @@ const Signup: React.FC = () => {
           </span>
         </Form>
       </div>
-      <div>
+      <div className="authenLayout__header">
         <h1 className="authenLayout__title">
           <Link to="/" className="authenLayout__title-logo">
             Talkie

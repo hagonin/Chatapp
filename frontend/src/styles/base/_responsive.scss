@@ -5,12 +5,18 @@ $lg-pc-width: 1280px;
 $xlg-pc-width: 1400px;
 
 @mixin MOBILE {
-  @media (max-width: $tablet-width) {
+  @media (max-width: calc($tablet-width - 1px)) {
     @content;
   }
 }
 @mixin TABLET {
   @media ((min-width: $tablet-width) and (max-width:$pc-width)) {
+    @content;
+  }
+}
+
+@mixin MOBBILE_TABLET {
+  @media (max-width: $pc-width) {
     @content;
   }
 }

@@ -21,6 +21,7 @@ $text-s-md: 1rem; //16px
 $text-s-lg: 1.125rem; //18px
 $text-s-xl: 1.25rem; //20px
 $text-s-2xl: 1.5rem; //24px
+$text-s-3xl: 1.8rem;
 
 
 @mixin text-xsm() {
@@ -32,11 +33,11 @@ $text-s-2xl: 1.5rem; //24px
 }
 
 @mixin text-md {
-    @include font($text-s-md, 1.5rem) 
+    @include font($text-s-md, 1.2) 
 }
 
 @mixin text-lg {
-    @include font($text-s-lg, 1.75rem) 
+    @include font($text-s-lg, 1.75) 
 }
 
 @mixin text-xl {
@@ -45,4 +46,8 @@ $text-s-2xl: 1.5rem; //24px
 
 @mixin text-2xl {
     @include font( $text-s-2xl, 1.5) 
+}
+
+@mixin text-3xl {
+    @include font( $text-s-3xl, 1.5) 
 }
