@@ -2,7 +2,7 @@
 
 $item-size-on-mobile: $full;
 $item-size-on-tablet: 70%;
-$item-size-on-pc: 90%;
+$item-size-on-pc: 80%;
 $item-size-on-pc-lg: 80%;
 
 .home {
@@ -94,7 +94,7 @@ $item-size-on-pc-lg: 80%;
       @include MOBBILE_TABLET {
         order: -1;
         align-self: center;
-        padding: 0px 20px 0px;
+        padding: 30px 20px 30px;
       }
     }
     &__item {

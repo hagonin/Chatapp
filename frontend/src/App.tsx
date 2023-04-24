@@ -1,5 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import AuthenLayout from '@layouts/AuthenLayout';
 import RootLayout from '@layouts/RootLayout';
 
@@ -79,6 +80,7 @@ const App: React.FC = () => {
   return (
     <AuthProvider>
       <RoomProvider>
+        <Toaster position="top-right" gutter={8} />
         <RouterProvider router={router} />
       </RoomProvider>
     </AuthProvider>

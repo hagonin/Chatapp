@@ -13,24 +13,28 @@ const PhoneField: React.FC<InputProps> = ({
   onChange,
   onBlur,
   values,
-}) => (
-  <label htmlFor={name} className="form__label">
-    {label}
-    <PhoneInput
-      containerClass={`form__input ${errorMessage ? 'form__input--error' : ''}`}
-      inputClass="form__input-phone"
-      buttonClass="form__input-phone-btn"
-      inputProps={{
-        name: name,
-      }}
-      country={'us'}
-      value={values[name] as string}
-      onChange={(phone, country, e) => onChange?.(e)}
-      masks={{ vn: '...-...-...' }}
-      countryCodeEditable={false}
-    />
-    {errorMessage && <ErrorField message={errorMessage} />}
-  </label>
-);
+}) => {
+  return (
+    <label htmlFor={name} className="form__label">
+      {label}
+      <PhoneInput
+        containerClass={`form__input ${
+          errorMessage ? 'form__input--error' : ''
+        }`}
+        inputClass="form__input-phone"
+        buttonClass="form__input-phone-btn"
+        inputProps={{
+          name: name,
+        }}
+        country={'us'}
+        value={values[name] as string}
+        onChange={(phone, country, e) => onChange?.(e)}
+        masks={{ vn: '...-...-...' }}
+        countryCodeEditable={false}
+      />
+      {errorMessage && <ErrorField message={errorMessage} />}
+    </label>
+  );
+};
 
 export default PhoneField;

@@ -109,3 +109,5 @@ export const icons = {
   navigateSettingMobile: navigateSettingMobile
 
 }
+
+export const ENDPOINT_REGISTER = 'https://talkie-api.up.railway.app/api/users/register/'

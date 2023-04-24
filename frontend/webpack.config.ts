@@ -3,6 +3,7 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import { DefinePlugin } from 'webpack';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 const PORT = 3000;
@@ -56,6 +57,7 @@ const config = {
       '@store': path.resolve(__dirname, './src/store'),
       '@assets': path.resolve(__dirname, './src/assets'),
       '@context': path.resolve(__dirname, './src/context'),
+      '@config': path.resolve(__dirname, './src/config'),
     },
   },
   devtool: 'source-map',

@@ -17,6 +17,9 @@ export const phoneValidate: Rules[] = [
 ]
 
 export const usernameValidate: Rules[] = [
-    { rule: 'required', message: 'Please enter your name' },
-    { rule: 'name', message: 'Please provide a valid name' },
+    { rule: 'username', message: 'Please provide a valid name' },
+]
+
+export const optValidate: Rules[] = [
+    { rule: 'min', min: 6, message: 'Provide least at 6 digits' },
 ]
