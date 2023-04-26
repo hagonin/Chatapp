@@ -15,19 +15,14 @@ const KEY_FORM = {
 };
 
 const SignInWithEmailForm = () => {
-  const { handleEmailSignUp } = useAuthContext();
+  const { handleEmailSignUp, handleLoginWithEmail } = useAuthContext();
   const { values, onChange, onSubmit, errors, isSubmitting } = useForm({
     initValues: {
       [KEY_FORM.EMAIL]: '',
       [KEY_FORM.PASSWORD]: '',
     },
     onCallApi: ({ form, data }) => {
-      const pro = new Promise(res => {
-        setTimeout(() => {
-          res(data);
-        }, 3000);
-      });
-      return pro.then(res => console.log(res));
+      return handleLoginWithEmail({ form, data }) as Promise<void>;
     },
     validate: {
       [KEY_FORM.EMAIL]: emailValidate,

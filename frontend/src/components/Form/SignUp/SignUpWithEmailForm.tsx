@@ -4,6 +4,7 @@ import useForm from '@hooks/useForm';
 import { emailValidate, passwordValidate } from '../Control/validate';
 import { Button } from '@components/Common';
 import { useAuthContext } from '@context/authContext';
+import { useNavigate } from 'react-router-dom';
 
 const KEY_FORM = {
   EMAIL: 'email',
@@ -14,6 +15,7 @@ const KEY_FORM = {
 
 const SignUpWithEmailForm: React.FC = () => {
   const { handleEmailSignUp } = useAuthContext();
+  const navigate = useNavigate();
   const { values, onChange, onSubmit, errors, isSubmitting } = useForm({
     initValues: {
       [KEY_FORM.EMAIL]: '',
@@ -21,7 +23,7 @@ const SignUpWithEmailForm: React.FC = () => {
       [KEY_FORM.NAME]: '',
       [KEY_FORM.PHONE]: '',
     },
-    onCallApi: ({ form, data }) => {
+    onCallApi: async ({ form, data }) => {
       return handleEmailSignUp({ form, data }) as Promise<void>;
     },
     validate: {

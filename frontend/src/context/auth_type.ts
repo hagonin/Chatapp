@@ -17,5 +17,6 @@ export interface AuthContextType {
     setUser: (user: UserStateType) => void;
     handleEmailSignUp: ({ form, data }: FormDataType) => Promise<void> | void;
     requestOTP: (opt: string) => void,
-    verifyOTP: (otp: string) => void
+    verifyOTP: (otp: string) => void,
+    handleLoginWithEmail: ({ form, data }: FormDataType) => Promise<void> | void
 }

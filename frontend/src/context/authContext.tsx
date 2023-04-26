@@ -2,12 +2,14 @@ import React, { useCallback, useEffect } from 'react';
 import {
   RecaptchaVerifier,
   createUserWithEmailAndPassword,
+  getIdToken,
   sendEmailVerification,
+  signInWithEmailAndPassword,
   signInWithPhoneNumber,
 } from 'firebase/auth';
 import toast from 'react-hot-toast';
 import { auth } from '@config/firebase';
-import { ENDPOINT_REGISTER, imgs } from '@utils/constants';
+import { ENDPOINT_LOGIN, ENDPOINT_REGISTER, imgs } from '@utils/constants';
 import { AuthContextType, UserStateType } from './auth_type';
 import { FormDataType } from '@hooks/type';
 
@@ -25,6 +27,7 @@ const AuthDefaultState = {
   handleEmailSignUp: () => {},
   requestOTP: () => {},
   verifyOTP: () => {},
+  handleLoginWithEmail: () => {},
 };
 
 const AuthContext = React.createContext<AuthContextType>(AuthDefaultState);
@@ -35,12 +38,13 @@ type Props = {
 
 const AuthProvider = ({ children }: Props) => {
   const [user, setUser] = React.useState<UserStateType>(AuthDefaultState.user);
+
+  // SIGN UP******************************************
   const handleEmailSignUp = React.useCallback(
     async ({ form, data }: FormDataType) => {
       return createUserWithEmailAndPassword(auth, data.email, data.password)
         .then(userCredential => {
           const user = userCredential.user;
-          console.log('user after create user', user);
           return sendEmailVerification(user);
         })
         .then(() => {
@@ -51,10 +55,10 @@ const AuthProvider = ({ children }: Props) => {
         })
         .then(res => res.json())
         .then(res => {
-          console.log('res after sign ', res);
+          console.log('Created account successfully:', res);
           toast.success(
             <>
-              <p>{res.message}</p>
+              <p>Created account successfully</p>
               <p>Please check email verify in inbox.</p>
               <p>This will be exist in 4 hours.</p>
             </>
@@ -71,15 +75,33 @@ const AuthProvider = ({ children }: Props) => {
     []
   );
 
-  useEffect(() => {
-    const unlisten = auth.onAuthStateChanged(authUser => {
-      console.log(authUser);
-      // authUser ? > get idToken > check in server > true ? auto login ? no ? autoregister: emailEvefify; info of authUser + endpoint register > auto login
-    });
-    return () => {
-      unlisten();
-    };
-  }, []);
+  // LOGIN***********************
+  const handleLoginWithEmail = useCallback(
+    async ({ form, data }: FormDataType) => {
+      await signInWithEmailAndPassword(auth, data.email, data.password)
+        .then(userCredential => {
+          console.log(userCredential.user);
+          return userCredential.user.getIdToken();
+        })
+        .then(idToken => {
+          return fetch(ENDPOINT_LOGIN, {
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${idToken}`,
+            },
+            body: form,
+          });
+        })
+        .then(res => res.json())
+        .then(res => {
+          console.log('login success', res);
+          // setuser
+          //navigate to
+        })
+        .catch(error => console.log('login has error', error));
+    },
+    []
+  );
 
   const checkVerifyEmail = React.useCallback((verify: boolean) => {
     !verify && toast('Please verify your email');
@@ -116,7 +138,8 @@ const AuthProvider = ({ children }: Props) => {
         console.log(result);
         const user = result.user;
         // get token
-        // login
+        // endpoint register
+        // auto login
         // navigate to chatroom
       })
       .catch((error: any) => {
@@ -124,9 +147,30 @@ const AuthProvider = ({ children }: Props) => {
       });
   }, []);
 
+  useEffect(() => {
+    const unlisten = auth.onAuthStateChanged(authUser => {
+      // login
+      // if (auth) {
+      //   console.log(auth.currentUser);
+      //   // signInWithEmailAndPassword('user@example.com', 'password').then;
+      // }
+      // authUser ? > get idToken > check in server > true ? auto login ? no ? autoregister: emailEvefify; info of authUser + endpoint register > auto login
+    });
+    return () => {
+      unlisten();
+    };
+  }, []);
+
   return (
     <AuthContext.Provider
-      value={{ user, setUser, handleEmailSignUp, requestOTP, verifyOTP }}
+      value={{
+        user,
+        setUser,
+        handleEmailSignUp,
+        requestOTP,
+        verifyOTP,
+        handleLoginWithEmail,
+      }}
     >
       {children}
     </AuthContext.Provider>

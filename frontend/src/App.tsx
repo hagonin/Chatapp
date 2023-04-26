@@ -77,6 +77,7 @@ const router = createBrowserRouter([
 ]);
 
 const App: React.FC = () => {
+  // console.log(process);
   return (
     <AuthProvider>
       <RoomProvider>

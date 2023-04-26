@@ -110,4 +110,5 @@ export const icons = {
 
 }
 
-export const ENDPOINT_REGISTER = 'https://talkie-api.up.railway.app/api/users/register/'
+export const ENDPOINT_REGISTER = 'https://talkie-api.up.railway.app/api/users/register/';
+export const ENDPOINT_LOGIN = 'https://talkie-api.up.railway.app/api/users/login/';
