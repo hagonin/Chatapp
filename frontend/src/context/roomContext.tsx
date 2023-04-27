@@ -1,6 +1,7 @@
 import React from 'react';
-import { chatlist01 } from '@store/dataFake';
+import { chatlist01, historyList01 } from '@store/dataFake';
 import { Props as MessageProps } from '@components/Common/MessageCard';
+import { HistoryCardProps } from '@components/Common/HistoryCard';
 
 export interface User {
   id: number;
@@ -8,6 +9,7 @@ export interface User {
   timestamp: string;
   avatar: string;
   messageList: MessageProps[];
+  historyList: HistoryCardProps[];
 }
 interface RoomContextProps {
   user: User | null;
@@ -27,8 +29,7 @@ const RoomProvider: React.FC<RoomProviderProps> = ({ children }) => {
   const setNewUser = (user: User) => {
     //  first get partner info including id
     //  using partner id, call api get chatlist
-    setUser({ ...user, messageList: chatlist01 });
-    
+    setUser({ ...user, messageList: chatlist01, historyList: historyList01 });
   };
   return (
     <RoomContext.Provider value={{ user: user, setUser: setNewUser }}>

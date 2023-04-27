@@ -5,5 +5,5 @@ export { default as ResetPassword } from './ResetPasswordPage';
 export { default as Signup } from './SignUpPage';
 export { default as ChatList } from './ChatListPage';
 export { default as FriendList } from './FriendListPage';
-export { default as CallHistory } from './CallHistoryPage';
+export { default as CallHistory } from './CallHistoryListPage';
 export { default as ChatRoom } from './ChatRoomPage';

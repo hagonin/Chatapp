@@ -6,12 +6,20 @@ import {
   sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPhoneNumber,
+  signInWithPopup,
 } from 'firebase/auth';
 import toast from 'react-hot-toast';
 import { auth } from '@config/firebase';
-import { ENDPOINT_LOGIN, ENDPOINT_REGISTER, imgs } from '@utils/constants';
+import {
+  ENDPOINT_GOOGLE_LOGIN,
+  ENDPOINT_LOGIN,
+  ENDPOINT_REGISTER,
+  imgs,
+} from '@utils/constants';
 import { AuthContextType, UserStateType } from './auth_type';
 import { FormDataType } from '@hooks/type';
+import { GoogleAuthProvider } from 'firebase/auth';
+const provider = new GoogleAuthProvider();
 
 const AuthDefaultState = {
   user: {
@@ -28,6 +36,7 @@ const AuthDefaultState = {
   requestOTP: () => {},
   verifyOTP: () => {},
   handleLoginWithEmail: () => {},
+  handleSignInWithGoogle: () => {},
 };
 
 const AuthContext = React.createContext<AuthContextType>(AuthDefaultState);
@@ -42,35 +51,45 @@ const AuthProvider = ({ children }: Props) => {
   // SIGN UP******************************************
   const handleEmailSignUp = React.useCallback(
     async ({ form, data }: FormDataType) => {
-      return createUserWithEmailAndPassword(auth, data.email, data.password)
-        .then(userCredential => {
-          const user = userCredential.user;
-          return sendEmailVerification(user);
-        })
-        .then(() => {
-          return fetch(ENDPOINT_REGISTER, {
-            method: 'POST',
-            body: form,
-          });
-        })
-        .then(res => res.json())
-        .then(res => {
-          console.log('Created account successfully:', res);
-          toast.success(
-            <>
-              <p>Created account successfully</p>
-              <p>Please check email verify in inbox.</p>
-              <p>This will be exist in 4 hours.</p>
-            </>
-          );
-          // set User
-          // navigative to chatpage
-        })
-        .catch(error => {
-          console.log('error at signup', error);
-          console.log('error at signup', error.message);
-          toast.error(error.message);
-        });
+      return (
+        createUserWithEmailAndPassword(auth, data.email, data.password)
+          // .then(userCredential => {
+          //   const user = userCredential.user;
+          //   // return sendEmailVerification(user);
+          // })
+          .then(({ user }) => {
+            console.log('user', user);
+            return user.getIdToken();
+          })
+          .then(idToken => {
+            console.log('id token', idToken);
+            return fetch(ENDPOINT_REGISTER, {
+              method: 'POST',
+              body: form,
+              headers: {
+                Authorization: `Bearer ${idToken}`,
+              },
+            });
+          })
+          .then(res => res.json())
+          .then(res => {
+            console.log('Created account successfully:', res);
+            toast.success(
+              <>
+                <p>Created account successfully</p>
+                <p>Please check email verify in inbox.</p>
+                <p>This will be exist in 4 hours.</p>
+              </>
+            );
+            // set User
+            // navigative to chatpage
+          })
+          .catch(error => {
+            console.log('error at signup', error);
+            console.log('error at signup', error.message);
+            toast.error(error.message);
+          })
+      );
     },
     []
   );
@@ -84,20 +103,21 @@ const AuthProvider = ({ children }: Props) => {
           return userCredential.user.getIdToken();
         })
         .then(idToken => {
-          return fetch(ENDPOINT_LOGIN, {
-            method: 'POST',
-            headers: {
-              Authorization: `Bearer ${idToken}`,
-            },
-            body: form,
-          });
+          console.log('idToken', idToken);
+          // return fetch(ENDPOINT_LOGIN, {
+          //   method: 'POST',
+          //   headers: {
+          //     Authorization: `Bearer ${idToken}`,
+          //   },
+          //   body: form,
+          // });
         })
-        .then(res => res.json())
-        .then(res => {
-          console.log('login success', res);
-          // setuser
-          //navigate to
-        })
+        // .then(res => res.json())
+        // .then(res => {
+        //   console.log('login success', res);
+        //   // setuser
+        //   //navigate to
+        // })
         .catch(error => console.log('login has error', error));
     },
     []
@@ -130,17 +150,28 @@ const AuthProvider = ({ children }: Props) => {
       });
   }, []);
 
-  const verifyOTP = useCallback((otp: string) => {
+  const verifyOTP = useCallback((otp: string, form: FormData) => {
     const confirmationResult = (window as any).confirmationResult;
     confirmationResult
       .confirm(otp)
       .then((result: any) => {
         console.log(result);
         const user = result.user;
-        // get token
-        // endpoint register
-        // auto login
-        // navigate to chatroom
+        console.log(user);
+        return getIdToken(user);
+      })
+      .then((idToken: string) => {
+        console.log(idToken);
+        return fetch(ENDPOINT_REGISTER, {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${idToken}`,
+          },
+          body: form,
+        });
+      })
+      .then((res: any) => {
+        console.log('Login with phone success', res);
       })
       .catch((error: any) => {
         toast.error(error.message);
@@ -161,6 +192,17 @@ const AuthProvider = ({ children }: Props) => {
     };
   }, []);
 
+  const handleSignInWithGoogle = useCallback(() => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then(({ user }) => {
+        console.log(user);
+        // save info to server ? api ?
+        // go to chatpage
+      })
+      .catch(error => console.log('error', error));
+  }, []);
+
   return (
     <AuthContext.Provider
       value={{
@@ -170,6 +212,7 @@ const AuthProvider = ({ children }: Props) => {
         requestOTP,
         verifyOTP,
         handleLoginWithEmail,
+        handleSignInWithGoogle,
       }}
     >
       {children}

@@ -4,7 +4,7 @@ import './Signup.scss';
 import { imgs } from '@utils/constants';
 import SocialBtnGroup from '@components/Form/SocialButtonsGroup';
 import SignUpWithEmailForm from '@components/Form/SignUp/SignUpWithEmailForm';
-import SignUpWithPhoneForm from '@components/Form/SignIn/SignInWithPhoneForm';
+import SignUpWithPhoneForm from '@components/Form/SignUp/SignUpWithPhoneForm';
 
 const Signup: React.FC = () => {
   const [showSignUpByPhoneForm, setShowSignUpByPhoneForm] =
@@ -31,7 +31,6 @@ const Signup: React.FC = () => {
           ) : (
             <SignUpWithEmailForm />
           )}
-          
 
           <SocialBtnGroup type="signup" />
           <span className="form__already-btn">

@@ -20,7 +20,7 @@ const ChatList = () => {
               message: item.message?.message!,
               timestamp: item.message?.timestamp!,
               type: item.message?.type!,
-              onChat: setUser,
+              onChatting: setUser,
               isActive: item.id === (user?.id as number),
             }}
           />

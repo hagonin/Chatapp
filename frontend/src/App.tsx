@@ -18,6 +18,10 @@ import AuthProvider from '@context/authContext';
 import RoomProvider from '@context/roomContext';
 import RoomLayout from '@layouts/RoomLayout';
 import ChatListPage from '@pages/ChatListPage';
+import CallHistoryList from '@pages/CallHistoryListPage';
+import HistoryLayout from '@layouts/HistoryLayout';
+import CallHistoryListPage from '@pages/CallHistoryListPage';
+import CallHistoryPage from '@pages/CallHistoryPage';
 
 const router = createBrowserRouter([
   {
@@ -55,14 +59,6 @@ const router = createBrowserRouter([
         element: <ChatListPage />,
       },
       {
-        path: 'call-history',
-        element: <CallHistory />,
-      },
-      {
-        path: 'friend-list',
-        element: <FriendList />,
-      },
-      {
         path: 'chat-list',
         element: <RoomLayout />,
         children: [
@@ -71,6 +67,25 @@ const router = createBrowserRouter([
             element: <ChatRoom />,
           },
         ],
+      },
+      {
+        path: 'call-history',
+        element: <CallHistoryListPage />,
+        index: true,
+      },
+      {
+        path: 'call-history',
+        element: <HistoryLayout />,
+        children: [
+          {
+            path: ':id',
+            element: <CallHistoryPage />,
+          },
+        ],
+      },
+      {
+        path: 'friend-list',
+        element: <FriendList />,
       },
     ],
   },

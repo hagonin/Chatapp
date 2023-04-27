@@ -4,7 +4,7 @@ import Button from '@components/Common/Button';
 import { useAuthContext } from '@context/authContext';
 
 const SocialBtnGroup: React.FC<{ type: string }> = ({ type }) => {
-  const { } = useAuthContext();
+  const { handleSignInWithGoogle } = useAuthContext();
   return (
     <>
       <span className={`separate separate--${type}`}></span>
@@ -12,7 +12,7 @@ const SocialBtnGroup: React.FC<{ type: string }> = ({ type }) => {
         <img src={imgs.fb} alt="fb" />
         Facebook
       </Button>
-      <Button>
+      <Button onClick={handleSignInWithGoogle}>
         <img src={imgs.google} alt="fb" />
         Google
       </Button>

@@ -20,7 +20,7 @@ interface Message {
   message: string;
   timestamp: string;
   type: MessageGo | MessageTo;
-  onChat?: (user: User) => void;
+  onChatting?: (user: User) => void;
   isActive?: boolean;
 }
 
@@ -32,6 +32,7 @@ export interface History {
   type: 'missed' | 'incoming' | 'outgoing';
   timestamp: string;
   onCall?: () => void;
+  onWatchHistory?: (user: User) => void;
 }
 
 export interface Props {

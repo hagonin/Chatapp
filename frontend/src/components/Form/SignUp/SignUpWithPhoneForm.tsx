@@ -22,7 +22,7 @@ interface Props {
 
 type FormTypeProps = 'RequestOTPForm' | 'VerifyOTPForm';
 
-const SignInWithPhoneForm: React.FC<Props> = ({ type }) => {
+const SignUpWithPhoneForm: React.FC<Props> = ({ type }) => {
   const { requestOTP, verifyOTP } = useAuthContext();
   const [formType, setFormType] =
     React.useState<FormTypeProps>('RequestOTPForm');
@@ -96,4 +96,4 @@ const SignInWithPhoneForm: React.FC<Props> = ({ type }) => {
   );
 };
 
-export default SignInWithPhoneForm;
+export default SignUpWithPhoneForm;

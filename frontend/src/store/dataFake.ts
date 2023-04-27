@@ -1,4 +1,5 @@
 import { Props as ChatItemProps } from "@components/Common/ChatItem/type";
+import { HistoryCardProps } from "@components/Common/HistoryCard";
 import { Props as MessageProps } from "@components/Common/MessageCard";
 import { imgs } from "@utils/constants";
 
@@ -131,6 +132,37 @@ export const friendList: ChatItemProps[] = [
 
     }
 ]
+
+export const historyList01: HistoryCardProps[] = [
+    {
+        id: 0,
+        timestamp: 'unanswered',
+        type: 'missed',
+        date: '27/0/2023',
+        time: '12:20'
+    },
+    {
+        id: 1,
+        timestamp: 'unanswered',
+        type: 'missed',
+        date: '27/0/2023',
+        time: '12:20'
+    },
+    {
+        id: 2,
+        timestamp: 'unanswered',
+        type: 'missed',
+        date: '27/0/2023',
+        time: '12:20'
+    },
+    {
+        id: 3,
+        timestamp: 'unanswered',
+        type: 'missed',
+        date: '27/0/2023',
+        time: '12:20'
+    }
+];
 
 export const chatlist01: MessageProps[] = [
     {

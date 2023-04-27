@@ -9,6 +9,7 @@ const MessageList: React.FC<Props> = ({ list }) => (
   <>
     {list.map(item => (
       <MessageCard
+        key={item.id}
         id={item.id}
         message={item.message}
         timestamp={item.timestamp}

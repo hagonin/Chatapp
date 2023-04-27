@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Login.scss';
 import { imgs } from '@utils/constants';
 import SocialBtnGroup from '@components/Form/SocialButtonsGroup';
-import SignUpWithPhoneForm from '@components/Form/SignIn/SignInWithPhoneForm';
+import SignUpWithPhoneForm from '@components/Form/SignUp/SignUpWithPhoneForm';
 import SignInWithEmailForm from '@components/Form/SignIn/SignInWithEmailForm';
 
 const Login: React.FC = () => {
