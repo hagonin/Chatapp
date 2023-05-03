@@ -16,8 +16,10 @@ export interface AuthContextType {
     user: UserStateType;
     setUser: (user: UserStateType) => void;
     handleEmailSignUp: ({ form, data }: FormDataType) => Promise<void> | void;
-    requestOTP: (opt: string) => void,
-    verifyOTP: (otp: string, form:FormData) => void,
-    handleLoginWithEmail: ({ form, data }: FormDataType) => Promise<void> | void
-    handleSignInWithGoogle: () => void
+    requestOTP: (opt: string) => void;
+    verifyOTP: (otp: string, form: FormData) => void;
+    handleLoginWithEmail: ({ form, data }: FormDataType) => Promise<void> | void;
+    handleSignInWithGoogle: () => void;
+    handleUpdateProfile: ({ form, data }: FormDataType) => Promise<void> | void
+
 }

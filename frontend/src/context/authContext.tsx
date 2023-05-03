@@ -37,6 +37,7 @@ const AuthDefaultState = {
   verifyOTP: () => {},
   handleLoginWithEmail: () => {},
   handleSignInWithGoogle: () => {},
+  handleUpdateProfile: () => {},
 };
 
 const AuthContext = React.createContext<AuthContextType>(AuthDefaultState);
@@ -123,6 +124,10 @@ const AuthProvider = ({ children }: Props) => {
     []
   );
 
+  // UPDATE PROFILE***********************
+  const handleUpdateProfile = useCallback(({ form, data }: FormDataType) => {
+    console.log(data);
+  }, []);
   const checkVerifyEmail = React.useCallback((verify: boolean) => {
     !verify && toast('Please verify your email');
   }, []);
@@ -225,6 +230,7 @@ const AuthProvider = ({ children }: Props) => {
         verifyOTP,
         handleLoginWithEmail,
         handleSignInWithGoogle,
+        handleUpdateProfile,
       }}
     >
       {children}

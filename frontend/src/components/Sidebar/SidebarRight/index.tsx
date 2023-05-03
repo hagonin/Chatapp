@@ -3,6 +3,7 @@ import '../SideBar.scss';
 import { icons, imgs } from '@utils/constants';
 import { OptionCard, UserInfoCard } from '@components/Common';
 import Profile from '@components/Profile';
+import UpdateProfileForm from '@components/Form/UpdateProfileForm';
 
 interface Props {
   isActive: boolean;
@@ -11,6 +12,11 @@ interface Props {
 
 const SidebarRight: React.FC<Props> = ({ isActive, toggleSideBarRight }) => {
   const [showProfile, setShowProfile] = React.useState(false);
+  const [showUpdateForm, setShowUpdateForm] = React.useState(false);
+  React.useEffect(() => {
+    !showProfile && setShowUpdateForm(false);
+  }, [showProfile]);
+
   return (
     <div
       className={`sideBar__right ${isActive ? 'sideBar__right--active' : ''}`}
@@ -39,7 +45,11 @@ const SidebarRight: React.FC<Props> = ({ isActive, toggleSideBarRight }) => {
         />
         {showProfile && (
           <div className="option__sub">
-            <Profile />
+            {showUpdateForm ? (
+              <UpdateProfileForm onHideUpdateForm={() => setShowUpdateForm(false)} />
+            ) : (
+              <Profile onShowUpdateProfile={() => setShowUpdateForm(true)} />
+            )}
           </div>
         )}
       </div>
