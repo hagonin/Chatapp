@@ -5,6 +5,7 @@ import { imgs } from '@utils/constants';
 import SocialBtnGroup from '@components/Form/SocialButtonsGroup';
 import SignUpWithPhoneForm from '@components/Form/SignUp/SignUpWithPhoneForm';
 import SignInWithEmailForm from '@components/Form/SignIn/SignInWithEmailForm';
+import SignInWithPhoneForm from '@components/Form/SignIn/SignInWithPhoneForm';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ const Login: React.FC = () => {
           {`Sign in with ${showLoginWithPhoneForm ? 'email' : 'mobile phone'}`}
         </button>
         {showLoginWithPhoneForm ? (
-          <SignUpWithPhoneForm type="login" />
+          <SignInWithPhoneForm />
         ) : (
           <SignInWithEmailForm />
         )}

@@ -1,50 +1,29 @@
 import React from 'react';
-import { Form, PasswordField, PhoneField, TextField } from '../Control';
+import { Form, PasswordField, PhoneField } from '../Control';
 import { useAuthContext } from '@context/authContext';
 import { formatPhone } from '@utils/formatPhone';
 import useForm from '@hooks/useForm';
 import { Button } from '@components/Common';
-import {
-  optValidate,
-  passwordValidate,
-  phoneValidate,
-} from '../Control/validate';
+import { passwordValidate, phoneValidate } from '../Control/validate';
 
 const FORM_KEY = {
   PHONE: 'phone_number',
-  OTP: 'otp',
   PASSWORD: 'password',
 };
 
-interface Props {
-  type: 'login' | 'signup';
-}
-
-type FormTypeProps = 'RequestOTPForm' | 'VerifyOTPForm';
-
-const SignInWithPhoneForm: React.FC<Props> = ({ type }) => {
-  const { requestOTP, verifyOTP } = useAuthContext();
-  const [formType, setFormType] =
-    React.useState<FormTypeProps>('RequestOTPForm');
+const SignInWithPhoneForm: React.FC = () => {
+  const {} = useAuthContext();
   const { onChange, values, errors, isSubmitting, onSubmit } = useForm({
     initValues: {
       [FORM_KEY.PHONE]: '',
-      [FORM_KEY.OTP]: '',
       [FORM_KEY.PASSWORD]: '',
     },
     onCallApi: async ({ form, data }) => {
-      if (formType === 'RequestOTPForm') {
-        setFormType('VerifyOTPForm');
-        formatPhone(data[FORM_KEY.PHONE]);
-        requestOTP(formatPhone(data[FORM_KEY.PHONE]));
-      } else {
-        setFormType('RequestOTPForm');
-        verifyOTP(data[FORM_KEY.OTP], form);
-      }
+      const phoneNumber = formatPhone(data[FORM_KEY.PHONE]);
+      form.set(FORM_KEY.PHONE, phoneNumber);
     },
     validate: {
       [FORM_KEY.PHONE]: phoneValidate,
-      [FORM_KEY.OTP]: optValidate,
       [FORM_KEY.PASSWORD]: passwordValidate,
     },
     resetAfterSubmit: false,
@@ -68,29 +47,13 @@ const SignInWithPhoneForm: React.FC<Props> = ({ type }) => {
         values={values}
         onChange={onChange}
       />
-
-      {formType === 'VerifyOTPForm' && (
-        <TextField
-          name={FORM_KEY.OTP}
-          label="OTP"
-          placeholder="Enter your otp"
-          errorMessage={errors[FORM_KEY.OTP as 'otp']}
-          values={values}
-          onChange={onChange}
-        />
-      )}
-      <div id="recaptcha-container"></div>
       <Button
         type="submit"
         typeClass="button--primary"
         disabled={isSubmitting}
         id="sign-in-button"
       >
-        {formType === 'RequestOTPForm'
-          ? 'Request OTP'
-          : type === 'login'
-          ? 'Login'
-          : 'SignUp'}
+        Login
       </Button>
     </Form>
   );

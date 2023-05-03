@@ -33,10 +33,11 @@ const SignUpWithPhoneForm: React.FC<Props> = ({ type }) => {
       [FORM_KEY.PASSWORD]: '',
     },
     onCallApi: async ({ form, data }) => {
+      const phoneNumber = formatPhone(data[FORM_KEY.PHONE]);
+      form.set(FORM_KEY.PHONE, phoneNumber);
       if (formType === 'RequestOTPForm') {
         setFormType('VerifyOTPForm');
-        formatPhone(data[FORM_KEY.PHONE]);
-        requestOTP(formatPhone(data[FORM_KEY.PHONE]));
+        requestOTP(phoneNumber);
       } else {
         setFormType('RequestOTPForm');
         verifyOTP(data[FORM_KEY.OTP], form);

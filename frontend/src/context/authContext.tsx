@@ -199,7 +199,19 @@ const AuthProvider = ({ children }: Props) => {
         console.log(user);
         // save info to server ? api ?
         // go to chatpage
+        console.log(user);
+        return user.getIdToken();
       })
+      .then(idToken => {
+        // google login with password ? (where password?)
+        return fetch(ENDPOINT_GOOGLE_LOGIN, {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${idToken}`,
+          },
+        });
+      })
+      .then(res => console.log(res))
       .catch(error => console.log('error', error));
   }, []);
 
