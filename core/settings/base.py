@@ -32,18 +32,11 @@ cloudinary.config(
     secure=True
 )
 
-# Firebase config
-FIREBASE_ACCOUNT_TYPE = config('FIREBASE_ACCOUNT_TYPE')
-FIREBASE_PROJECT_ID = config('FIREBASE_PROJECT_ID')
-FIREBASE_PRIVATE_KEY_ID = config('FIREBASE_PRIVATE_KEY_ID')
-FIREBASE_PRIVATE_KEY = config('FIREBASE_PRIVATE_KEY')
-FIREBASE_CLIENT_EMAIL = config('FIREBASE_CLIENT_EMAIL')
-FIREBASE_CLIENT_ID = config('FIREBASE_CLIENT_ID')
-FIREBASE_AUTH_URI = config('FIREBASE_AUTH_URI')
-FIREBASE_TOKEN_URI = config('FIREBASE_TOKEN_URI')
-FIREBASE_AUTH_PROVIDER_X509_CERT_URL = config(
-    'FIREBASE_AUTH_PROVIDER_X509_CERT_URL')
-FIREBASE_CLIENT_X509_CERT_URL = config('FIREBASE_CLIENT_X509_CERT_URL')
+# AWS Cognito config
+AWS_COGNITO_REGION_NAME = config('AWS_COGNITO_REGION_NAME')
+AWS_COGNITO_USER_POOL_ID = config('AWS_COGNITO_USER_POOL_ID')
+AWS_COGNITO_APP_CLIENT_ID = config('AWS_COGNITO_APP_CLIENT_ID')
+AWS_COGNITO_APP_CLIENT_SECRET = config('AWS_COGNITO_APP_CLIENT_SECRET')
 
 # Application definition
 INSTALLED_APPS = [
@@ -97,6 +90,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'core.wsgi.application'
+
 # ASGI_APPLICATION = 'core.routing.application'
 # CHANNEL_LAYERS = {
 #     'default': {
@@ -107,11 +101,16 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+database_url = config('DATABASE_URL')
+if not database_url or isinstance(database_url, bool):
+    database_url = None
 
-db_config = dj_database_url.config(conn_max_age=600, ssl_require=True)
+db_config = dj_database_url.config(
+    conn_max_age=600, ssl_require=True) if database_url else None
 
 DATABASES = {'default': db_config if db_config else dj_database_url.config(
-    default=config('DATABASE_URL'))}
+    default=database_url)}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
