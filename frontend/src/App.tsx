@@ -1,5 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import AuthenLayout from '@layouts/AuthenLayout';
 import RootLayout from '@layouts/RootLayout';
 
@@ -17,6 +18,10 @@ import AuthProvider from '@context/authContext';
 import RoomProvider from '@context/roomContext';
 import RoomLayout from '@layouts/RoomLayout';
 import ChatListPage from '@pages/ChatListPage';
+import CallHistoryList from '@pages/CallHistoryListPage';
+import HistoryLayout from '@layouts/HistoryLayout';
+import CallHistoryListPage from '@pages/CallHistoryListPage';
+import CallHistoryPage from '@pages/CallHistoryPage';
 
 const router = createBrowserRouter([
   {
@@ -54,14 +59,6 @@ const router = createBrowserRouter([
         element: <ChatListPage />,
       },
       {
-        path: 'call-history',
-        element: <CallHistory />,
-      },
-      {
-        path: 'friend-list',
-        element: <FriendList />,
-      },
-      {
         path: 'chat-list',
         element: <RoomLayout />,
         children: [
@@ -71,14 +68,35 @@ const router = createBrowserRouter([
           },
         ],
       },
+      {
+        path: 'call-history',
+        element: <CallHistoryListPage />,
+        index: true,
+      },
+      {
+        path: 'call-history',
+        element: <HistoryLayout />,
+        children: [
+          {
+            path: ':id',
+            element: <CallHistoryPage />,
+          },
+        ],
+      },
+      {
+        path: 'friend-list',
+        element: <FriendList />,
+      },
     ],
   },
 ]);
 
 const App: React.FC = () => {
+  // console.log(process);
   return (
     <AuthProvider>
       <RoomProvider>
+        <Toaster position="top-right" gutter={8} />
         <RouterProvider router={router} />
       </RoomProvider>
     </AuthProvider>

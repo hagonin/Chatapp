@@ -12,6 +12,9 @@
   }
   &__btn-forgot {
     @include font($text-s-sm, 1, $font-bold, $red2);
+    @include MOBILE {
+      font-size: $text-s-md;
+    }
     margin-left: auto;
 
     &:hover {

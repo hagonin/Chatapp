@@ -25,7 +25,6 @@ const Home: React.FC = () => {
             <button onClick={() => navigate('/login')}>Login</button>
           </span>
         </div>
-
         <div className="home-photos-wrapper">
           <div className="home-photos">
             <div className="home-photos__item">
@@ -34,7 +33,7 @@ const Home: React.FC = () => {
               </div>
             </div>
             <div className="home-photos__item">
-              <div className="home__photo">
+              <div className="home__photo home__photo--zoom">
                 <img src={imgs.photo2} alt="photo" />
               </div>
             </div>

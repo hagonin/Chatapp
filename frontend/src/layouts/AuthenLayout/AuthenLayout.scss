@@ -5,6 +5,25 @@ $h-img-signup: 500px;
   &__wrapper {
     @include flex($both: center, $gap: 20px);
     min-height: $height-screen;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    @include MOBILE {
+      background-image: url('../../assets/images/background_home.svg');
+    }
+
+    @include MOBILE {
+      flex-direction: column;
+      gap: 0px;
+    }
+  }
+
+  &__header {
+    @include MOBILE {
+      order: -1;
+      display: none;
+    }
   }
 
   &-form {
@@ -13,13 +32,32 @@ $h-img-signup: 500px;
 
     border-radius: 10px;
     box-shadow: 0px 0px 20px 5px rgba($black, 0.1);
+    background-color: $white;
     @include flex($direction: column, $gap: 14px);
+
+    @include MOBILE {
+      // box-shadow: unset;
+      width: $full;
+    }
+
+    & .authenLayout__title {
+      display: none;
+      @include MOBILE {
+        display: block;
+      }
+    }
   }
 
   &__img {
     @include size($h: $h-img-signup, $w: auto);
     object-fit: contain;
     user-select: none;
+    @include TABLET {
+      height: 300px;
+    }
+    @include MOBILE {
+      display: none;
+    }
   }
 
   &__title {

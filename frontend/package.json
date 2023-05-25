@@ -6,10 +6,10 @@
 	"author": "fenewbies",
 	"license": "ISC",
 	"dependencies": {
+		"firebase": "^9.20.0",
 		"node": "^19.8.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"react-icons": "^4.8.0",
 		"react-router-dom": "^6.10.0"
 	},
 	"devDependencies": {
@@ -34,6 +34,8 @@
 		"html-loader": "^4.2.0",
 		"html-webpack-plugin": "^5.5.0",
 		"mini-css-extract-plugin": "^2.7.5",
+		"react-hot-toast": "^2.4.0",
+		"react-phone-input-2": "^2.15.1",
 		"react-refresh": "^0.14.0",
 		"regenerator-runtime": "^0.13.11",
 		"sass": "^1.60.0",

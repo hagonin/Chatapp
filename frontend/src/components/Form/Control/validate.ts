@@ -13,10 +13,13 @@ export const passwordValidate: Rules[] = [{ rule: 'required', message: 'Please e
 
 export const phoneValidate: Rules[] = [
     { rule: 'required', message: 'Please enter your phone' },
-    { rule: 'phone', message: 'Please provide a valid phone' },
+    { rule: 'min', min: 15, message: 'Please provide least at 10 digits' },
 ]
 
 export const usernameValidate: Rules[] = [
-    { rule: 'required', message: 'Please enter your name' },
-    { rule: 'name', message: 'Please provide a valid name' },
+    { rule: 'username', message: 'Please provide a valid name' },
+]
+
+export const optValidate: Rules[] = [
+    { rule: 'min', min: 6, message: 'Provide least at 6 digits' },
 ]

@@ -19,20 +19,33 @@ const ChatItem: React.FC<Props> = ({
     <div
       className={`userCard ${
         status ? 'userCard--online' : 'userCard--offline'
-      } ${message?.onChat ? 'userCard--click' : ''} ${
+      } ${message?.onChatting ? 'userCard--click' : ''} ${
         message?.isActive ? 'userCard--active' : ''
       }`}
       onClick={
         message
           ? () => {
-              message.onChat?.({
+              message.onChatting?.({
                 id: id,
                 name: name,
                 timestamp: timestamp as string,
                 messageList: [],
+                historyList: [],
                 avatar: avatar,
               });
               navigate(`/chatroom/chat-list/${id}`);
+            }
+          : history
+          ? () => {
+              history.onWatchHistory?.({
+                id: id,
+                name: name,
+                timestamp: timestamp as string,
+                messageList: [],
+                historyList: [],
+                avatar: avatar,
+              });
+            navigate(`/chatroom/call-history/${id}`);
             }
           : () => {}
       }
@@ -47,7 +60,7 @@ const ChatItem: React.FC<Props> = ({
             <span className="userCard__message-timestamp userCard__message-timestamp--mobile">{`${message.timestamp}`}</span>
           )}
         </div>
-        <div className='userCard__message-wrapper'>
+        <div className="userCard__message-wrapper">
           {message && (
             <span className="userCard__message">{message.message}</span>
           )}

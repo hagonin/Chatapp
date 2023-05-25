@@ -1,4 +1,5 @@
-type Rule = 'required' | 'name' | 'min' | 'match' | 'pattern' | 'email' | 'phone' | 'password' | 'username' | 'reset_email' | 'reset_password' | 'reset_confirmPassword';
+export type Rule = 'required' | 'min' | 'match' | 'pattern' | 'email' | 'phone_number' | 'password' | 'username' | 'reset_email' | 'reset_password' | 'reset_confirmPassword' |
+    'displayName' | 'otp';
 
 export interface TestProp {
     value: string;
@@ -42,11 +43,18 @@ export interface Rules {
     nameFieldMatch?: string | number
 }
 
+export interface FormDataType {
+    form: FormData;
+    data: {
+        [key: string]: string
+    }
+}
+
 export interface UseFormProps {
     initValues: {
-        [key: string]: string | number
+        [key: string]: string
     };
-    onCallApi: (data: {}) => Promise<void>;
+    onCallApi: ({ form, data }: FormDataType) => (Promise<void>);
     validate?: {
         [rule: string]: Rules[]
     };

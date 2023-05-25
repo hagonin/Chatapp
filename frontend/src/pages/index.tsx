@@ -1,9 +1,9 @@
-export { default as Home } from './Home';
-export { default as ChangePassword } from './ChangePassword';
-export { default as Login } from './Login';
-export { default as ResetPassword } from './ResetPassword';
-export { default as Signup } from './SignUp';
+export { default as Home } from './HomePage';
+export { default as ChangePassword } from './ChangePasswordPage';
+export { default as Login } from './LoginPage';
+export { default as ResetPassword } from './ResetPasswordPage';
+export { default as Signup } from './SignUpPage';
 export { default as ChatList } from './ChatListPage';
-export { default as FriendList } from './FriendList';
-export { default as CallHistory } from './CallHistory';
-export { default as ChatRoom } from './ChatRoom';
+export { default as FriendList } from './FriendListPage';
+export { default as CallHistory } from './CallHistoryListPage';
+export { default as ChatRoom } from './ChatRoomPage';

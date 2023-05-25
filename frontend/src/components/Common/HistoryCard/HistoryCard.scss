@@ -1,0 +1,25 @@
+@import 'styles/base';
+.historyCard {
+  //   @include flex;
+  border-bottom: 1px solid $grey;
+  padding: 10px 15px;
+  @include text-sm;
+  background-color: $white;
+  margin-bottom: 5px;
+  border-radius: 5px;
+
+  &__dater {
+    color: rgba($black, 0.7);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  &__timer {
+    @include flex($justifyContent: space-between, $alignItems: center);
+    @include text-sm;
+    & img {
+      margin-right: 8px;
+      @include position(relative, $top: 2px);
+    }
+  }
+}

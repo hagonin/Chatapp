@@ -1,4 +1,6 @@
 import React from 'react';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 import './Form.scss';
 import { InputProps } from './type';
 import ErrorField from './ErrorField';
@@ -11,26 +13,28 @@ const PhoneField: React.FC<InputProps> = ({
   onChange,
   onBlur,
   values,
-}) => (
-  <label htmlFor={name} className="form__label">
-    {label}
-
-    <div className={`form__input ${errorMessage ? 'form__input--error' : ''}`}>
-      <span className="form__input-phone-label">+84</span>
-      <input
-        id={name}
-        name={name}
-        placeholder={placeholder}
-        className="form__input-phone"
-        type="number"
-        autoComplete="off"
-        onChange={onChange}
-        onBlur={onBlur}
-        value={values[name]}
+}) => {
+  return (
+    <label htmlFor={name} className="form__label">
+      {label}
+      <PhoneInput
+        containerClass={`form__input ${
+          errorMessage ? 'form__input--error' : ''
+        }`}
+        inputClass="form__input-phone"
+        buttonClass="form__input-phone-btn"
+        inputProps={{
+          name: name,
+        }}
+        country={'us'}
+        value={values[name] as string}
+        onChange={(phone, country, e) => onChange?.(e)}
+        masks={{ vn: '...-...-...' }}
+        countryCodeEditable={false}
       />
-    </div>
-    {errorMessage && <ErrorField message={errorMessage} />}
-  </label>
-);
+      {errorMessage && <ErrorField message={errorMessage} />}
+    </label>
+  );
+};
 
 export default PhoneField;

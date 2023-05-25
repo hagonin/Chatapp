@@ -3,6 +3,7 @@ $pad: 20px;
 $box-shadow: 0px 0px 4px 2px rgba($primary-color, 0.2);
 $box-shadow-error: 0px 0px 4px 2px rgba($red, 0.2);
 $text-label: 0.93rem;
+$text-label-mobile: 1rem;
 
 .form {
   @include flex(flex, $direction: column);
@@ -10,7 +11,10 @@ $text-label: 0.93rem;
   user-select: none;
 
   &__type-login-btn {
-    @include font($text-s-sm, 1, $font-bold, $primary-color, $align: right);
+    @include font($text-label, 1, $font-bold, $primary-color, $align: right);
+    @include MOBILE {
+      font-size: $text-s-md;
+    }
   }
 
   &__input {
@@ -37,19 +41,15 @@ $text-label: 0.93rem;
     }
 
     &-phone {
-      padding-left: calc($pad/2);
-      @include text-md;
+      padding-left: 30px !important;
+      border: none !important;
+      width: $full !important;
+      height: $full !important;
+      font-size: $text-s-md !important;
+      // @include text-md!important;
 
-      &-label {
-        line-height: calc($btnHeight - 3px);
-        padding-right: calc($pad/2);
-        position: relative;
-        &:after {
-          content: '';
-          @include position(absolute, $top: $half, $right: 0, $y: -50%);
-          height: 50%;
-          border: 1px solid $grey;
-        }
+      &-btn {
+        left: 0;
       }
     }
 
@@ -77,6 +77,9 @@ $text-label: 0.93rem;
     @include font($text-label, 1, $font-semibold);
     @include flex(flex, $direction: column);
     gap: 8px;
+    @include MOBILE {
+      font-size: $text-s-md;
+    }
   }
 
   &__error {
@@ -95,16 +98,23 @@ $text-label: 0.93rem;
   }
 
   &__already-btn {
-    @include font($text-s-md, $align: center);
+    @include font($text-label, $align: center);
     user-select: none;
     margin-top: 5px;
     & button {
-      @include font($text-s-md, 1, $font-bold, $primary-color);
+      @include font($text-label, 1, $font-bold, $primary-color);
+      @include MOBILE {
+        font-size: $text-s-md;
+      }
       margin-left: 3px;
       &:hover {
         text-decoration: underline;
         color: rgba($primary-color, 0.8);
       }
+    }
+
+    @include MOBILE {
+      font-size: $text-s-md;
     }
   }
 
@@ -133,5 +143,9 @@ $text-label: 0.93rem;
       @include size(15px);
       margin-left: 15px;
     }
+  }
+
+  & .button {
+    margin-top: 14px;
   }
 }
