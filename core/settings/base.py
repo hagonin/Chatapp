@@ -37,6 +37,8 @@ AWS_COGNITO_REGION_NAME = config('AWS_COGNITO_REGION_NAME')
 AWS_COGNITO_USER_POOL_ID = config('AWS_COGNITO_USER_POOL_ID')
 AWS_COGNITO_APP_CLIENT_ID = config('AWS_COGNITO_APP_CLIENT_ID')
 AWS_COGNITO_APP_CLIENT_SECRET = config('AWS_COGNITO_APP_CLIENT_SECRET')
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 
 # Application definition
 INSTALLED_APPS = [
@@ -53,8 +55,6 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'django_filters',
     'cloudinary',
-    'rest_framework.authtoken',
-
     # local apps
     'user',
 ]
@@ -157,6 +157,10 @@ SPECTACULAR_SETTINGS = {
     'SERVE_INCLUDE_SCHEMA': False,
 }
 
+AUTHENTICATION_BACKENDS = [
+    'user.authentication.CognitoAuthentication',
+    'django.contrib.auth.backends.ModelBackend',
+]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
