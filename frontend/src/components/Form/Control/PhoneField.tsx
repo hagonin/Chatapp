@@ -4,6 +4,7 @@ import 'react-phone-input-2/lib/style.css';
 import './Form.scss';
 import { InputProps } from './type';
 import ErrorField from './ErrorField';
+import { formatPhone } from '@utils/helpers';
 
 const PhoneField: React.FC<InputProps> = ({
   name,

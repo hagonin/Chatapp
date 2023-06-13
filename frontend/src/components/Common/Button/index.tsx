@@ -1,34 +1,36 @@
 import React from 'react';
 import './Button.scss';
 
-interface Props {
+interface ButtonProps {
   children: React.ReactNode | string;
-  type?: 'submit';
-  typeClass?: 'button--primary' | 'button--disabled';
+  type?: 'submit' | 'button';
+  typeClass?: 'button--primary';
   onClick?: () => void;
   disabled?: boolean;
+  isSubmitting?: boolean;
   id?: string;
 }
 
-const Button = ({
+const Button: React.FC<ButtonProps> = ({
   children,
   type,
   onClick,
   typeClass,
   disabled,
+  isSubmitting,
   id,
-}: Props) => {
+}) => {
   return (
     <button
       type={type || 'button'}
       className={`button ${typeClass ? typeClass : ''} ${
-        disabled ? 'button--disabled' : ''
+        disabled || isSubmitting ? 'button--disabled' : ''
       }`}
       onClick={onClick}
-      disabled={disabled}
+      disabled={disabled || isSubmitting}
       id={id ? id : ''}
     >
-      {disabled ? 'Sending data...' : children}
+      {isSubmitting ? 'Sending data...' : children}
     </button>
   );
 };

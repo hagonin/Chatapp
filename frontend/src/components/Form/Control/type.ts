@@ -1,9 +1,10 @@
 import React from 'react'
-import { UseFormProps } from '@hooks/type';
 
 export interface InputProps {
     name: string;
-    values: UseFormProps["initValues"]
+    values: {
+        [key: string]: string
+    }
     placeholder?: string;
     label?: string;
     errorMessage?: string;

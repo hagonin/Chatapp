@@ -1,4 +1,4 @@
-@import 'styles/base';
+@import 'styles/abstracts';
 
 .userAreaCard {
   @include flex($alignItems: center, $gap: 16px);

@@ -3,7 +3,7 @@ import '../SideBar.scss';
 import { icons, imgs } from '@utils/constants';
 import { OptionCard, UserInfoCard } from '@components/Common';
 import Profile from '@components/Profile';
-import UpdateProfileForm from '@components/Form/UpdateProfileForm';
+import UpdateProfileForm from '@container/UpdateProfileForm';
 
 interface Props {
   isActive: boolean;
@@ -46,7 +46,9 @@ const SidebarRight: React.FC<Props> = ({ isActive, toggleSideBarRight }) => {
         {showProfile && (
           <div className="option__sub">
             {showUpdateForm ? (
-              <UpdateProfileForm onHideUpdateForm={() => setShowUpdateForm(false)} />
+              <UpdateProfileForm
+                onHideUpdateForm={() => setShowUpdateForm(false)}
+              />
             ) : (
               <Profile onShowUpdateProfile={() => setShowUpdateForm(true)} />
             )}
