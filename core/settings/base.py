@@ -106,7 +106,7 @@ if not database_url or isinstance(database_url, bool):
     database_url = None
 
 db_config = dj_database_url.config(
-    conn_max_age=600, ssl_require=True) if database_url else None
+    conn_max_age=600, ssl_require=False) if database_url else None
 
 DATABASES = {'default': db_config if db_config else dj_database_url.config(
     default=database_url)}
