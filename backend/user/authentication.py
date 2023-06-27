@@ -4,7 +4,7 @@ from jose import jwt
 from django.contrib.auth.backends import ModelBackend
 from .models import CustomUser
 
-from core.settings.base import (
+from backend.settings.base import (
     AWS_COGNITO_REGION_NAME,
     AWS_ACCESS_KEY_ID,
     AWS_COGNITO_APP_CLIENT_ID,

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 import cloudinary
-from core.custom_fields import CustomDateTimeField
+from backend.custom_fields import CustomDateTimeField
 from .models import CustomUser, Profile
 
 
