@@ -3,11 +3,11 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
-import { DefinePlugin } from 'webpack';
-
+import { DefinePlugin, ProvidePlugin } from 'webpack';
+import dotenv from 'dotenv';
 const isDevelopment = process.env.NODE_ENV !== 'production';
 const PORT = 3000;
-
+dotenv.config();
 const plugins = [
   new HTMLWebpackPlugin({
     template: './public/index.html',
@@ -20,6 +20,9 @@ const plugins = [
   }),
   new ESLintPlugin(),
   ...(isDevelopment ? [new ReactRefreshWebpackPlugin()] : []),
+  new ProvidePlugin({
+    'process.env': JSON.stringify(process.env)
+  }),
 ];
 
 const config = {
@@ -58,6 +61,8 @@ const config = {
       '@assets': path.resolve(__dirname, './src/assets'),
       '@context': path.resolve(__dirname, './src/context'),
       '@config': path.resolve(__dirname, './src/config'),
+      '@redux': path.resolve(__dirname, './src/redux'),
+      '@container': path.resolve(__dirname, './src/container'),
     },
   },
   devtool: 'source-map',

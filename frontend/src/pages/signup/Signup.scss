@@ -1,0 +1,20 @@
+@import 'styles/abstracts';
+
+.signup {
+  user-select: none;
+  &__title {
+    & span {
+      color: $primary-color;
+    }
+  }
+
+  &__subtitle {
+    display: block;
+    color: $grey;
+    margin: 8px 0px 24px;
+  }
+}
+
+.social-group {
+  @include flex($gap: 12px);
+}

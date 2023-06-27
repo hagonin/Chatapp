@@ -2,14 +2,12 @@ import React from 'react';
 import { ChatItem } from '@components/Common';
 import { callList } from '@store/dataFake';
 import { useNavigate } from 'react-router-dom';
-import { useRoomContext } from '@context/roomContext';
 
 const HistoryList = () => {
   const navigate = useNavigate();
-  const { user, setUser } = useRoomContext();
   return callList.length > 0 ? (
     <>
-      {callList.map(item => (
+      {/* {callList.map(item => (
         <ChatItem
           key={item.id}
           id={item.id}
@@ -23,7 +21,7 @@ const HistoryList = () => {
             onWatchHistory: setUser,
           }}
         />
-      ))}
+      ))} */}
     </>
   ) : (
     <span>Have no any conversation</span>

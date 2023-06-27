@@ -1,4 +1,4 @@
-import { User } from '@context/roomContext';
+import { User } from '@context/room-context/roomContext';
 
 // message
 interface MessageGo {

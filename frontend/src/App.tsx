@@ -5,28 +5,27 @@ import AuthenLayout from '@layouts/AuthenLayout';
 import RootLayout from '@layouts/RootLayout';
 
 import {
-  CallHistory,
-  ChangePassword,
-  ChatRoom,
-  FriendList,
-  Home,
-  Login,
-  ResetPassword,
-  Signup,
+  CallHistoryPage,
+  ChangePasswordPage,
+  ChatRoomPage,
+  FriendListPage,
+  HomePage,
+  LoginPage,
+  ResetPasswordPage,
+  SignupPage,
 } from '@pages';
-import AuthProvider from '@context/authContext';
-import RoomProvider from '@context/roomContext';
 import RoomLayout from '@layouts/RoomLayout';
-import ChatListPage from '@pages/ChatListPage';
-import CallHistoryList from '@pages/CallHistoryListPage';
+import ChatListPage from '@pages/chatlist';
+import CallHistoryList from '@pages/callhistorylist';
 import HistoryLayout from '@layouts/HistoryLayout';
-import CallHistoryListPage from '@pages/CallHistoryListPage';
-import CallHistoryPage from '@pages/CallHistoryPage';
+import CallHistoryListPage from '@pages/callhistorylist';
+import { Provider } from 'react-redux';
+import store from '@redux/configureStore';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <HomePage />,
   },
   {
     path: '/',
@@ -34,19 +33,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'login',
-        element: <Login />,
+        element: <LoginPage />,
       },
       {
         path: 'register',
-        element: <Signup />,
+        element: <SignupPage />,
       },
       {
         path: 'login/request_reset_password',
-        element: <ResetPassword />,
+        element: <ResetPasswordPage />,
       },
       {
         path: 'change_password',
-        element: <ChangePassword />,
+        element: <ChangePasswordPage />,
       },
     ],
   },
@@ -64,7 +63,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: ':id',
-            element: <ChatRoom />,
+            element: <ChatRoomPage />,
           },
         ],
       },
@@ -85,21 +84,18 @@ const router = createBrowserRouter([
       },
       {
         path: 'friend-list',
-        element: <FriendList />,
+        element: <FriendListPage />,
       },
     ],
   },
 ]);
 
 const App: React.FC = () => {
-  // console.log(process);
   return (
-    <AuthProvider>
-      <RoomProvider>
-        <Toaster position="top-right" gutter={8} />
-        <RouterProvider router={router} />
-      </RoomProvider>
-    </AuthProvider>
+    <Provider store={store}>
+      <Toaster position="top-right" gutter={8} />
+      <RouterProvider router={router} />
+    </Provider>
   );
 };
 

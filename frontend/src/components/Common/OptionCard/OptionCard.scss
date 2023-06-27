@@ -1,4 +1,4 @@
-@import 'styles/base';
+@import 'styles/abstracts';
 
 .optionCard {
   @include flex($alignItems: center, $gap: 12px);

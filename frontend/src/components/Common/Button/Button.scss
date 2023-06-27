@@ -1,4 +1,4 @@
-@import 'styles/base';
+@import 'styles/abstracts';
 
 .button {
   @include font($text-s-md, 1, $font-semibold);

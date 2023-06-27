@@ -1,20 +1,23 @@
 {
-	"presets": [
-		"@babel/preset-env",
-		[
-			"@babel/preset-react",
-			{
-				"runtime": "automatic"
-			}
-		],
-		"@babel/preset-typescript"
-	],
-	"plugins": [
-		["module-resolver", {
-		"root": ["./src"],
-		"alias": {
-			"@styles": "./src/styles"
-		}
-		}]
+  "presets": [
+    "@babel/preset-env",
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic"
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {
+          "@styles": "./src/styles"
+        }
+      }
+    ]
   ]
 }
