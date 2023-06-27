@@ -1,12 +1,8 @@
-
 # Real-Time Chat App
 
 This project is a fullstack chat application that will enable users to communicate with each other in real-time. It will feature a modern, user-friendly interface and will be built using Django, React + Typescript. The application will allow users to create accounts using email, phone number or social accounts, send messages, join chatrooms, and more.
 
 ## Screenshots
-
-
-
 
 ## Features
 
@@ -18,9 +14,7 @@ This project is a fullstack chat application that will enable users to communica
 - Integrate Django with PostgreSQL to store and retrieve data
 - UI using React + Typescript + SASS, fully responsive
 
-
 ## Installation
-
 
 ```bash
   git clone https://github.com/hagonin/chatapp.git
@@ -44,12 +38,52 @@ Start the server
   npm run start
 ```
 
-
 ## Tech Stack
 
 **Client:** React, Typescript, Context API, Sass
 
 **Server:** Django, PostgreSQL
 
+## Run with docker
 
+- start app
 
+```
+  docker-compose up -d
+```
+
+- restart app
+
+```
+docker-compose restart
+```
+
+- stop app
+
+```
+docker-compose stop
+```
+
+- remove all data and container
+
+```
+docker-compose down
+```
+
+- re-build app
+
+```
+docker-compose up --build -d
+```
+
+- run migration
+
+```
+ docker-compose run be python manage.py migrate
+```
+
+- create new database
+
+```
+docker exec -it  db createdb -U home db_name
+```
