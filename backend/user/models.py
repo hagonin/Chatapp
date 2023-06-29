@@ -33,7 +33,7 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractUser):
-    refresh_token = models.CharField(max_length=255, blank=True, null=True)
+    firebase_uid = models.CharField(max_length=255, unique=True)
     phone_number = models.CharField(
         max_length=15, unique=True, null=True, blank=True)
 

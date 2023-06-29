@@ -2,7 +2,7 @@ from django.contrib.auth.hashers import make_password
 from rest_framework import serializers
 import cloudinary
 
-from app.backend.backend.custom_fields import CustomDateTimeField
+from backend.custom_fields import CustomDateTimeField
 
 from .models import CustomUser, Profile
 

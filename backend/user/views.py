@@ -1,77 +1,122 @@
-from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework import generics, status, permissions
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 
-from firebase_admin import auth as firebase_auth
-from botocore.exceptions import BotoCoreError
-import boto3
+from .exceptions import InvalidCredentialsException, NoAuthToken
+from .serializers import CustomUserSerializer, ProfileSerializer
+from .authentication import FirebaseAuthentication
 
-from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiExample
-from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import extend_schema, extend_schema_view
+from .utils import get_social_user_info
+from .exceptions import UserNotFoundError, FirebaseError
 
 
-@extend_schema(
-    request=OpenApiTypes.OBJECT,  # Replace with your actual request schema
-    responses=OpenApiTypes.OBJECT,  # Replace with your actual response schema
-    description="Create a new user in AWS Cognito and Firebase.",
-    parameters=[
-        OpenApiParameter(
-            name="username", description="Username", required=True, type=OpenApiTypes.STR
-        ),
-        OpenApiParameter(
-            name="password", description="Password", required=True, type=OpenApiTypes.STR
-        ),
-        OpenApiParameter(
-            name="email", description="Email", required=True, type=OpenApiTypes.STR
-        ),
-        OpenApiParameter(
-            name="phone_number", description="Phone number", required=False, type=OpenApiTypes.STR
-        ),
-    ],
-)
-@api_view(['POST'])
-def register(request):
-    """Create a new user."""
-    # Get data from the request
-    data = request.data
-    username = data.get('username')
-    password = data.get('password')
-    email = data.get('email')
-    phone_number = data.get('phone_number')
+def handle_social_login(request, provider):
+    firebase_auth_backend = FirebaseAuthentication()
+    uid, email, name, picture = get_social_user_info(request, provider)
 
-    # Use AWS SDK to create a new user in Cognito
-    client = boto3.client('cognito-idp')
     try:
-        response = client.sign_up(
-            ClientId='<COGNITO_APP_CLIENT_ID>',
-            Username=username,
-            Password=password,
-            UserAttributes=[
-                {
-                    'Name': 'email',
-                    'Value': email
-                },
-                {
-                    'Name': 'phone_number',
-                    'Value': phone_number
-                },
-            ]
-        )
-    except BotoCoreError as e:
-        return Response({'detail': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        user = firebase_auth_backend.get_user(uid)
+        if user is None:
+            raise UserNotFoundError()
+    except FirebaseError as e:
+        return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
-    # If a phone number was provided, also create the user in Firebase
-    if phone_number:
+    user.email = email
+    user.name = name
+    user.picture = picture
+    user.save()
+
+    serializer = CustomUserSerializer(user)
+    return Response({"message": "User logged in successfully", "user": serializer.data}, status=status.HTTP_200_OK)
+
+
+@extend_schema_view(
+    post=extend_schema(description="Register a new user",
+                    responses={201: CustomUserSerializer})
+)
+class RegisterView(generics.GenericAPIView):
+    serializer_class = CustomUserSerializer
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return Response({"message": "User registered successfully", "user": serializer.data}, status=status.HTTP_201_CREATED)
+
+
+@extend_schema_view(
+    post=extend_schema(description="Log in a user",
+                    responses={200: CustomUserSerializer})
+)
+class LoginView(generics.GenericAPIView):
+    serializer_class = CustomUserSerializer
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        firebase_auth_backend = FirebaseAuthentication()
         try:
-            user = firebase_auth.create_user(
-                uid=username,
-                email=email,
-                email_verified=False,
-                password=password,
-                phone_number=phone_number,
-                disabled=False
-            )
+            user, _ = firebase_auth_backend.authenticate(request)
+            serializer = CustomUserSerializer(user)
+            return Response({"message": "User logged in successfully", "user": serializer.data}, status=status.HTTP_200_OK)
+        except NoAuthToken as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({'detail': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+            raise InvalidCredentialsException()
 
-    return Response({'detail': 'User created successfully'}, status=status.HTTP_201_CREATED)
+
+@extend_schema_view(
+    post=extend_schema(description="Log in a user with Google account", responses={
+                    200: CustomUserSerializer})
+)
+class LoginGoogleView(generics.GenericAPIView):
+    serializer_class = CustomUserSerializer
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request):
+        return handle_social_login(request, 'google')
+
+
+@extend_schema_view(
+    post=extend_schema(description="Log in a user with Facebook account", responses={
+                    200: CustomUserSerializer})
+)
+class LoginFacebookView(generics.GenericAPIView):
+    serializer_class = CustomUserSerializer
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request):
+        return handle_social_login(request, 'facebook')
+
+
+@extend_schema_view(
+    post=extend_schema(description="Create a new profile for the user", responses={
+                    201: ProfileSerializer}),
+    put=extend_schema(description="Update the user's profile",
+                    responses={200: ProfileSerializer}),
+    get=extend_schema(description="Retrieve the user's profile",
+                    responses={200: ProfileSerializer}),
+)
+class ProfileView(generics.GenericAPIView):
+    serializer_class = ProfileSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        profile = request.user.profile
+        serializer = self.get_serializer(profile)
+        return Response(serializer.data)
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(user=request.user)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def put(self, request, *args, **kwargs):
+        profile = request.user.profile
+        serializer = self.get_serializer(
+            profile, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(user=request.user)
+        return Response

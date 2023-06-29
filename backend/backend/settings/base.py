@@ -14,7 +14,7 @@ from pathlib import Path
 import cloudinary
 import dj_database_url
 from decouple import config
-from pathlib import Path 
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -35,26 +35,19 @@ cloudinary.config(
 )
 
 # Firebase config
-FIREBASE_ACCOUNT_TYPE = config('FIREBASE_ACCOUNT_TYPE')
-FIREBASE_PROJECT_ID = config('FIREBASE_PROJECT_ID')
-FIREBASE_PRIVATE_KEY_ID = config('FIREBASE_PRIVATE_KEY_ID')
-FIREBASE_PRIVATE_KEY = config('FIREBASE_PRIVATE_KEY')
-FIREBASE_CLIENT_EMAIL = config('FIREBASE_CLIENT_EMAIL')
-FIREBASE_CLIENT_ID = config('FIREBASE_CLIENT_ID')
-FIREBASE_AUTH_URI = config('FIREBASE_AUTH_URI')
-FIREBASE_TOKEN_URI = config('FIREBASE_TOKEN_URI')
-FIREBASE_AUTH_PROVIDER_X509_CERT_URL = config(
-    'FIREBASE_AUTH_PROVIDER_X509_CERT_URL')
-FIREBASE_CLIENT_X509_CERT_URL = config('FIREBASE_CLIENT_X509_CERT_URL')
-
-# AWS Cognito config
-AWS_COGNITO_REGION_NAME = config('AWS_COGNITO_REGION_NAME')
-AWS_COGNITO_USER_POOL_ID = config('AWS_COGNITO_USER_POOL_ID')
-AWS_COGNITO_APP_CLIENT_ID = config('AWS_COGNITO_APP_CLIENT_ID')
-AWS_COGNITO_APP_CLIENT_SECRET = config('AWS_COGNITO_APP_CLIENT_SECRET')
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-
+FIREBASE_CONFIG = {
+    'FIREBASE_ACCOUNT_TYPE': config('FIREBASE_ACCOUNT_TYPE'),
+    'FIREBASE_PROJECT_ID': config('FIREBASE_PROJECT_ID'),
+    'FIREBASE_PRIVATE_KEY_ID': config('FIREBASE_PRIVATE_KEY_ID'),
+    'FIREBASE_PRIVATE_KEY': config('FIREBASE_PRIVATE_KEY'),
+    'FIREBASE_CLIENT_EMAIL': config('FIREBASE_CLIENT_EMAIL'),
+    'FIREBASE_CLIENT_ID': config('FIREBASE_CLIENT_ID'),
+    'FIREBASE_AUTH_URI': config('FIREBASE_AUTH_URI'),
+    'FIREBASE_TOKEN_URI': config('FIREBASE_TOKEN_URI'),
+    'FIREBASE_AUTH_PROVIDER_X509_CERT_URL': config(
+        'FIREBASE_AUTH_PROVIDER_X509_CERT_URL'),
+    'FIREBASE_CLIENT_X509_CERT_URL': config('FIREBASE_CLIENT_X509_CERT_URL')
+}
 
 # Application definition
 
@@ -70,6 +63,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'cloudinary',
+    'drf_spectacular',
     # local apps
     'user'
 ]
@@ -168,7 +162,7 @@ REST_FRAMEWORK = {
 }
 
 AUTHENTICATION_BACKENDS = [
-    'user.authentication.CognitoAuthentication'
+    'user.authentication.FirebaseAuthentication'
 ]
 
 CACHES = {
