@@ -9,17 +9,19 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
 import os
+from pathlib import Path
 import cloudinary
 import dj_database_url
 from decouple import config
-from pathlib import Path
-
+from pathlib import Path 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
@@ -32,6 +34,19 @@ cloudinary.config(
     secure=True
 )
 
+# Firebase config
+FIREBASE_ACCOUNT_TYPE = config('FIREBASE_ACCOUNT_TYPE')
+FIREBASE_PROJECT_ID = config('FIREBASE_PROJECT_ID')
+FIREBASE_PRIVATE_KEY_ID = config('FIREBASE_PRIVATE_KEY_ID')
+FIREBASE_PRIVATE_KEY = config('FIREBASE_PRIVATE_KEY')
+FIREBASE_CLIENT_EMAIL = config('FIREBASE_CLIENT_EMAIL')
+FIREBASE_CLIENT_ID = config('FIREBASE_CLIENT_ID')
+FIREBASE_AUTH_URI = config('FIREBASE_AUTH_URI')
+FIREBASE_TOKEN_URI = config('FIREBASE_TOKEN_URI')
+FIREBASE_AUTH_PROVIDER_X509_CERT_URL = config(
+    'FIREBASE_AUTH_PROVIDER_X509_CERT_URL')
+FIREBASE_CLIENT_X509_CERT_URL = config('FIREBASE_CLIENT_X509_CERT_URL')
+
 # AWS Cognito config
 AWS_COGNITO_REGION_NAME = config('AWS_COGNITO_REGION_NAME')
 AWS_COGNITO_USER_POOL_ID = config('AWS_COGNITO_USER_POOL_ID')
@@ -40,9 +55,10 @@ AWS_COGNITO_APP_CLIENT_SECRET = config('AWS_COGNITO_APP_CLIENT_SECRET')
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 
+
 # Application definition
+
 INSTALLED_APPS = [
-    # 'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,11 +68,10 @@ INSTALLED_APPS = [
     # third party apps
     'rest_framework',
     'corsheaders',
-    'drf_spectacular',
     'django_filters',
     'cloudinary',
     # local apps
-    'user',
+    'user'
 ]
 
 MIDDLEWARE = [
@@ -91,16 +106,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-# ASGI_APPLICATION = 'backend.routing.application'
-# CHANNEL_LAYERS = {
-#     'default': {
-#         'BACKEND': 'channels.layers.InMemoryChannelLayer',
-#     },
-# }
-
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
 db_config = dj_database_url.config(conn_max_age=600, ssl_require=True)
 if db_config:
     # railway - production
@@ -158,6 +167,17 @@ REST_FRAMEWORK = {
     ],
 }
 
+AUTHENTICATION_BACKENDS = [
+    'user.authentication.CognitoAuthentication'
+]
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
+
+
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Chatapp API',
     'DESCRIPTION': 'A chat app API',
@@ -165,10 +185,6 @@ SPECTACULAR_SETTINGS = {
     'SERVE_INCLUDE_SCHEMA': False,
 }
 
-AUTHENTICATION_BACKENDS = [
-    'user.authentication.CognitoAuthentication',
-    'django.contrib.auth.backends.ModelBackend',
-]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
@@ -177,12 +193,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+AUTH_USER_MODEL = 'user.CustomUser'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'user.CustomUser'
 
 # https://docs.djangoproject.com/en/4.1/topics/logging/
 LOGGING = {
