@@ -30,7 +30,7 @@ const Signup: React.FC = () => {
         </button>
         <>
           {showSignUpByPhoneForm ? (
-            <SignUpWithPhoneForm type="signup" />
+            <SignUpWithPhoneForm title="Sign Up" />
           ) : (
             <SignUpWithEmailForm />
           )}

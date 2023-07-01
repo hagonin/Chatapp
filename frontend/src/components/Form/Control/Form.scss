@@ -80,6 +80,10 @@ $text-label-mobile: 1rem;
     @include MOBILE {
       font-size: $text-s-md;
     }
+
+    &--disabled {
+      opacity: 0.6;
+    }
   }
 
   &__error {

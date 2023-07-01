@@ -7,10 +7,17 @@ const ResetPassword: React.FC = () => {
   return (
     <>
       <div className="authenLayout-form login">
+        <h1 className="authenLayout__title">
+          <Link to="/" className="authenLayout__title-logo">
+            Talkie
+          </Link>
+          -Reset Password
+        </h1>
         {/* form */}
         <RequestPasswordForm />
       </div>
-      <div>
+
+      <div className="authenLayout__header">
         <h1 className="authenLayout__title">
           <Link to="/" className="authenLayout__title-logo">
             Talkie

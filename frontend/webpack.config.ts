@@ -8,6 +8,7 @@ import dotenv from 'dotenv';
 const isDevelopment = process.env.NODE_ENV !== 'production';
 const PORT = 3000;
 dotenv.config();
+
 const plugins = [
   new HTMLWebpackPlugin({
     template: './public/index.html',
@@ -20,7 +21,7 @@ const plugins = [
   }),
   new ESLintPlugin(),
   ...(isDevelopment ? [new ReactRefreshWebpackPlugin()] : []),
-  new ProvidePlugin({
+  new DefinePlugin({
     'process.env': JSON.stringify(process.env)
   }),
 ];

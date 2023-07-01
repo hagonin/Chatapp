@@ -1,8 +1,10 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface UserInfoProps {
-    name: string;
-    age: number
+    username: string | null;
+    email: string | null;
+    phone_number: string | null;
+    bio: ''
 }
 
 interface initialStateProps {
@@ -11,8 +13,10 @@ interface initialStateProps {
 
 const initialState: initialStateProps = {
     userInfo: {
-        name: 'John Master',
-        age: 20
+        username: '',
+        email: '',
+        phone_number: '',
+        bio: ''
     },
 }
 const authSlice = createSlice({

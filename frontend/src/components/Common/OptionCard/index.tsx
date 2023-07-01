@@ -5,10 +5,14 @@ interface Props {
   icon: string;
   label: string;
   active: boolean;
+  onClick?: () => void;
 }
-const OptionCard: React.FC<Props> = ({ icon, label, active }) => {
+const OptionCard: React.FC<Props> = ({ icon, label, active, onClick }) => {
   return (
-    <button className={`optionCard ${active ? 'optionCard--active' : ''}`}>
+    <button
+      className={`optionCard ${active ? 'optionCard--active' : ''}`}
+      onClick={onClick}
+    >
       <span className="optionCard__icon">
         <img src={icon} alt="option icon" />
       </span>

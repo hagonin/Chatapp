@@ -14,6 +14,7 @@ const TextField: React.FC<InputProps> = ({
   onBlur,
   values,
   typeClass,
+  disabled,
 }) => {
   return typeClass === 'search' ? (
     <div className="form__search">
@@ -25,20 +26,28 @@ const TextField: React.FC<InputProps> = ({
         placeholder={placeholder}
         value={values[name]}
       />
-      <img src={values[name] ? icons.clean : icons.search} alt="search" className='form__search-icon' />
+      <img
+        src={values[name] ? icons.clean : icons.search}
+        alt="search"
+        className="form__search-icon"
+      />
     </div>
   ) : (
-    <label htmlFor={name} className="form__label">
+    <label
+      htmlFor={name}
+      className={`form__label ${disabled && 'form__label--disabled'}`}
+    >
       {label}
       <input
         id={name}
         name={name}
         placeholder={placeholder}
         className={`form__input ${errorMessage ? 'form__input--error' : ''}`}
-        type={type}
+        type={type || 'text'}
         onChange={onChange}
         onBlur={onBlur}
         value={values[name]}
+        disabled={disabled}
       />
       {errorMessage && <ErrorField message={errorMessage} />}
     </label>

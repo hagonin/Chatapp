@@ -33,15 +33,12 @@ const SidebarRight: React.FC<Props> = ({ isActive, toggleSideBarRight }) => {
         <h2 className="sideBar__heading">Settings</h2>
         <UserInfoCard name="David" avatar={imgs.user2} phone="12345" />
       </div>
-      <div
-        className="option"
-        onMouseEnter={() => setShowProfile(true)}
-        onMouseLeave={() => setShowProfile(false)}
-      >
+      <div className="option">
         <OptionCard
           label="Edit Profile"
           icon={icons.profile}
           active={showProfile}
+          onClick={() => setShowProfile(!showProfile)}
         />
         {showProfile && (
           <div className="option__sub">

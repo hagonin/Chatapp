@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Login.scss';
 import { imgs } from '@utils/constants';
 import SocialBtnGroup from '@components/Form/SocialButtonsGroup';
-import { SignInWithEmailForm, SignInWithPhoneForm } from '@container/Signin';
+import { SignInWithEmailForm } from '@container/Signin';
+import { SignUpWithPhoneForm } from '@container/Signup';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const Login: React.FC = () => {
           {`Sign in with ${showLoginWithPhoneForm ? 'email' : 'mobile phone'}`}
         </button>
         {showLoginWithPhoneForm ? (
-          <SignInWithPhoneForm />
+          <SignUpWithPhoneForm title="Login" />
         ) : (
           <SignInWithEmailForm />
         )}

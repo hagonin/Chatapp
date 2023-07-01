@@ -4,16 +4,6 @@ import { imgs } from '@utils/constants';
 import ChangePasswordForm from '@container/ChangePasswordForm';
 
 const ChangePassword: React.FC = () => {
-  const handleSubmit = (data: {}) => {
-    const res = new Promise(resolve => {
-      setTimeout(() => {
-        resolve(data);
-      }, 3000);
-    });
-    return res.then(res => {
-      console.log(res);
-    });
-  };
   return (
     <>
       <div>
@@ -33,7 +23,7 @@ const ChangePassword: React.FC = () => {
         />
       </div>
       <div className="authenLayout-form login">
-        <ChangePasswordForm handleSubmit={handleSubmit} />
+        <ChangePasswordForm />
       </div>
     </>
   );

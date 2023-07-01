@@ -11,7 +11,8 @@ export interface InputProps {
     type?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    typeClass?: 'search'
+    typeClass?: 'search',
+    disabled?: boolean
 }
 
 export interface CheckBoxProps {

@@ -1,26 +1,35 @@
 import React from 'react';
-import { Form, PasswordField, TextField } from '../../components/Form/Control';
-import { Button } from '@components/Common';
 import { useFormik } from 'formik';
 import { AuthFormSchema } from '@utils/validations';
+import { useAppDispatch } from '@redux/hook';
+import { loginWithEmailThunk, registerThunk } from '@redux/auth/thunk';
+import { Form, PasswordField, TextField } from '@components/Form/Control';
+import { Button } from '@components/Common';
 
 const KEY_FORM = {
   EMAIL: 'email',
   PASSWORD: 'password',
+  USERNAME: 'username',
 };
 
 const SignInWithEmailForm = () => {
-  const { handleChange, handleSubmit, values, errors, isSubmitting } =
+  const dispatch = useAppDispatch();
+  const { handleChange, handleSubmit, values, errors, isSubmitting, touched } =
     useFormik({
       initialValues: {
         [KEY_FORM.EMAIL]: '',
         [KEY_FORM.PASSWORD]: '',
+        [KEY_FORM.USERNAME]: '',
       },
       onSubmit: values => {
-        console.log('sign in email data', values);
+        dispatch(loginWithEmailThunk(values));
       },
       validationSchema: AuthFormSchema,
     });
+
+  const getError = (field: string) => {
+    return (touched[field] && errors[field]) || undefined;
+  };
   return (
     <Form onSubmit={handleSubmit}>
       <TextField
@@ -28,7 +37,7 @@ const SignInWithEmailForm = () => {
         label="Email Address"
         type="email"
         placeholder="Enter your email"
-        errorMessage={errors[KEY_FORM.EMAIL as 'email']}
+        errorMessage={getError(KEY_FORM.EMAIL)}
         values={values}
         onChange={handleChange}
       />
@@ -36,7 +45,7 @@ const SignInWithEmailForm = () => {
         name={KEY_FORM.PASSWORD}
         label="Password"
         placeholder="Enter your password"
-        errorMessage={errors[KEY_FORM.PASSWORD as 'password']}
+        errorMessage={getError(KEY_FORM.PASSWORD)}
         values={values}
         onChange={handleChange}
       />

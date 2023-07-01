@@ -5,6 +5,9 @@ import { EmailSchema } from '@utils/validations';
 import Button from '@components/Common/Button';
 import Form from '@components/Form/Control/Form';
 import { TextField } from '@components/Form/Control';
+import { useDispatch } from 'react-redux';
+import { sendPasswordResetEmailThunk } from '@redux/auth/thunk';
+import { useAppDispatch } from '@redux/hook';
 
 const KEY_FORM = {
   EMAIL: 'email',
@@ -12,6 +15,7 @@ const KEY_FORM = {
 
 const RequestPasswordForm: React.FC = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const {
     handleSubmit,
     values,
@@ -25,8 +29,7 @@ const RequestPasswordForm: React.FC = () => {
       [KEY_FORM.EMAIL]: '',
     },
     onSubmit: values => {
-      console.log('request change password by email data:', values);
-      navigate('/change_password');
+      dispatch(sendPasswordResetEmailThunk(values));
     },
     validationSchema: EmailSchema,
   });
