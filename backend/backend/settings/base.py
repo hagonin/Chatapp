@@ -15,7 +15,6 @@ import cloudinary
 import dj_database_url
 from decouple import config
 from pathlib import Path
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -35,19 +34,17 @@ cloudinary.config(
 )
 
 # Firebase config
-FIREBASE_CONFIG = {
-    'FIREBASE_ACCOUNT_TYPE': config('FIREBASE_ACCOUNT_TYPE'),
-    'FIREBASE_PROJECT_ID': config('FIREBASE_PROJECT_ID'),
-    'FIREBASE_PRIVATE_KEY_ID': config('FIREBASE_PRIVATE_KEY_ID'),
-    'FIREBASE_PRIVATE_KEY': config('FIREBASE_PRIVATE_KEY'),
-    'FIREBASE_CLIENT_EMAIL': config('FIREBASE_CLIENT_EMAIL'),
-    'FIREBASE_CLIENT_ID': config('FIREBASE_CLIENT_ID'),
-    'FIREBASE_AUTH_URI': config('FIREBASE_AUTH_URI'),
-    'FIREBASE_TOKEN_URI': config('FIREBASE_TOKEN_URI'),
-    'FIREBASE_AUTH_PROVIDER_X509_CERT_URL': config(
-        'FIREBASE_AUTH_PROVIDER_X509_CERT_URL'),
-    'FIREBASE_CLIENT_X509_CERT_URL': config('FIREBASE_CLIENT_X509_CERT_URL')
-}
+FIREBASE_ACCOUNT_TYPE = config('FIREBASE_ACCOUNT_TYPE')
+FIREBASE_PROJECT_ID = config('FIREBASE_PROJECT_ID')
+FIREBASE_PRIVATE_KEY_ID = config('FIREBASE_PRIVATE_KEY_ID')
+FIREBASE_PRIVATE_KEY = config('FIREBASE_PRIVATE_KEY')
+FIREBASE_CLIENT_EMAIL = config('FIREBASE_CLIENT_EMAIL')
+FIREBASE_CLIENT_ID = config('FIREBASE_CLIENT_ID')
+FIREBASE_AUTH_URI = config('FIREBASE_AUTH_URI')
+FIREBASE_TOKEN_URI = config('FIREBASE_TOKEN_URI')
+FIREBASE_AUTH_PROVIDER_X509_CERT_URL = config(
+    'FIREBASE_AUTH_PROVIDER_X509_CERT_URL')
+FIREBASE_CLIENT_X509_CERT_URL = config('FIREBASE_CLIENT_X509_CERT_URL')
 
 # Application definition
 
@@ -162,7 +159,8 @@ REST_FRAMEWORK = {
 }
 
 AUTHENTICATION_BACKENDS = [
-    'user.authentication.FirebaseAuthentication'
+    'user.authentication.FirebaseAuthentication',
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 CACHES = {
