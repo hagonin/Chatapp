@@ -1,11 +1,13 @@
-from .views import UserViewSet
 from django.urls import path
+from .views import RegisterView, LoginView, LoginGoogleView, ProfileView, LoginFacebookView
+
 
 app_name = 'user'
 
-
 urlpatterns = [
-    path('register/',
-        UserViewSet.as_view({'post': 'create'}), name='register'),
-    path('login/', UserViewSet.as_view({'post': 'login'}), name='login'),
+    path('register/', RegisterView.as_view(), name='register'),
+    path('login/', LoginView.as_view(), name='login'),
+    path('login-google/', LoginGoogleView.as_view(), name='login-google'),
+    path('login-facebook/', LoginFacebookView.as_view(), name='login-facebook'),
+    path('profile/', ProfileView.as_view(), name='profile'),
 ]

@@ -1,100 +1,66 @@
-import boto3
-import datetime
-from jose import jwt
-from django.contrib.auth.backends import ModelBackend
+from rest_framework.authentication import BaseAuthentication
+from firebase_admin import credentials, auth, exceptions as firebase_exceptions
+import firebase_admin
+from django.conf import settings
 from .models import CustomUser
+from .exceptions import NoAuthToken, InvalidCredentialsException, FirebaseError
 
-from core.settings.base import (
-    AWS_COGNITO_REGION_NAME,
-    AWS_ACCESS_KEY_ID,
-    AWS_COGNITO_APP_CLIENT_ID,
-    AWS_COGNITO_USER_POOL_ID,
-    AWS_SECRET_ACCESS_KEY,
-    AWS_COGNITO_APP_CLIENT_ID
-)
+"""SETUP FIREBASE CREDENTIALS"""
+cred = credentials.Certificate({
+    "type": settings.FIREBASE_ACCOUNT_TYPE,
+    "project_id": settings.FIREBASE_PROJECT_ID,
+    "private_key_id": settings.FIREBASE_PRIVATE_KEY_ID,
+    "private_key": settings.FIREBASE_PRIVATE_KEY.replace('\\n', '\n'),
+    "client_email": settings.FIREBASE_CLIENT_EMAIL,
+    "client_id": settings.FIREBASE_CLIENT_ID,
+    "auth_uri": settings.FIREBASE_AUTH_URI,
+    "token_uri": settings.FIREBASE_TOKEN_URI,
+    "auth_provider_x509_cert_url": settings.FIREBASE_AUTH_PROVIDER_X509_CERT_URL,
+    "client_x509_cert_url": settings.FIREBASE_CLIENT_X509_CERT_URL
+})
 
+default_app = firebase_admin.initialize_app(cred)
+"""FIREBASE AUTHENTICATION"""
 
-class CognitoAuthentication(ModelBackend):
-    def __init__(self):
-        self.cognito_client = boto3.client(
-            'cognito-idp', region_name=AWS_COGNITO_REGION_NAME)
+class FirebaseAuthentication(BaseAuthentication):
+    """
+    Firebase authentication backend
+    """
 
-    def authenticate(self, request, email=None, password=None, phone_number=None):
-        # Get the access token from the request
-        access_token = request.META.get('HTTP_AUTHORIZATION')
+    def authenticate(self, request):
+        """
+        Authentication method to authenticate user from Firebase token
+        """
+        auth_header = request.META.get('HTTP_AUTHORIZATION')
 
-        # Decode the token without verification to get the payload
-        payload = jwt.get_unverified_claims(access_token)
+        if not auth_header or ' ' not in auth_header:
+            raise NoAuthToken()
 
-        # Check if the token is expired
-        exp = payload.get('exp')
-        if exp is not None and int(exp) < datetime.datetime.utcnow().timestamp():
+        auth_type, id_token = auth_header.split()
 
-            # Get the refresh token stored in the user model
-            user = CustomUser.objects.get(email=email)
-            refresh_token = user.refresh_token
+        # Check if the request is made with a Bearer token
+        if auth_type.lower() != 'bearer':
+            raise InvalidCredentialsException(
+                'Invalid token type, expected Bearer')
 
-            # Refresh the tokens
-            tokens = self.refresh_tokens(refresh_token)
-
-            # Update the access token in the request
-            request.META['HTTP_AUTHORIZATION'] = tokens.get('AccessToken')
-
-            # Update the refresh token in the user model
-            user.refresh_token = tokens.get('RefreshToken')
-            user.save()
-
-        # Authenticate the user with AWS Cognito
         try:
-            if email:
-                response = self.cognito_client.initiate_auth(
-                    AuthFlow='USER_PASSWORD_AUTH',
-                    AuthParameters={
-                        'USERNAME': email,
-                        'PASSWORD': password,
-                    },
-                    ClientId=AWS_COGNITO_APP_CLIENT_ID
-                )
-            elif phone_number:
-                response = self.cognito_client.initiate_auth(
-                    AuthFlow='USER_PASSWORD_AUTH',
-                    AuthParameters={
-                        'USERNAME': phone_number,
-                        'PASSWORD': password,
-                    },
-                    ClientId=AWS_COGNITO_APP_CLIENT_ID
-                )
-            else:
-                raise Exception("Both phone number and email cannot be None")
-        except self.cognito_client.exceptions.NotAuthorizedException:
-            raise Exception("The username or password is incorrect")
-        except self.cognito_client.exceptions.UserNotFoundException:
-            raise Exception("The user does not exist")
-        except self.cognito_client.exceptions.UserNotConfirmedException:
-            raise Exception("The user has not confirmed their account")
+            decoded_token = auth.verify_id_token(id_token)
+        except (ValueError, firebase_exceptions.FirebaseError):
+            raise InvalidCredentialsException(
+                'Invalid or expired Firebase token')
 
-        # If the authentication is successful, return the user.
-        # If not, return None or raise an exception.
+        uid = decoded_token.get("uid")
+        if not uid:
+            raise FirebaseError()
+
+        user, created = CustomUser.objects.get_or_create(username=uid)
+        return user, None
 
     def get_user(self, user_id):
         """
-        Retrieve the user's entry in the User model if it exists
+        Retrieve the user by their user_id
         """
         try:
             return CustomUser.objects.get(pk=user_id)
         except CustomUser.DoesNotExist:
             return None
-
-    def refresh_tokens(self, refresh_token):
-        """
-        Refresh the ID and access tokens
-        """
-        response = self.cognito_client.initiate_auth(
-            AuthFlow='REFRESH_TOKEN_AUTH',
-            AuthParameters={
-                'REFRESH_TOKEN': refresh_token,
-            },
-            ClientId=AWS_COGNITO_APP_CLIENT_ID,
-            UserPoolId=AWS_COGNITO_USER_POOL_ID
-        )
-        return response.get('AuthenticationResult')
