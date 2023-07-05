@@ -64,3 +64,4 @@ coverage
 
 # IntelliJ
 .idea
+.vercel
